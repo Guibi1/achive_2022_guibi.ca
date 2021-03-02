@@ -10,7 +10,7 @@ const Accueil = loadable(() => import("./components/Accueil"))
 const StonksTicker = loadable(() => import("./components/Jeux/StonksTicker"))
 const ServeurForge = loadable(() => import("./components/Minecraft/ServeurForge"))
 const TicTacToe = loadable(() => import("./components/Jeux/TicTacToe"))
-const Consequences = loadable(() => import("./components/Jeux/Consequences/Consequence"))
+const Consequences = loadable(() => import("./components/Jeux/Consequences"))
 
 
 export default class App extends Component
