@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
+import OIcon from '@material-ui/icons/RadioButtonUnchecked'
+import XIcon from '@material-ui/icons/Close'
 
 
-const X = "X"
-const O = "O"
-const vide = " "
+const X = <XIcon fontSize="large"/>
+const O = <OIcon fontSize="large"/>
+const vide = null
 
 
 class TicTacToe extends Component
@@ -93,24 +98,22 @@ class TicTacToe extends Component
     
     render()
     {
-        return (<main className="main-bar">
-            <div>
-                <table style={{margin: "auto", padding: "0px"}}>
-                    <tbody>
-                        {this.state.plateau.map((row, rowIndex) =>
-                            <tr key={rowIndex}>
-                                {row.map((element, index) =>
-                                    <th style={{padding: "0px"}} key={index}>
-                                        <button className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToeGagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)}>{element}</button>
-                                    </th>)}
-                            </tr>)}
-                    </tbody>
-                </table>
+        return (
+            <Container>
+                <Grid style={{margin: "auto", padding: "0px", justifyContent: "center"}}>
+                    {this.state.plateau.map((row, rowIndex) =>
+                    <Grid key={rowIndex}>
+                        {row.map((element, index) =>
+                        <Button className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToeGagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)}>
+                            {element}
+                        </Button>)}
+                    </Grid>)}
+                </Grid>
 
                 {this.state.gagnant === "" ? <p>C'est le tour aux {this.state.joueurActuel}.</p> : ( this.state.gagnant === vide ? <p>Partie nulle !</p> : <p>Les {this.state.gagnant} ont gagné !</p>)}
-                <button className="buttonJouer" onClick={this.nouvellePartie}><span>{this.state.gagnant !== "" ? "Recommencer" : "Rejouer"}</span></button>
-            </div>
-        </main>)
+                <Button variant="contained" className="buttonJouer" onClick={this.nouvellePartie}><span>{this.state.gagnant !== "" ? "Recommencer" : "Rejouer"}</span></Button>
+            </Container>
+        )
     }
 }
 
