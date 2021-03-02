@@ -54,7 +54,7 @@ class Minecraft extends Component
     render()
     {
         return (
-            <Container style={{display: "block", justifyContent: "center", textAlign: "center"}}>
+            <Container>
                 <h2>Serveur Minecraft Forge 1.16.4</h2>
                 <p>Mes amis et moi jouons sur un monde Survie Minecraft depuis le 11 mars 2020. Voici une cinématique de ce que nous avons bâti jusqu'à présent :</p>
                 <YouTube videoId="BxL9kIrhruE" opts={{ playerVars: {autoplay: 0} }} className="youtubePlayer"/>

@@ -20,7 +20,7 @@ export default class App extends Component
         return (
             <React.Fragment>
                 <Header/>
-                <Box style={{margin: "15px", marginTop: "79px"}}>
+                <Box style={{margin: "15px", marginTop: "79px", display: "block", justifyContent: "center", textAlign: "center"}}>
                     <Switch>
                         <Route exact path="/accueil">
                             <Accueil fallback={<CircularProgress/>}/>
