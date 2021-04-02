@@ -1,13 +1,14 @@
 import React, { Component } from "react"
+import Container from "@material-ui/core/Container"
 
 export default class Accueil extends Component
 {
     render()
     {
         return (
-            <div>
+            <Container style={{display: "block", justifyContent: "center", textAlign: "center"}}>
                 
-            </div>
+            </Container>
         )
     }
 }
