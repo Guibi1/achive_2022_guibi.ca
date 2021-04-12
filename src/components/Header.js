@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
+import { Helmet } from 'react-helmet';
+import { Link, useHistory } from "react-router-dom"
 
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import AppBar from '@material-ui/core/AppBar'
@@ -73,10 +74,18 @@ export default class Header extends Component
 
 
 function ListButton(props) {
+    var history = useHistory()
+
     return (
-        <ListItem button component={Link} to={props.url}>
-            {props.icone != null ? <ListItemIcon>{props.icone}</ListItemIcon> : null}
-            <ListItemText primary={props.titre}/>
-        </ListItem>
+        <React.Fragment>
+            {(history.location.pathname === "/" + props.url) ?
+                <Helmet>
+                    <title>{props.titre} - Guibi.ca</title>
+                </Helmet> : null}
+            <ListItem button component={Link} to={props.url}>
+                {props.icone != null ? <ListItemIcon>{props.icone}</ListItemIcon> : null}
+                <ListItemText primary={props.titre}/>
+            </ListItem>
+        </React.Fragment>
     )
 }
