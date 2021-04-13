@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
@@ -100,6 +101,7 @@ class TicTacToe extends Component
     {
         return (
             <Container>
+                <Helmet><title>Tic Tac Toe - Guibi.ca</title></Helmet>
                 <Grid style={{margin: "auto", padding: "0px", justifyContent: "center"}}>
                     {this.state.plateau.map((row, rowIndex) =>
                     <Grid key={rowIndex}>

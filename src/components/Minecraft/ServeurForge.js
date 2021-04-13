@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 import YouTube from 'react-youtube'
 import { saveAs } from 'file-saver'
 import Container from '@material-ui/core/Container'
@@ -55,6 +56,7 @@ class Minecraft extends Component
     {
         return (
             <Container>
+                <Helmet><title>Serveur Minecraft - Guibi.ca</title></Helmet>
                 <h2>Serveur Minecraft Forge 1.16.4</h2>
                 <p>Mes amis et moi jouons sur un monde Survie Minecraft depuis le 11 mars 2020. Voici une cinématique de ce que nous avons bâti jusqu'à présent :</p>
                 <YouTube videoId="TPkIAVGCtXI" opts={{ playerVars: {autoplay: 1} }} className="youtubePlayer"/>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
@@ -108,6 +109,7 @@ class Consequences extends Component
     {
         return (
             <Container>
+                <Helmet><title>Conséquences - Guibi.ca</title></Helmet>
                 {this.state.joueursChoisis ?
                     (this.state.partieTerminée ?
                         <Grid container direction="column" justify="space-between" alignItems="center" style={{height: "200px"}}>
