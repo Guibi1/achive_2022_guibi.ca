@@ -7,7 +7,7 @@ export default class Accueil extends Component
     render()
     {
         return (
-            <Container style={{display: "block", justifyContent: "center", textAlign: "center"}}>
+            <Container>
                 <Helmet><title>Accueil - Guibi.ca</title></Helmet>
                 
             </Container>
