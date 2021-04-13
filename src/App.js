@@ -42,9 +42,7 @@ export default class App extends Component
                             <Consequences fallback={<CircularProgress/>}/>
                         </Route>
 
-                        <Route>
-                            <Redirect to="/accueil"/>
-                        </Route>
+                        <Redirect from="/" to="/accueil"/>
                     </Switch>
                 </Box>
             </React.Fragment>
