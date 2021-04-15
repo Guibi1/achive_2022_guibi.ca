@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
 import TextField from '@material-ui/core/TextField'
 import Card from '@material-ui/core/Card'
+import Typography from '@material-ui/core/Typography'
 
 import défis from "./défis.txt"
 
@@ -113,14 +114,14 @@ class Consequences extends Component
                 {this.state.joueursChoisis ?
                     (this.state.partieTerminée ?
                         <Grid container direction="column" justify="space-between" alignItems="center" style={{height: "200px"}}>
-                            <h2>Partie terminée !</h2>
+                            <Typography variant="h2">Partie terminée !</Typography>
                             <Button onClick={this.rejouer} variant="contained">Rejouer</Button>
                             <Button onClick={this.changerJoueurs} variant="contained">Changer les joueurs</Button>
                         </Grid> :
                         <Grid container direction="row" justify="space-evenly" alignItems="center">
                             <Card style={{minHeight: "200px", width: "300px", padding: "20px", margin: "15px"}} variant="outlined">
-                                <h2>C'est le tour de {this.state.joueurActuel}</h2>
-                                <p>{this.state.défiActuel}</p>
+                                <Typography variant="h2">C'est le tour de {this.state.joueurActuel}</Typography>
+                                <Typography variant="body1">{this.state.défiActuel}</Typography>
                             </Card>
                             <Card style={{minHeight: "200px", width: "300px", padding: "20px", margin: "15px"}} variant="outlined">
                                 <Button onClick={this.nouveauDéfi} variant="contained">Prochain défi</Button>
