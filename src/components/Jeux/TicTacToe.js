@@ -105,13 +105,15 @@ class TicTacToe extends Component
                 <Helmet><title>Tic Tac Toe - Guibi.ca</title></Helmet>
                 <Typography variant="h4" style={{marginBottom: "10px"}}>Tic Tac Toe</Typography>
 
-                <Grid style={{margin: "auto", padding: "0px", justifyContent: "center"}}>
+                <Grid container direction="column">
                     {this.state.plateau.map((row, rowIndex) =>
-                    <Grid key={rowIndex}>
+                    <Grid item container alignItems="center" justify="center" wrap="nowrap">
                         {row.map((element, index) =>
-                        <Button disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe Gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)} key={index}>
-                            {element}
-                        </Button>)}
+                        <Grid item style={{maxWidth: "100px", width: "100%", maxHeight: "100px", height: "100%"}}>
+                            <Button disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe Gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)} key={index}>
+                                {element}
+                            </Button>
+                        </Grid>)}
                     </Grid>)}
                 </Grid>
 

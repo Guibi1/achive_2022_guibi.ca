@@ -15,6 +15,10 @@ body {
   font-size: 16px;
 }
 
+#root {
+  min-width: 300px;
+}
+
 .MuiContainer-root {
   padding: 15px;
   height: 100%;
@@ -27,11 +31,18 @@ body {
 
 .MuiButton-root.tuileTicTacToe {
   background-color: var(--rose);
-  height: 100px;
-  width: 100px;
+  height: 0px;
+  width: 0px;
   border-radius: 0px;
   border: 3px solid var(--gris);
-  padding: 10px;
+  padding: 47%;
+}
+
+.MuiButton-text.tuileTicTacToe.Mui-disabled {
+  color: var(--gris);
+  height: 0px;
+  width: 0px;
+  padding: 47%;
 }
 
 .MuiButton-root.tuileTicTacToe.Gagnant {
@@ -39,7 +50,7 @@ body {
 }
 
 .youtubePlayer {
-  height: 360px;
+  max-height: 360px;
   width: 100%;
   max-width: 640px;
 
