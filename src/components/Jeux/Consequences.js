@@ -111,35 +111,55 @@ class Consequences extends Component
         return (
             <Container>
                 <Helmet><title>Conséquences - Guibi.ca</title></Helmet>
+                <Typography variant="h4" style={{marginBottom: "15px"}}>Conséquences</Typography>
+
                 {this.state.joueursChoisis ?
                     (this.state.partieTerminée ?
-                        <Grid container direction="column" justify="space-between" alignItems="center" style={{height: "200px"}}>
-                            <Typography variant="h2">Partie terminée !</Typography>
-                            <Button onClick={this.rejouer} variant="contained">Rejouer</Button>
-                            <Button onClick={this.changerJoueurs} variant="contained">Changer les joueurs</Button>
+                        <Grid container direction="column" spacing={2}>
+                            <Grid item>
+                                <Typography variant="h6">Partie terminée !</Typography>
+                            </Grid>
+                            <Grid item>
+                                <Button onClick={this.rejouer} variant="contained" color="primary" style={{fontSize: "18px", width:"250px"}}>Rejouer</Button>
+                            </Grid>
+                            <Grid item>
+                                <Button onClick={this.changerJoueurs} variant="outlined" color="secondary">Changer les joueurs</Button>
+                            </Grid>
                         </Grid> :
-                        <Grid container direction="row" justify="space-evenly" alignItems="center">
-                            <Card style={{minHeight: "200px", width: "300px", padding: "20px", margin: "15px"}} variant="outlined">
-                                <Typography variant="h2">C'est le tour de {this.state.joueurActuel}</Typography>
+                        <Grid container direction="column" spacing={2}>
+                            <Grid item>
+                                <Typography variant="h6">C'est le tour de {this.state.joueurActuel}</Typography>
                                 <Typography variant="body1">{this.state.défiActuel}</Typography>
-                            </Card>
-                            <Card style={{minHeight: "200px", width: "300px", padding: "20px", margin: "15px"}} variant="outlined">
-                                <Button onClick={this.nouveauDéfi} variant="contained">Prochain défi</Button>
-                                <Button onClick={this.changerJoueurs} variant="outlined">Changer les joueurs</Button>
-                                <Button onClick={this.brasserDe} variant="outlined">Brasser le dé</Button>
-                                {this.state.joueurDé !== "" ? <p>Le dé a choisi {this.state.joueurDé} !</p> : null}
-                            </Card>
+                            </Grid>
+                            <Grid item>
+                                <Button onClick={this.brasserDe} variant="outlined" color="secondary">Brasser le dé</Button>
+                                {this.state.joueurDé !== "" ? <Typography variant="body1" style={{marginTop: "5px"}}>Le dé a choisi {this.state.joueurDé} !</Typography> : null}
+                            </Grid>
+                            <Grid item>
+                                <Button onClick={this.nouveauDéfi} variant="contained" color="primary" style={{fontSize: "18px", width:"250px"}}>Prochain défi</Button>
+                            </Grid>
+                            <Grid item>
+                                <Button onClick={this.changerJoueurs} variant="outlined" color="secondary">Changer les joueurs</Button>
+                            </Grid>
                         </Grid>) :
                     <React.Fragment>
-                        <Button onClick={this.addJoueur}>Ajouter un joueur</Button>
-                        <Button onClick={this.confirmerJoueurs}>Jouer</Button>
                         <form>
-                            <Grid container direction="column">
+                            <Grid container direction="column" spacing={2}>
+                                <Grid item>
+                                    <Button variant="contained" color="primary" onClick={this.addJoueur}>Ajouter un joueur</Button>
+                                </Grid>
                                 {this.state.joueurs.map((nom, index) =>
-                                <Grid item justify="space-evenly" alignItems="center" key={index}>
-                                    <TextField size="small" variant="outlined" label={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></TextField>
-                                    <Button onClick={() => this.deleteJoueur(index)}>Supprimer</Button>
+                                <Grid item container direction="row" spacing={1} key={index} justify="center">
+                                    <Grid item>
+                                        <TextField size="small" variant="outlined" label={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></TextField>
+                                    </Grid>
+                                    <Grid item>
+                                        <Button variant="outlined" color="secondary" onClick={() => this.deleteJoueur(index)}>Supprimer</Button>
+                                    </Grid>
                                 </Grid>)}
+                                <Grid item>
+                                    <Button variant="contained" color="primary" onClick={this.confirmerJoueurs} style={{fontSize: "18px", width:"350px"}}>Jouer</Button>
+                                </Grid>
                             </Grid>
                         </form>
                     </React.Fragment>}

@@ -38,11 +38,6 @@ body {
   background-color: var(--bleu);
 }
 
-.MuiButton-root.buttonJouerTicTacToe {
-  font-size: 18px;
-  width: 300px;
-}
-
 .youtubePlayer {
   height: 360px;
   width: 100%;
