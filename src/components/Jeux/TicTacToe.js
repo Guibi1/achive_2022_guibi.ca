@@ -109,7 +109,7 @@ class TicTacToe extends Component
                     {this.state.plateau.map((row, rowIndex) =>
                     <Grid item container alignItems="center" justify="center" wrap="nowrap">
                         {row.map((element, index) =>
-                        <Grid item style={{maxWidth: "100px", width: "100%", maxHeight: "100px", height: "100%"}}>
+                        <Grid item>
                             <Button disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe Gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)} key={index}>
                                 {element}
                             </Button>
