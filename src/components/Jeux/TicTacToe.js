@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import OIcon from '@material-ui/icons/RadioButtonUnchecked'
 import XIcon from '@material-ui/icons/Close'
+import Typography from '@material-ui/core/Typography'
 
 
 const X = <XIcon fontSize="large"/>
@@ -106,14 +107,14 @@ class TicTacToe extends Component
                     {this.state.plateau.map((row, rowIndex) =>
                     <Grid key={rowIndex}>
                         {row.map((element, index) =>
-                        <Button className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToeGagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)}>
+                        <Button disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe Gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)} key={index}>
                             {element}
                         </Button>)}
                     </Grid>)}
                 </Grid>
 
-                {this.state.gagnant === "" ? <p>C'est le tour aux {this.state.joueurActuel}.</p> : ( this.state.gagnant === vide ? <p>Partie nulle !</p> : <p>Les {this.state.gagnant} ont gagné !</p>)}
-                <Button variant="contained" className="buttonJouer" onClick={this.nouvellePartie}><span>{this.state.gagnant !== "" ? "Recommencer" : "Rejouer"}</span></Button>
+                <Typography variant="body1" style={{margin: "14px"}}>{this.state.gagnant === "" ? (this.state.joueurActuel === X ? "C'est le tour aux X." : "C'est le tour aux O.") : (this.state.gagnant === vide ? "Partie nulle !" : (this.state.gagnant === X ? "Les X ont gagné !" : "Les O ont gagné !"))}</Typography>
+                <Button color="primary" variant="contained" className="buttonJouerTicTacToe" onClick={this.nouvellePartie}>{this.state.gagnant !== "" ? "Recommencer" : "Rejouer"}</Button>
             </Container>
         )
     }

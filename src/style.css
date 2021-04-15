@@ -12,6 +12,7 @@ body {
   background-color: var(--gris);
   margin: 10px;
   font-family: Arial;
+  font-size: 16px;
 }
 
 .MuiContainer-root {
@@ -22,4 +23,22 @@ body {
 
 .MuiToolbar-root {
   background-color: var(--bleu);
+}
+
+.MuiButton-root.tuileTicTacToe {
+  background-color: var(--rose);
+  height: 100px;
+  width: 100px;
+  border-radius: 0px;
+  border: 3px solid var(--gris);
+  padding: 10px;
+}
+
+.MuiButton-root.tuileTicTacToe.Gagnant {
+  background-color: var(--bleu);
+}
+
+.MuiButton-root.buttonJouerTicTacToe {
+  font-size: 18px;
+  width: 300px;
 }
