@@ -28,23 +28,23 @@ export default class App extends Component
                 <Box style={{margin: "15px", marginTop: "79px", display: "block", justifyContent: "center", textAlign: "center"}}>
                     <Switch>
                         <Route exact path="/accueil">
-                            <Accueil fallback={<CircularProgress/>}/>
+                            <Accueil fallback={<CircularProgress color="secondary"/>}/>
                         </Route>
 
                         <Route path="/minecraft/serveurforge">
-                            <ServeurForge fallback={<CircularProgress/>}/>
+                            <ServeurForge fallback={<CircularProgress color="secondary"/>}/>
                         </Route>
                         
                         <Route exact path="/stonksticker">
-                            <StonksTicker fallback={<CircularProgress/>}/>
+                            <StonksTicker fallback={<CircularProgress color="secondary"/>}/>
                         </Route>
 
                         <Route path="/tictactoe">
-                            <TicTacToe fallback={<CircularProgress/>}/>
+                            <TicTacToe fallback={<CircularProgress color="secondary"/>}/>
                         </Route>
 
                         <Route path="/consequences">
-                            <Consequences fallback={<CircularProgress/>}/>
+                            <Consequences fallback={<CircularProgress color="secondary"/>}/>
                         </Route>
 
                         <Redirect from="/" to="/accueil"/>
