@@ -44,7 +44,7 @@ export default class Header extends Component
                         <IconButton edge="start" color="inherit" aria-label="menu" onClick={this.openMenu}>
                             <MenuIcon/>
                         </IconButton>
-                        <Typography variant="h6">Guibi</Typography>
+                        <Typography variant="h5" style={{marginLeft: "10px"}}>Guibi</Typography>
                     </Toolbar>
                 </AppBar>
                 <Drawer open={this.state.menuOpen} onClose={this.closeMenu}>

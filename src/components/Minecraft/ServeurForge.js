@@ -12,7 +12,8 @@ import Button from '@material-ui/core/Button'
 import Snackbar from '@material-ui/core/Snackbar'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
-import { Paper } from '@material-ui/core'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
 
 
 class Minecraft extends Component
@@ -58,13 +59,13 @@ class Minecraft extends Component
         return (
             <Container>
                 <Helmet><title>Serveur Minecraft - Guibi.ca</title></Helmet>
-                <h2>Serveur Minecraft Forge 1.16.4</h2>
-                <p>Mes amis et moi jouons sur un monde Survie Minecraft depuis le 11 mars 2020. Voici une cinématique de ce que nous avons bâti jusqu'à présent :</p>
+                <Typography variant="h4" style={{marginBottom: "10px"}}>Serveur Minecraft Forge 1.16.4</Typography>
+                <Typography varient="body1">Mes amis et moi jouons sur un monde Survie Minecraft depuis le 11 mars 2020. Voici une cinématique de ce que nous avons bâti jusqu'à présent :</Typography>
                 <YouTube videoId="TPkIAVGCtXI" opts={{ playerVars: {autoplay: 1} }} className="youtubePlayer"/>
             
-                <p>Vous pouvez vous connecter et visiter notre monde en mode spectateur !</p>
+                <Typography varient="body1">Vous pouvez vous connecter et visiter notre monde en mode spectateur !</Typography>
 
-                <Paper style={{maxWidth: "800px", margin: "auto"}}>
+                <Paper style={{maxWidth: "800px", margin: "10px auto"}}>
                     <Box border={1.5} borderColor="primary.main" borderRadius="borderRadius">
                         <Tabs value={this.state.tabValue} onChange={this.handleChange} variant="fullWidth">
                             <Tab label="Avec GD Launcher"/>
