@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography'
 import défis from "./défis.txt"
 
 
-class Consequences extends Component
+export default class Consequences extends Component
 {
     constructor(props)
     {
@@ -119,7 +119,7 @@ class Consequences extends Component
                                 <Typography variant="h6">Partie terminée !</Typography>
                             </Grid>
                             <Grid item>
-                                <Button onClick={this.rejouer} variant="contained" color="primary" style={{fontSize: "18px", width:"250px"}}>Rejouer</Button>
+                                <Button onClick={this.rejouer} variant="contained" color="primary" style={{fontSize: "18px", width: "100%", maxWidth:"250px"}}>Rejouer</Button>
                             </Grid>
                             <Grid item>
                                 <Button onClick={this.changerJoueurs} variant="outlined" color="secondary">Changer les joueurs</Button>
@@ -135,7 +135,7 @@ class Consequences extends Component
                                 {this.state.joueurDé !== "" ? <Typography variant="body1" style={{marginTop: "5px"}}>Le dé a choisi {this.state.joueurDé} !</Typography> : null}
                             </Grid>
                             <Grid item>
-                                <Button onClick={this.nouveauDéfi} variant="contained" color="primary" style={{fontSize: "18px", width:"250px"}}>Prochain défi</Button>
+                                <Button onClick={this.nouveauDéfi} variant="contained" color="primary" style={{fontSize: "18px", width: "100%", maxWidth:"250px"}}>Prochain défi</Button>
                             </Grid>
                             <Grid item>
                                 <Button onClick={this.changerJoueurs} variant="outlined" color="secondary">Changer les joueurs</Button>
@@ -149,15 +149,13 @@ class Consequences extends Component
                                 </Grid>
                                 {this.state.joueurs.map((nom, index) =>
                                 <Grid item container direction="row" spacing={1} key={index} justify="center">
-                                    <Grid item>
+                                    <Grid item wrap="nowrap">
                                         <TextField size="small" variant="outlined" label={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></TextField>
-                                    </Grid>
-                                    <Grid item>
-                                        <Button variant="outlined" color="secondary" onClick={() => this.deleteJoueur(index)}>Supprimer</Button>
+                                        <Button variant="outlined" color="secondary" onClick={() => this.deleteJoueur(index)} style={{height: "40px", marginLeft: "4px"}}>Supprimer</Button>
                                     </Grid>
                                 </Grid>)}
                                 <Grid item>
-                                    <Button variant="contained" color="primary" onClick={this.confirmerJoueurs} style={{fontSize: "18px", width:"350px"}}>Jouer</Button>
+                                    <Button xs={6} variant="contained" color="primary" onClick={this.confirmerJoueurs} style={{fontSize: "18px", width: "100%", maxWidth:"350px"}}>Jouer</Button>
                                 </Grid>
                             </Grid>
                         </form>
@@ -166,6 +164,3 @@ class Consequences extends Component
         )
     }
 }
-
-
-export default Consequences
