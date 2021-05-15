@@ -59,7 +59,8 @@ class Minecraft extends Component
         return (
             <Container>
                 <Helmet><title>Serveur Minecraft - Guibi.ca</title></Helmet>
-                <Typography variant="h4" style={{marginBottom: "10px"}}>Serveur Minecraft Forge 1.16.5</Typography>
+                <Typography variant="h3">Serveur Minecraft Forge</Typography>
+                <Typography variant="h5" style={{marginBottom: "10px"}}>Une aventure sans fin</Typography>
                 <Typography varient="body1">Mes amis et moi jouons sur un monde Survie Minecraft depuis le 11 mars 2020. Voici une cinématique de ce que nous avons bâti jusqu'à présent :</Typography>
                 <YouTube videoId="TPkIAVGCtXI" opts={{ playerVars: {autoplay: 1} }} className="youtubePlayer"/>
             

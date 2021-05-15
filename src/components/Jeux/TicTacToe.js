@@ -103,7 +103,8 @@ class TicTacToe extends Component
         return (
             <Container>
                 <Helmet><title>Tic Tac Toe - Guibi.ca</title></Helmet>
-                <Typography variant="h4" style={{marginBottom: "10px"}}>Tic Tac Toe</Typography>
+                <Typography variant="h3">Tic Tac Toe</Typography>
+                <Typography variant="h5" style={{marginBottom: "15px"}}>Un classique</Typography>
 
                 <Grid container direction="column">
                     {this.state.plateau.map((row, rowIndex) =>

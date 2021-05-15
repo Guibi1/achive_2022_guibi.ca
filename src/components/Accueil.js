@@ -11,7 +11,8 @@ export default class Accueil extends Component
         return (
             <Container>
                 <Helmet><title>Accueil - Guibi.ca</title></Helmet>
-                <Typography variant="h4" style={{marginBottom: "10px"}}>Accueil</Typography>
+                <Typography variant="h3">Accueil</Typography>
+                <Typography variant="h5" style={{marginBottom: "10px"}}>Bienvenue sur Guibi.ca</Typography>
             </Container>
         )
     }

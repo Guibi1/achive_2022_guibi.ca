@@ -11,7 +11,8 @@ class StonksTicker extends Component
         return (
             <Container>
                 <Helmet><title>Stonks Ticker - Guibi.ca</title></Helmet>
-                <Typography variant="h4" style={{marginBottom: "10px"}}>Stonks Ticker</Typography>
+                <Typography variant="h3">Stonks Ticker</Typography>
+                <Typography variant="h5" style={{marginBottom: "10px"}}>Stocks Ticker avec vos amis</Typography>
             </Container>
         )
     }

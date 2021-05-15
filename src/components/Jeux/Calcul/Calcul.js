@@ -24,7 +24,8 @@ class Calcul extends Component
         return (
             <Container>
                 <Helmet><title>Calcul - Guibi.ca</title></Helmet>
-                <Typography variant="h4" style={{marginBottom: "10px"}}>Calcul</Typography>
+                <Typography variant="h3">Calcul</Typography>
+                <Typography variant="h5" style={{marginBottom: "10px"}}>Découvrez une nouvelle façon de se pratiquer</Typography>
                 <img src={ImageNormal} alt="L'interface de calcul"/>
                 <Grid container>
                     <Grid item xs={6} style={{ margin: "auto", padding: "5%", textAlign: "left"}}>

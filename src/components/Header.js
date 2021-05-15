@@ -54,7 +54,7 @@ export default class Header extends Component
                         </List>
                         <Divider/>
                         <List component="nav" subheader={<ListSubheader style={{display: 'flex', alignItems: 'center'}}><Gamepad fontSize="small" style={{paddingRight: 8}}/>Minecraft</ListSubheader>}>
-                            <ListButton titre="Serveur Forge 1.16.4" url="/minecraft/serveurforge"/>
+                            <ListButton titre="Serveur Forge 1.16.5" url="/minecraft/serveurforge"/>
                         </List>
                         <Divider/>
                         <List component="nav" subheader={<ListSubheader style={{display: 'flex', alignItems: 'center'}}><VideogameAsset fontSize="small" style={{paddingRight: 8}}/>Jeux</ListSubheader>}>

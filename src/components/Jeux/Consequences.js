@@ -110,7 +110,8 @@ export default class Consequences extends Component
         return (
             <Container>
                 <Helmet><title>Conséquences - Guibi.ca</title></Helmet>
-                <Typography variant="h4" style={{marginBottom: "15px"}}>Conséquences</Typography>
+                <Typography variant="h3">Conséquences</Typography>
+                <Typography variant="h5" style={{marginBottom: "15px"}}>Vérité ou conséquence... sans vérité</Typography>
 
                 {this.state.joueursChoisis ?
                     (this.state.partieTerminée ?
