@@ -59,6 +59,7 @@ export default class Header extends Component
                         <Divider/>
                         <List component="nav" subheader={<ListSubheader style={{display: 'flex', alignItems: 'center'}}><VideogameAsset fontSize="small" style={{paddingRight: 8}}/>Jeux</ListSubheader>}>
                             <ListButton titre="Stonks Ticker" url="/stonksticker"/>
+                            <ListButton titre="Calcul" url="/calcul"/>
                             <ListButton titre="Tic Tac Toe" url="/tictactoe"/>
                             <ListButton titre="Conséquences" url="/consequences"/>
                         </List>

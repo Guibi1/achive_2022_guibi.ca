@@ -11,6 +11,7 @@ import { createMuiTheme } from '@material-ui/core'
 const Accueil = loadable(() => import("./components/Accueil"))
 const StonksTicker = loadable(() => import("./components/Jeux/StonksTicker"))
 const ServeurForge = loadable(() => import("./components/Minecraft/ServeurForge"))
+const Calcul = loadable(() => import("./components/Jeux/Calcul/Calcul"))
 const TicTacToe = loadable(() => import("./components/Jeux/TicTacToe"))
 const Consequences = loadable(() => import("./components/Jeux/Consequences"))
 
@@ -37,6 +38,10 @@ export default class App extends Component
                         
                         <Route exact path="/stonksticker">
                             <StonksTicker fallback={<CircularProgress color="secondary"/>}/>
+                        </Route>
+
+                        <Route path="/calcul">
+                            <Calcul fallback={<CircularProgress color="secondary"/>}/>
                         </Route>
 
                         <Route path="/tictactoe">
