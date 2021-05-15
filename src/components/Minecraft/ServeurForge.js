@@ -59,7 +59,7 @@ class Minecraft extends Component
         return (
             <Container>
                 <Helmet><title>Serveur Minecraft - Guibi.ca</title></Helmet>
-                <Typography variant="h4" style={{marginBottom: "10px"}}>Serveur Minecraft Forge 1.16.4</Typography>
+                <Typography variant="h4" style={{marginBottom: "10px"}}>Serveur Minecraft Forge 1.16.5</Typography>
                 <Typography varient="body1">Mes amis et moi jouons sur un monde Survie Minecraft depuis le 11 mars 2020. Voici une cinématique de ce que nous avons bâti jusqu'à présent :</Typography>
                 <YouTube videoId="TPkIAVGCtXI" opts={{ playerVars: {autoplay: 1} }} className="youtubePlayer"/>
             
@@ -107,7 +107,7 @@ class Minecraft extends Component
                             <div role="tabpanel" dir={'x'} style={{margin: "15px", minHeight: "220px"}}>
                                 <span style={{display: 'flex', justifyContent: "center"}}>
                                     <ArrowList fontSize="small"/>
-                                    <span>Installez Forge depuis <a href="http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.16.4.html" rel="noreferrer" target="_blank"> files.minecraftforge.net</a></span>
+                                    <span>Installez Forge depuis <a href="http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.16.5.html" rel="noreferrer" target="_blank"> files.minecraftforge.net</a></span>
                                 </span>
                                 <span style={{display: 'flex', justifyContent: "center"}}>
                                     <ArrowList fontSize="small"/>
@@ -120,7 +120,7 @@ class Minecraft extends Component
                                 </span>
                                 <span style={{display: 'flex', justifyContent: "center"}}>
                                     <ArrowList fontSize="small"/>
-                                    <span>Ouvrez Minecraft Forge 1.16.4 via votre launcher</span>
+                                    <span>Ouvrez Minecraft Forge 1.16.5 via votre launcher</span>
                                 </span>
                                 <span style={{display: 'flex', justifyContent: "center"}}>
                                     <ArrowList fontSize="small"/>
