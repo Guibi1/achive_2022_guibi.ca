@@ -27,7 +27,7 @@ class Calcul extends Component
             <Container>
                 <Helmet><title>Calcul - Guibi.ca</title></Helmet>
                 <Typography variant="h3">Calcul</Typography>
-                <Typography variant="h5" style={{marginBottom: "10px"}}>Découvrez une nouvelle façon de se pratiquer</Typography>
+                <Typography variant="h5" style={{marginBottom: "10px"}}>Découvrez une nouvelle façon de pratiquer ses tables</Typography>
                 <Grid container>
                     <Grid item xs={12} style={{ margin: "auto", padding: "20px", textAlign: "left"}}>
                         <img src={ImageNormal} alt="L'interface de calcul" style={{ display: "block", margin: "0px auto", maxWidth: "100%", height: "auto"}}/>
@@ -36,7 +36,7 @@ class Calcul extends Component
                         <Paper style={{maxWidth: "800px", margin: "auto"}}>
                             <Box border={1.5} borderColor="secondary.main" borderRadius="borderRadius" style={{padding: "15px"}}>
                                 <Typography varient="body1">
-                                        Calcul est un programme qui fait pratiquer les tables de mathématiques d'une façon intuitive et facile. Avec son interface simplifiée, il convient aux jeunes comme aux grands. 
+                                        Calcul est un programme qui fait pratiquer les tables d'opérations mathématiques d'une façon intuitive et facile. Avec son interface simplifiée, il convient aux jeunes comme aux grands. 
                                         <br/><br/><br/>
                                         Plusieurs indicateurs au bas de la fenêtre vous disent:
                                         <span style={{display: 'flex'}}>
