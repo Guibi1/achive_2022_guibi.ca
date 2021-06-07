@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import YouTube from 'react-youtube'
 import { saveAs } from 'file-saver'
 import Container from '@material-ui/core/Container'
 import Tabs from '@material-ui/core/Tabs'
