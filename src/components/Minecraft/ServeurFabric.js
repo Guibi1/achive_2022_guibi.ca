@@ -51,18 +51,17 @@ class Minecraft extends Component
     
     handleDownload = () =>
     {
-        saveAs("https://guibi.ca/files/modsServeurForge.zip", "mods.zip")
+        saveAs("https://guibi.ca/files/modsServeurFabric.zip", "mods.zip")
     }
     
     render()
     {
         return (
             <Container>
-                <Helmet><title>Serveur Minecraft Forge - Guibi.ca</title></Helmet>
-                <Typography variant="h3">Serveur Minecraft Forge</Typography>
-                <Typography variant="h5" style={{marginBottom: "10px"}}>Une aventure sans fin</Typography>
-                <Typography varient="body1">Mes amis et moi jouons sur un monde Survie Minecraft depuis le 11 mars 2020. Voici une cinématique de ce que nous avons bâti jusqu'à présent :</Typography>
-                <YouTube videoId="TPkIAVGCtXI" opts={{ playerVars: {autoplay: 1} }} className="youtubePlayer"/>
+                <Helmet><title>Serveur Minecraft Fabric - Guibi.ca</title></Helmet>
+                <Typography variant="h3">Serveur Minecraft Fabric</Typography>
+                <Typography variant="h5" style={{marginBottom: "10px"}}>Une exploration sans limite</Typography>
+                <Typography varient="body1">Mes amis et moi avons commencé un nouveaux monde Survie Minecraft le 12 juin 2021.</Typography>
             
                 <Typography varient="body1">Vous pouvez vous connecter et visiter notre monde en mode spectateur !</Typography>
 
@@ -91,7 +90,7 @@ class Minecraft extends Component
                                     <ArrowList fontSize="small"/>
                                     <span>Entrez l'adresse située ci-dessous</span>
                                 </span>
-                                <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("https://guibi.ca/files/configServeurForge.zip")} style={{margin: "10px"}}>Copier l'adresse</Button>
+                                <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("https://guibi.ca/files/configServeurFabric.zip")} style={{margin: "10px"}}>Copier l'adresse</Button>
                                 <span style={{display: 'flex', justifyContent: "center"}}>
                                     <ArrowList fontSize="small"/>
                                     <span>Appuyez sur la flèche en bas à droite jusqu'à ce que les téléchargements débutent</span>
@@ -108,7 +107,7 @@ class Minecraft extends Component
                             <div role="tabpanel" dir={'x'} style={{margin: "15px", minHeight: "220px"}}>
                                 <span style={{display: 'flex', justifyContent: "center"}}>
                                     <ArrowList fontSize="small"/>
-                                    <span>Installez Forge depuis <a href="http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.16.5.html" rel="noreferrer" target="_blank"> files.minecraftforge.net</a></span>
+                                    <span>Installez Fabric 1.17 depuis <a href="https://fabricmc.net/use/" rel="noreferrer" target="_blank"> fabricmc.net</a></span>
                                 </span>
                                 <span style={{display: 'flex', justifyContent: "center"}}>
                                     <ArrowList fontSize="small"/>
@@ -117,17 +116,17 @@ class Minecraft extends Component
                                 <Button color="secondary" variant="outlined" onClick={this.handleDownload} style={{margin: "10px"}}>Télécharger les mods</Button>
                                 <span style={{display: 'flex', justifyContent: "center"}}>
                                     <ArrowList fontSize="small"/>
-                                    <span>Extractez les mods du fichier .zip dans le dossier "%appdata%/.minecraft/mods"</span>
+                                    <span>Extractez les mods du fichier .zip dans le dossier ".minecraft/mods"</span>
                                 </span>
                                 <span style={{display: 'flex', justifyContent: "center"}}>
                                     <ArrowList fontSize="small"/>
-                                    <span>Ouvrez Minecraft Forge 1.16.5 via votre launcher</span>
+                                    <span>Ouvrez Minecraft Fabric 1.17 via votre launcher</span>
                                 </span>
                                 <span style={{display: 'flex', justifyContent: "center"}}>
                                     <ArrowList fontSize="small"/>
                                     <span>Allez dans l'onglet Multijoueur et ajoutez notre serveur avec l'adresse ci-dessous !</span>
                                 </span>
-                                <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("forge.minecraft.guibi.ca")} style={{margin: "10px"}}>Copier l'adresse</Button>
+                                <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("minecraft.guibi.ca")} style={{margin: "10px"}}>Copier l'adresse</Button>
                             </div>
                         </SwipeableViews>
                     </Box>

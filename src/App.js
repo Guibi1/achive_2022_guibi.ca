@@ -10,6 +10,7 @@ import { createMuiTheme } from '@material-ui/core'
 
 const Accueil = loadable(() => import("./components/Accueil"))
 const StonksTicker = loadable(() => import("./components/Jeux/StonksTicker"))
+const ServeurFabric = loadable(() => import("./components/Minecraft/ServeurFabric"))
 const ServeurForge = loadable(() => import("./components/Minecraft/ServeurForge"))
 const Calcul = loadable(() => import("./components/Jeux/Calcul/Calcul"))
 const TicTacToe = loadable(() => import("./components/Jeux/TicTacToe"))
@@ -30,6 +31,10 @@ export default class App extends Component
                     <Switch>
                         <Route exact path="/accueil">
                             <Accueil fallback={<CircularProgress color="secondary"/>}/>
+                        </Route>
+
+                        <Route path="/minecraft/serveurfabric">
+                            <ServeurFabric fallback={<CircularProgress color="secondary"/>}/>
                         </Route>
 
                         <Route path="/minecraft/serveurforge">
