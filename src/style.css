@@ -2,7 +2,6 @@
   font-size: 16px;
   font-family: 'Open Sans';
 
-  padding-left: 5rem;
   --white-primary: #FFFCF2;
   --white-secondary: #CCC5B9;
   --black-primary: #201F1D;
@@ -14,13 +13,8 @@
 }
 
 body {
-  background-color: var(--white-secondary);
   text-align: center;
   margin: 0px;
-}
-
-#root {
-  padding: 3rem;
 }
 
 /* Scroll Bar */
@@ -83,4 +77,30 @@ body::-webkit-scrollbar-thumb:active {
   max-width: 640px;
 
   margin: 20px auto;
+}
+
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+  #root {
+    padding: 1rem;
+    margin-bottom: 5rem;
+  }
+
+  body {
+    background-color: var(--white-primary);
+  }
+}
+
+
+/* Large screens */
+@media only screen and (min-width: 600px) {
+  #root {
+    margin-left: 5rem;
+    padding: 3rem;
+  }
+  
+  body {
+    background-color: var(--white-secondary);
+  }
 }
