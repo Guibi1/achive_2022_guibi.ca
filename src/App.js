@@ -17,7 +17,16 @@ const TicTacToe = loadable(() => import("./components/Jeux/TicTacToe"))
 const Consequences = loadable(() => import("./components/Jeux/Consequences"))
 
 
-const Theme = createMuiTheme({ typography: { fontFamily: [ 'Mukta'], fontSize: 16, }, palette: { primary: { main: "#5899e2" }, secondary: { main: "#e36397" } } })
+const Theme = createMuiTheme({
+    typography: {
+        fontFamily: [ 'Mukta'],
+        fontSize: 16,
+        },
+    palette: {
+        primary: { main: "#EA591F" },
+        secondary: { main: "#2E559E" },
+        },
+    })
 
 
 export default class App extends Component
@@ -27,7 +36,7 @@ export default class App extends Component
         return (
             <ThemeProvider theme={Theme}>
                 <Header/>
-                <Box style={{margin: "15px", marginTop: "79px", display: "block", justifyContent: "center", textAlign: "center"}}>
+                <Box>
                     <Switch>
                         <Route exact path="/accueil">
                             <Accueil fallback={<CircularProgress color="secondary"/>}/>

@@ -1,49 +1,81 @@
 :root {
-  --gris: #343434ff;
-  --bleu-marin: #2f3061ff;
-  --bleu: #5899e2ff;
-  --beige: #E8EBD6ff;
-  --rose-saumon: #fe938cff;
-  --rose: #e36397ff;
-  --blanc: #fbfbfbff;
+  font-size: 16px;
+  font-family: 'Open Sans';
+
+  padding-left: 5rem;
+  --white-primary: #FFFCF2;
+  --white-secondary: #CCC5B9;
+  --black-primary: #201F1D;
+  --black-secondary: #151513;
+  --orange-primary: #EF8257;
+  --orange-secondary: #EA591F;
+  --blue-primary: #407AB5;
+  --blue-secondary: #2E559E;
 }
 
 body {
-  background-color: var(--gris);
-  margin: 10px;
-  font-family: Arial;
-  font-size: 16px;
+  background-color: var(--white-secondary);
+  text-align: center;
+  margin: 0px;
 }
 
 #root {
-  min-width: 350px;
+  padding: 3rem;
 }
+
+/* Scroll Bar */
+
+body::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--black-primary);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--orange-primary);
+  transition: all 200ms ease;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background: var(--orange-secondary);
+}
+
+
+/* Material-UI */
 
 .MuiContainer-root {
   padding: 15px;
   height: 100%;
-  background-color: var(--blanc);
+  background-color: var(--white-primary);
 }
 
 .MuiToolbar-root {
   background-color: var(--bleu);
 }
 
+
+/* Buttons Tic Tac Toe */
+
 .MuiButton-root.tuileTicTacToe {
-  background-color: var(--rose);
+  background-color: var(--blue-primary);
   height: 100px;
   width: 100px;
   border-radius: 0px;
-  border: 3px solid var(--gris);
+  border: 3px solid var(--black-secondary);
 }
 
 .MuiButton-text.tuileTicTacToe.Mui-disabled {
-  color: var(--gris);
+  color: var(--black-primary);
 }
 
 .MuiButton-root.tuileTicTacToe.Gagnant {
-  background-color: var(--bleu);
+  background-color: var(--orange-secondary);
 }
+
+
+/* Other */
 
 .youtubePlayer {
   max-height: 360px;

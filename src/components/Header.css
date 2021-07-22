@@ -1,0 +1,107 @@
+nav {
+    --text-primary: var(--white-primary);
+    --text-secondary: var(--white-secondary);
+    --bg-primary: var(--black-primary);
+    --bg-secondary: var(--black-secondary);
+    --transition-time: 450ms;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: var(--bg-primary);
+    width: 5rem;
+    overflow: hidden;
+    transition: width var(--transition-time) ease;
+}
+
+nav:hover {
+    width: 17rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+.navBar-item {
+    width: 100%;
+}
+
+.navBar-link {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 5rem;
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    transition: 550ms;
+}
+
+.navBar-link:hover {
+    background-color: var(--bg-secondary);
+    filter: grayscale(0%) opacity(1);
+}
+
+.navBar-link.logo {
+    background-color: var(--bg-secondary);
+}
+
+.navBar-link-current {
+    filter: grayscale(15%) opacity(0.8);
+}
+
+.navBar-link svg {
+    width: 2.5rem;
+    min-width: 2.5rem;
+    margin: 0 1.25rem;
+    transition: all var(--transition-time) ease;
+}
+
+nav:hover .navBar-link.logo svg {
+    transform: rotate(-270deg);
+    margin-left: 13rem;
+}
+
+.navBar-text {
+    color: var(--text-primary);
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 150ms ease;
+}
+
+.navBar-text.logo {
+    font-weight: bold;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    width: 100%;
+    padding-left: 2.5rem;
+
+    display: inline;
+    position: absolute;
+    left: -999px;
+    transition: var(--transition-time);
+}
+
+nav:hover .navBar-text {
+    opacity: 1;
+}
+
+nav:hover .navBar-text.logo {
+    left: 0;
+}
+
+.fa-primary {
+    color: var(--orange-primary);
+}
+  
+.fa-secondary {
+    color: var(--orange-secondary);
+}

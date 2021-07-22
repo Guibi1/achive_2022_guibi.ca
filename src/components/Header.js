@@ -1,82 +1,50 @@
-import React, { Component } from "react"
-import { Link } from "react-router-dom"
-
-import Container from "@material-ui/core/Container"
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
-import Drawer from "@material-ui/core/Drawer"
-import List from "@material-ui/core/List"
-import ListSubheader from "@material-ui/core/ListSubheader"
-import Divider from "@material-ui/core/Divider"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
-import ListItemText from "@material-ui/core/ListItemText"
-import { Home, VideogameAsset, Gamepad } from "@material-ui/icons"
+import React from "react"
+import { useLocation } from "react-router"
+import './Header.css'
 
 
-export default class Header extends Component
+export default function Header()
 {
-    constructor(props)
-    {
-        super(props)
-        this.state = {menuOpen: false}
-    }
-    
-    openMenu = () =>
-    {
-        this.setState({menuOpen: true})
-    }
-    
-    closeMenu = () =>
-    {
-        this.setState({menuOpen: false})
-    }
-    
-    render()
-    {
-        return (
-            <React.Fragment>
-                <AppBar>
-                    <Toolbar>
-                        <IconButton edge="start" color="inherit" aria-label="menu" onClick={this.openMenu}>
-                            <MenuIcon/>
-                        </IconButton>
-                        <Typography variant="h5" style={{marginLeft: "10px"}}>Guibi</Typography>
-                    </Toolbar>
-                </AppBar>
-                <Drawer open={this.state.menuOpen} onClose={this.closeMenu}>
-                    <Container style={{width: 250, padding: 10}} role="presentation" onClick={this.closeMenu} onKeyDown={this.closeMenu}>
-                        <List>
-                            <ListButton titre="Accueil" url="/accueil" icone={<Home/>}/>
-                        </List>
-                        <Divider/>
-                        <List component="nav" subheader={<ListSubheader style={{display: 'flex', alignItems: 'center'}}><Gamepad fontSize="small" style={{paddingRight: 8}}/>Minecraft</ListSubheader>}>
-                            <ListButton titre="Serveur Fabric 1.17" url="/minecraft/serveurfabric"/>
-                            <ListButton titre="Serveur Forge 1.16.5" url="/minecraft/serveurforge"/>
-                        </List>
-                        <Divider/>
-                        <List component="nav" subheader={<ListSubheader style={{display: 'flex', alignItems: 'center'}}><VideogameAsset fontSize="small" style={{paddingRight: 8}}/>Jeux</ListSubheader>}>
-                            <ListButton titre="Stonks Ticker" url="/stonksticker"/>
-                            <ListButton titre="Calcul" url="/calcul"/>
-                            <ListButton titre="Tic Tac Toe" url="/tictactoe"/>
-                            <ListButton titre="Conséquences" url="/consequences"/>
-                        </List>
-                    </Container>
-                </Drawer>
-            </React.Fragment>
-        )
-    }
+    return (
+        <nav>
+            <ul>
+                <Item url="/accueil" title="Guibi.ca" logo={true}>
+                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-angle-double-right fa-w-14 fa-2x"><g class="fa-group"><path fill="currentColor" d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z" class="fa-secondary"></path><path fill="currentColor" d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z" class="fa-primary"></path></g></svg>
+                </Item>
+                <Item url="/minecraft/serveurfabric" title="Serveur Fabric 1.17">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="dice-d6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-dice-d6 fa-w-14 fa-2x"><g class="fa-group"><path fill="currentColor" d="M25.87 124.42a8.54 8.54 0 0 1-.06-14.42l166-100.88a61.72 61.72 0 0 1 64.43 0L422.19 110a8.54 8.54 0 0 1-.05 14.47L224 242.55z" class="fa-secondary"></path><path fill="currentColor" d="M0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7L184 509.71c10.67 6.48 24.05-1.54 24.05-14.44V271.46L12 154.58c-5.36-3.17-12 .85-12 7.25zm436-7.25L240 271.46v223.82c0 12.89 13.39 20.92 24.05 14.43l152.16-92.48c19.68-12 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.42-12-7.25z" class="fa-primary"></path></g></svg>
+                </Item>
+                <Item url="/minecraft/serveurforge" title="Serveur Forge 1.16.5">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="cubes" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-cubes fa-w-16 fa-2x"><g class="fa-group"><path fill="currentColor" d="M488.6 250.2L392 214V105.52a36 36 0 0 0-23.4-33.7l-100-37.5a35.68 35.68 0 0 0-25.3 0l-100 37.5a36 36 0 0 0-23.4 33.7V214l-96.6 36.2A36 36 0 0 0 0 283.9V394a36 36 0 0 0 19.9 32.2l100 50a35.86 35.86 0 0 0 32.2 0l103.9-52 103.9 52a35.86 35.86 0 0 0 32.2 0l100-50A36 36 0 0 0 512 394V283.9a36 36 0 0 0-23.4-33.7zM238 395.18l-85 42.5v-79.09l85-38.8zm0-112l-102 41.41L34 283.2v-.6l102-38.2 102 38.2zm-84-178.46v-.6l102-38.2 102 38.2v.6l-102 41.39zm119 73.79l85-37v73.29l-85 31.9zm205 216.67l-85 42.5v-79.09l85-38.8zm0-112l-102 41.41-102-41.39v-.6l102-38.2 102 38.2z" class="fa-secondary"></path><path fill="currentColor" d="M153 437.68l85-42.5v-75.39l-85 38.8zm240-79.09v79.09l85-42.5v-75.39zM273 246.7l85-31.9v-73.29l-85 37z" class="fa-primary"></path></g></svg>
+                </Item>
+                <Item url="/calcul" title="Calcul">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="abacus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-abacus fa-w-18 fa-2x"><g class="fa-group"><path fill="currentColor" d="M192 440h-32v-48h32zM160 72v48h32V72zm96 160v48h32v-48zm-96 0v48h32v-48zm96 208h160v-48H256zm96-160h128v-48H352zM544 0a32 32 0 0 0-32 32v464a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V32a32 32 0 0 0-32-32zM416 72H256v48h160zM32 0A32 32 0 0 0 0 32v464a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V32A32 32 0 0 0 32 0z" class="fa-secondary"></path><path fill="currentColor" d="M144 32h-32a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zm96 0h-32a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zm-96 160h-32a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16v-96a16 16 0 0 0-16-16zm192 0h-32a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16v-96a16 16 0 0 0-16-16zm-96 0h-32a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16v-96a16 16 0 0 0-16-16zM464 32h-32a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM144 352h-32a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16v-96a16 16 0 0 0-16-16zm96 0h-32a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16v-96a16 16 0 0 0-16-16zm224 0h-32a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16v-96a16 16 0 0 0-16-16z" class="fa-primary"></path></g></svg>
+                </Item>
+                <Item url="/stonksticker" title="Stonks Ticker">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="dice" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-dice fa-w-20 fa-2x"><g class="fa-group"><path fill="currentColor" d="M433.63 189.3L258.7 14.37a49.07 49.07 0 0 0-69.39 0L14.37 189.3a49.07 49.07 0 0 0 0 69.39L189.3 433.63a49.07 49.07 0 0 0 69.39 0L433.63 258.7a49.08 49.08 0 0 0 0-69.4zM96 248a24 24 0 1 1 24-24 24 24 0 0 1-24 24zm128 128a24 24 0 1 1 24-24 24 24 0 0 1-24 24zm0-128a24 24 0 1 1 24-24 24 24 0 0 1-24 24zm0-128a24 24 0 1 1 24-24 24 24 0 0 1-24 24zm128 128a24 24 0 1 1 24-24 24 24 0 0 1-24 24z" class="fa-secondary"></path><path fill="currentColor" d="M592 192H473.26a81.07 81.07 0 0 1-17 89.32L320 417.58V464a48 48 0 0 0 48 48h224a48 48 0 0 0 48-48V240a48 48 0 0 0-48-48zM480 376a24 24 0 1 1 24-24 24 24 0 0 1-24 24zM96 200a24 24 0 1 0 24 24 24 24 0 0 0-24-24zm256 48a24 24 0 1 0-24-24 24 24 0 0 0 24 24zm-128 80a24 24 0 1 0 24 24 24 24 0 0 0-24-24zm0-256a24 24 0 1 0 24 24 24 24 0 0 0-24-24zm0 128a24 24 0 1 0 24 24 24 24 0 0 0-24-24z" class="fa-primary"></path></g></svg>
+                </Item>
+                <Item url="/tictactoe" title="Tic Tac Toe">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="gamepad" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-gamepad fa-w-20 fa-2x"><g class="fa-group"><path fill="currentColor" d="M480.07 96H160a160 160 0 1 0 114.24 272h91.52A160 160 0 1 0 480.07 96zM248 268a12 12 0 0 1-12 12h-52v52a12 12 0 0 1-12 12h-24a12 12 0 0 1-12-12v-52H84a12 12 0 0 1-12-12v-24a12 12 0 0 1 12-12h52v-52a12 12 0 0 1 12-12h24a12 12 0 0 1 12 12v52h52a12 12 0 0 1 12 12zm216 76a40 40 0 1 1 40-40 40 40 0 0 1-40 40zm64-96a40 40 0 1 1 40-40 40 40 0 0 1-40 40z" class="fa-secondary"></path><path fill="currentColor" d="M248 268a12 12 0 0 1-12 12h-52v52a12 12 0 0 1-12 12h-24a12 12 0 0 1-12-12v-52H84a12 12 0 0 1-12-12v-24a12 12 0 0 1 12-12h52v-52a12 12 0 0 1 12-12h24a12 12 0 0 1 12 12v52h52a12 12 0 0 1 12 12z" class="fa-primary"></path></g></svg>
+                </Item>
+                <Item url="/consequences" title="Conséquences">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="game-board" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-game-board fa-w-16 fa-2x"><g class="fa-group"><path fill="currentColor" d="M480 0H32A32 32 0 0 0 0 32v448a32 32 0 0 0 32 32h448a32 32 0 0 0 32-32V32a32 32 0 0 0-32-32zm-31.8 448H64v-96h.2v-96H64v-96h.2V64h384z" class="fa-secondary"></path><path fill="currentColor" d="M256 256v-96h-95.9V64.1h-96v96H160V256H64.2v96h96v-96zm0 96h-95.8v96h96v-96H352v-96h-96zm96.1 96.1h96v-96h-96zm.1-288.1v96h96v-96zm-96-96v96h96V64z" class="fa-primary"></path></g></svg>
+                </Item>
+            </ul>
+        </nav>
+    )
 }
 
+function Item(props)
+{
+    const location = useLocation();
 
-function ListButton(props) {
     return (
-        <ListItem button component={Link} to={props.url}>
-            {props.icone != null ? <ListItemIcon>{props.icone}</ListItemIcon> : null}
-            <ListItemText primary={props.titre}/>
-        </ListItem>
+        <li class="navBar-item">
+                <a href={props.url} class={"navBar-link " + (location.pathname === props.url ? "navBar-link-current " : "") + (props.logo ? "logo " : "")}>
+                    {props.logo ? null : props.children}
+                    <span class={"navBar-text "  + (props.logo ? "logo " : "")}>{props.title}</span>
+                    {props.logo ? props.children : null}
+                </a>
+        </li>
     )
 }
