@@ -11,10 +11,10 @@ export default function Header()
     window.addEventListener('touchstart', () => { setNoHover(true); });
     document.addEventListener("click", (e) => {
         const navBar = document.getElementById("navBar");
-        let targetElement = e.target; // clicked element
+        let targetElement = e.target;
     
         do {
-            if (targetElement == navBar)
+            if (targetElement === navBar)
                 return;
             targetElement = targetElement.parentNode;
         } while (targetElement);
