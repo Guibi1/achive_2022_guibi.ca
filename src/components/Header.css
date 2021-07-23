@@ -60,6 +60,7 @@ nav ul {
 }
 
 .navBar-link svg {
+    height: 3rem;
     width: 2.5rem;
     min-width: 2.5rem;
     padding: 0 1.25rem;
