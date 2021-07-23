@@ -49,6 +49,10 @@ body::-webkit-scrollbar-thumb:active {
   background-color: var(--bleu);
 }
 
+.MuiInputBase-input.MuiOutlinedInput-input {
+  background: white;
+}
+
 
 /* Buttons Tic Tac Toe */
 
