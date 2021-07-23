@@ -18,21 +18,20 @@ export default function Header()
                 return;
             targetElement = targetElement.parentNode;
         } while (targetElement);
-    
-        // This is a click outside.
-        document.getElementById("navBar").className = "";
+
+        var element = document.getElementById("navBar");
+        element.className = "";
+        element.scrollTo(0, 0);
     });
 
     return (
         <nav id="navBar" onMouseEnter={() => HandleOpen(noHover)} onMouseLeave={() => HandleClose(noHover)}>
             <ul>
                 <li className="navBar-item">
-                    <div id="logo" onClick={HandleToggle} className={location.pathname === "/accueil" ? "navBar-link navBar-link-current logo" : "navBar-link logo"}>
-                        <a className="navBar-link logo" href="/accueil">
-                            <span className="navBar-text logo">Guibi.ca</span>
-                        </a>
-                        <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="svg-inline--fa fa-angle-double-right fa-w-14 fa-2x"><g className="fa-group"><path fill="currentColor" d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z" className="fa-secondary"></path><path fill="currentColor" d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z" className="fa-primary"></path></g></svg>
-                    </div>
+                    <a onClick={HandleLogoClick} href="/accueil" className={location.pathname === "/accueil" ? "navBar-link navBar-link-current logo" : "navBar-link logo"}>
+                        <span className="navBar-text logo">Guibi.ca</span>
+                        <svg onClick={HandleToggle} style={{height: "2.5rem", width: "2.5rem"}} aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="svg-inline--fa fa-angle-double-right fa-w-14 fa-2x"><g className="fa-group"><path fill="currentColor" d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z" className="fa-secondary"></path><path fill="currentColor" d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z" className="fa-primary"></path></g></svg>
+                    </a>
                 </li>
                 <Item url="/minecraft/serveurfabric" title="Serveur Fabric 1.17">
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="dice-d6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="svg-inline--fa fa-dice-d6 fa-w-14 fa-2x"><g className="fa-group"><path fill="currentColor" d="M25.87 124.42a8.54 8.54 0 0 1-.06-14.42l166-100.88a61.72 61.72 0 0 1 64.43 0L422.19 110a8.54 8.54 0 0 1-.05 14.47L224 242.55z" className="fa-secondary"></path><path fill="currentColor" d="M0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7L184 509.71c10.67 6.48 24.05-1.54 24.05-14.44V271.46L12 154.58c-5.36-3.17-12 .85-12 7.25zm436-7.25L240 271.46v223.82c0 12.89 13.39 20.92 24.05 14.43l152.16-92.48c19.68-12 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.42-12-7.25z" className="fa-primary"></path></g></svg>
@@ -79,15 +78,35 @@ function HandleOpen(noHover)
 function HandleClose(noHover)
 {
     if (!noHover)
-        document.getElementById("navBar").className = "";
+    {
+        var element = document.getElementById("navBar");
+        element.className = "";
+        element.scrollTo(0, 0);
+    }
 }
 
-function HandleToggle()
+function HandleToggle(e)
 {
+    e.preventDefault();
+    e.stopPropagation();
+    
     var element = document.getElementById("navBar");
     if (element.className === "")
         element.className = "open";
-
+    
     else if (element.className === "open")
+    {
+        element.scrollTo(0, 0);
         element.className = "";
+    }
+}
+    
+function HandleLogoClick(e)
+{
+    var element = document.getElementById("navBar");
+    if (element.className === "")
+    {
+        element.className = "open";
+        e.preventDefault();
+    }
 }
