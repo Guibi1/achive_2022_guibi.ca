@@ -50,7 +50,7 @@ class Minecraft extends Component
     
     handleDownload = () =>
     {
-        saveAs("https://guibi.ca/files/modsServeurFabric.zip", "mods.zip")
+        saveAs("/files/modsServeurFabric.zip", "mods.zip")
     }
     
     render()

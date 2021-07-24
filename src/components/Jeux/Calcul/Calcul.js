@@ -18,7 +18,7 @@ class Calcul extends Component
 {
     handleDownload = () =>
     {
-        saveAs("https://guibi.ca/files/setupCalcul.exe", "setupCalcul.exe")
+        saveAs("/files/setupCalcul.exe", "setupCalcul.exe")
     }
     
     render ()
