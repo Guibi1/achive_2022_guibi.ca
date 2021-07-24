@@ -22,39 +22,37 @@ export default class App extends Component
         return (
             <React.Fragment>
                 <Header/>
-                <Box>
-                    <Switch>
-                        <Route exact path="/accueil">
-                            <Accueil fallback={<CircularProgress color="secondary"/>}/>
-                        </Route>
+                <Switch>
+                    <Route exact path="/accueil">
+                        <Accueil fallback={<CircularProgress color="secondary"/>}/>
+                    </Route>
 
-                        <Route path="/minecraft/serveurfabric">
-                            <ServeurFabric fallback={<CircularProgress color="secondary"/>}/>
-                        </Route>
+                    <Route path="/minecraft/serveur-fabric">
+                        <ServeurFabric fallback={<CircularProgress color="secondary"/>}/>
+                    </Route>
 
-                        <Route path="/minecraft/serveurforge">
-                            <ServeurForge fallback={<CircularProgress color="secondary"/>}/>
-                        </Route>
-                        
-                        <Route exact path="/stonksticker">
-                            <StonksTicker fallback={<CircularProgress color="secondary"/>}/>
-                        </Route>
+                    <Route path="/minecraft/serveur-forge">
+                        <ServeurForge fallback={<CircularProgress color="secondary"/>}/>
+                    </Route>
+                    
+                    <Route exact path="/stonk-sticker">
+                        <StonksTicker fallback={<CircularProgress color="secondary"/>}/>
+                    </Route>
 
-                        <Route path="/calcul">
-                            <Calcul fallback={<CircularProgress color="secondary"/>}/>
-                        </Route>
+                    <Route path="/calcul">
+                        <Calcul fallback={<CircularProgress color="secondary"/>}/>
+                    </Route>
 
-                        <Route path="/tictactoe">
-                            <TicTacToe fallback={<CircularProgress color="secondary"/>}/>
-                        </Route>
+                    <Route path="/tic-tac-toe">
+                        <TicTacToe fallback={<CircularProgress color="secondary"/>}/>
+                    </Route>
 
-                        <Route path="/consequences">
-                            <Consequences fallback={<CircularProgress color="secondary"/>}/>
-                        </Route>
+                    <Route path="/consequences">
+                        <Consequences fallback={<CircularProgress color="secondary"/>}/>
+                    </Route>
 
-                        <Redirect from="/" to="/accueil"/>
-                    </Switch>
-                </Box>
+                    <Redirect from="/" to="/accueil"/>
+                </Switch>
             </React.Fragment>
         )
     }
