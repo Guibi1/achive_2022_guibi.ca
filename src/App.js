@@ -5,8 +5,6 @@ import CircularProgress from "@material-ui/core/CircularProgress"
 import loadable from '@loadable/component'
 
 import Header from "./components/Header"
-import { ThemeProvider } from '@material-ui/styles'
-import { createMuiTheme } from '@material-ui/core'
 
 const Accueil = loadable(() => import("./components/Accueil"))
 const StonksTicker = loadable(() => import("./components/Jeux/StonksTicker"))
@@ -17,24 +15,12 @@ const TicTacToe = loadable(() => import("./components/Jeux/TicTacToe"))
 const Consequences = loadable(() => import("./components/Jeux/Consequences"))
 
 
-const Theme = createMuiTheme({
-    typography: {
-        fontFamily: [ 'Mukta'],
-        fontSize: 16,
-        },
-    palette: {
-        primary: { main: "#EA591F" },
-        secondary: { main: "#2E559E" },
-        },
-    })
-
-
 export default class App extends Component
 {
     render()
     {
         return (
-            <ThemeProvider theme={Theme}>
+            <React.Fragment>
                 <Header/>
                 <Box>
                     <Switch>
@@ -69,7 +55,7 @@ export default class App extends Component
                         <Redirect from="/" to="/accueil"/>
                     </Switch>
                 </Box>
-            </ThemeProvider>
+            </React.Fragment>
         )
     }
 }
