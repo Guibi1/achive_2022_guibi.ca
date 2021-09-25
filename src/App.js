@@ -6,12 +6,12 @@ import loadable from '@loadable/component'
 import Header from "./components/Header"
 
 const Accueil = loadable(() => import("./components/Accueil"))
-const StonksTicker = loadable(() => import("./components/Jeux/StonksTicker"))
+const StonksTicker = loadable(() => import("./components/StonksTicker/StonksTicker"))
 const ServeurFabric = loadable(() => import("./components/Minecraft/ServeurFabric"))
 const ServeurForge = loadable(() => import("./components/Minecraft/ServeurForge"))
-const Calcul = loadable(() => import("./components/Jeux/Calcul/Calcul"))
-const TicTacToe = loadable(() => import("./components/Jeux/TicTacToe"))
-const Consequences = loadable(() => import("./components/Jeux/Consequences"))
+const Calcul = loadable(() => import("./components/Calcul/Calcul"))
+const TicTacToe = loadable(() => import("./components/TicTacToe"))
+const Consequences = loadable(() => import("./components/Consequences/Consequences"))
 
 
 export default class App extends Component

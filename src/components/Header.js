@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useLocation } from "react-router"
-import './Header.css'
+
+import '../processedStyles/Header.css'
 
 
 export default function Header()

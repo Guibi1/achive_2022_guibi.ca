@@ -10,11 +10,37 @@
   --orange-secondary: #EA591F;
   --blue-primary: #407AB5;
   --blue-secondary: #2E559E;
+
+  --skeleton-primary: 207, 205, 201;
+  --skeleton-secondary: 148, 145, 137;
 }
 
 body {
   text-align: center;
   margin: 0px;
+}
+
+.image {
+  display: block;
+  margin: 0px auto;
+  
+  max-height: 500px;
+  max-width: 100%;
+}
+
+
+/* Skeleton */
+.skeleton {
+  animation: skeleton-animation 1s ease-in-out infinite alternate;
+}
+
+@keyframes skeleton-animation {
+  0% {
+    background-color: rgba(var(--skeleton-primary), 0.8);
+  }
+  100% {
+    background-color: rgba(var(--skeleton-secondary), 0.8);
+  }
 }
 
 /* Scroll Bar */

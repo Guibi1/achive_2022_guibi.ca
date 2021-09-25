@@ -67,7 +67,7 @@ class Minecraft extends Component
                 <Typography varient="body1">Vous pouvez vous connecter et visiter notre monde en mode spectateur !</Typography>
 
                 <Paper style={{maxWidth: "800px", margin: "10px auto"}}>
-                    <Box border={1.5} borderColor="primary.main" borderRadius="borderRadius">
+                    <Box border={1.5} borderColor="secondary.main" borderRadius="borderRadius">
                         <Tabs value={this.state.tabValue} onChange={this.handleChange} variant="fullWidth">
                             <Tab label="Avec GD Launcher"/>
                             <Tab label="Avec un autre launcher"/>

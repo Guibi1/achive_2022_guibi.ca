@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper'
 import Box from '@material-ui/core/Box'
 
 import LineList from '@material-ui/icons/RemoveSharp';
+
 import ImageNormal from './Calcul.webp'
 import ImageExemple from './ExempleCalcul.webp'
 import ImageParametres from './ParametresCalcul.webp'
@@ -30,7 +31,7 @@ class Calcul extends Component
                 <Typography variant="h5" style={{marginBottom: "10px"}}>Découvrez une nouvelle façon de pratiquer ses tables</Typography>
                 <Grid container>
                     <Grid item xs={12} style={{ margin: "auto", padding: "20px", textAlign: "left"}}>
-                        <img src={ImageNormal} alt="L'interface de calcul" style={{ display: "block", margin: "0px auto", maxWidth: "100%", height: "auto"}}/>
+                        <img src={ImageNormal} className="image skeleton" alt="L'interface de calcul"/>
                     </Grid>
                     <Grid item sm={12} md={6} style={{ margin: "auto", padding: "20px", textAlign: "left"}}>
                         <Paper style={{maxWidth: "800px", margin: "auto"}}>
@@ -56,10 +57,10 @@ class Calcul extends Component
                         </Paper>
                     </Grid>
                     <Grid item xs={12} md={6} style={{ margin: "auto", padding: "20px", textAlign: "left"}}>
-                        <img src={ImageExemple} alt="" style={{ display: "block", margin: "0px auto", maxWidth: "100%", height: "auto"}}/>
+                        <img src={ImageExemple} className="image skeleton" alt=""/>
                     </Grid>
                     <Grid item xs={12} sm={6} style={{ margin: "auto", padding: "20px", textAlign: "left"}}>
-                        <img src={ImageParametres} alt="" style={{ display: "block", margin: "0px auto", maxWidth: "100%", height: "auto"}}/>
+                        <img src={ImageParametres} className="image skeleton" alt=""/>
                     </Grid>
                     <Grid item xs={12} sm={6} style={{ margin: "auto", padding: "20px", textAlign: "left"}}>
                         <Paper style={{maxWidth: "800px", margin: "auto"}}>

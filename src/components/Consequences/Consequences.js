@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
+import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
 import TextField from '@material-ui/core/TextField'
@@ -142,25 +144,23 @@ export default class Consequences extends Component
                                 <Button onClick={this.changerJoueurs} variant="outlined" color="secondary">Changer les joueurs</Button>
                             </Grid>
                         </Grid>) :
-                    <React.Fragment>
-                        <form>
-                            <Grid container direction="column" spacing={2}>
-                                <Grid item>
-                                    <Button variant="contained" color="primary" onClick={this.addJoueur}>Ajouter un joueur</Button>
-                                </Grid>
-                                {this.state.joueurs.map((nom, index) =>
-                                <Grid item container direction="row" spacing={1} key={index} justify="center">
-                                    <Grid item wrap="nowrap">
-                                        <TextField size="small" variant="outlined" label={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></TextField>
-                                        <Button variant="outlined" color="secondary" onClick={() => this.deleteJoueur(index)} style={{height: "40px", marginLeft: "4px"}}>Supprimer</Button>
-                                    </Grid>
-                                </Grid>)}
-                                <Grid item>
-                                    <Button xs={6} variant="contained" color="primary" onClick={this.confirmerJoueurs} style={{fontSize: "18px", width: "100%", maxWidth:"350px"}}>Jouer</Button>
-                                </Grid>
-                            </Grid>
-                        </form>
-                    </React.Fragment>}
+                        <React.Fragment>
+                        <Paper style={{maxWidth: "400px", margin: "10px auto"}}>
+                            <Box border={1.5} borderColor="primary.main" borderRadius="borderRadius">
+                                    <Button variant="contained" color="primary" onClick={this.addJoueur} style={{margin: "10px"}}>Ajouter un joueur</Button>
+                                    {this.state.joueurs.map((nom, index) =>
+                                    <Grid container direction="row" key={index} justify="center">
+                                        <Grid item wrap="nowrap" style={{margin: "10px"}}>
+                                            <TextField size="small" variant="outlined" label={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></TextField>
+                                            <Button variant="outlined" color="secondary" onClick={() => this.deleteJoueur(index)} style={{height: "40px", marginLeft: "4px"}}>Supprimer</Button>
+                                        </Grid>
+                                    </Grid>)}
+                            </Box>
+                        </Paper>
+                        <Grid>
+                            <Button xs={6} variant="contained" color="primary" onClick={this.confirmerJoueurs} style={{fontSize: "18px", width: "100%", maxWidth:"350px"}}>Jouer</Button>
+                        </Grid>
+                </React.Fragment>}
             </Container>
         )
     }
