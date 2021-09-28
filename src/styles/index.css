@@ -46,7 +46,7 @@ body {
 /* Scroll Bar */
 
 body::-webkit-scrollbar {
-  width: 0.6rem;
+  width: 0.65rem;
 }
 
 body::-webkit-scrollbar-track {
@@ -56,10 +56,25 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: var(--orange-primary);
   transition: all 200ms ease;
+
+  padding-top: 10rem;
+  border: 0.2rem solid var(--black-primary);
+  border-radius: 100vw;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  border-width: 0.15rem;
 }
 
 body::-webkit-scrollbar-thumb:active {
   background: var(--orange-secondary);
+}
+
+@supports (scrollbar-color: red red) {
+  * {
+    scrollbar-color: var(--orange-primary) var(--black-primary);
+    scrollbar-width: thin;
+  }
 }
 
 
