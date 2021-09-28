@@ -108,10 +108,10 @@ class TicTacToe extends Component
 
                 <Grid container direction="column">
                     {this.state.plateau.map((row, rowIndex) =>
-                    <Grid item container alignItems="center" justify="center" wrap="nowrap">
+                    <Grid item container alignItems="center" justifyContent="center" wrap="nowrap" key={rowIndex}>
                         {row.map((element, index) =>
-                        <Grid item>
-                            <Button disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe Gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)} key={index}>
+                        <Grid item key={index}>
+                            <Button disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe Gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)}>
                                 {element}
                             </Button>
                         </Grid>)}
