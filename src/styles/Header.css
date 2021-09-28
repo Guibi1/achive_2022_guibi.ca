@@ -1,8 +1,8 @@
 nav {
-    --text-primary: var(--white-primary);
-    --text-secondary: var(--white-secondary);
-    --bg-primary: var(--black-primary);
-    --bg-secondary: var(--black-secondary);
+    --text-primary: var(--white-light);
+    --text-secondary: var(--white-dark);
+    --bg-primary: var(--black-light);
+    --bg-secondary: var(--black-dark);
     --transition-time: 450ms;
 
     position: fixed;
@@ -93,11 +93,11 @@ nav.open .navBar-text {
 }
 
 .fa-primary {
-    color: var(--orange-primary);
+    color: var(--orange-light);
 }
   
 .fa-secondary {
-    color: var(--orange-secondary);
+    color: var(--orange-dark);
 }
 
 

@@ -2,17 +2,18 @@
   font-size: 16px;
   font-family: 'Open Sans';
 
-  --white-primary: #FFFCF2;
-  --white-secondary: #CCC5B9;
-  --black-primary: #201F1D;
-  --black-secondary: #151513;
-  --orange-primary: #EF8257;
-  --orange-secondary: #EA591F;
-  --blue-primary: #407AB5;
-  --blue-secondary: #2E559E;
+  /* var */
+  --white-light: #FFFCF2;
+  --white-dark: #CCC5B9;
+  --black-light: #201F1D;
+  --black-dark: #151513;
+  --orange-light: #EF8257;
+  --orange-dark: #EA591F;
+  --blue-light: #485678;
+  --blue-dark: #3E517B;
 
-  --skeleton-primary: 207, 205, 201;
-  --skeleton-secondary: 148, 145, 137;
+  --skeleton-light: 207, 205, 201;
+  --skeleton-dark: 148, 145, 137;
 }
 
 body {
@@ -36,29 +37,28 @@ body {
 
 @keyframes skeleton-animation {
   0% {
-    background-color: rgba(var(--skeleton-primary), 0.8);
+    background-color: rgba(var(--skeleton-light), 0.8);
   }
   100% {
-    background-color: rgba(var(--skeleton-secondary), 0.8);
+    background-color: rgba(var(--skeleton-dark), 0.8);
   }
 }
 
 /* Scroll Bar */
-
 body::-webkit-scrollbar {
   width: 0.65rem;
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--black-primary);
+  background: var(--black-light);
 }
 
 body::-webkit-scrollbar-thumb {
-  background: var(--orange-primary);
+  background: var(--orange-light);
   transition: all 200ms ease;
 
   padding-top: 10rem;
-  border: 0.2rem solid var(--black-primary);
+  border: 0.2rem solid var(--black-light);
   border-radius: 100vw;
 }
 
@@ -67,23 +67,22 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 body::-webkit-scrollbar-thumb:active {
-  background: var(--orange-secondary);
+  background: var(--orange-dark);
 }
 
 @supports (scrollbar-color: red red) {
   * {
-    scrollbar-color: var(--orange-primary) var(--black-primary);
+    scrollbar-color: var(--orange-light) var(--black-light);
     scrollbar-width: thin;
   }
 }
 
 
 /* Material-UI */
-
 .MuiContainer-root {
   padding: 15px;
   height: 100%;
-  background-color: var(--white-primary);
+  background-color: var(--white-light);
 }
 
 .MuiToolbar-root {
@@ -96,26 +95,24 @@ body::-webkit-scrollbar-thumb:active {
 
 
 /* Buttons Tic Tac Toe */
-
 .MuiButton-root.tuileTicTacToe {
-  background-color: var(--blue-primary);
+  background-color: var(--blue-light);
   height: 100px;
   width: 100px;
   border-radius: 0px;
-  border: 3px solid var(--black-secondary);
+  border: 3px solid var(--black-dark);
 }
 
 .MuiButton-text.tuileTicTacToe.Mui-disabled {
-  color: var(--black-primary);
+  color: var(--black-light);
 }
 
 .MuiButton-root.tuileTicTacToe.Gagnant {
-  background-color: var(--orange-secondary);
+  background-color: var(--orange-dark);
 }
 
 
 /* Other */
-
 .youtubePlayer {
   max-height: 360px;
   width: 100%;
@@ -133,7 +130,7 @@ body::-webkit-scrollbar-thumb:active {
   }
 
   body {
-    background-color: var(--white-primary);
+    background-color: var(--white-light);
   }
 }
 
@@ -146,6 +143,6 @@ body::-webkit-scrollbar-thumb:active {
   }
   
   body {
-    background-color: var(--white-secondary);
+    background-color: var(--white-dark);
   }
 }

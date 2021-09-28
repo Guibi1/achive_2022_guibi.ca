@@ -18,7 +18,7 @@ export default function Theme()
         },
         palette: {
             primary: { main: "#EA591F" },
-            secondary: { main: "#2E559E" },
+            secondary: { main: "#3E517B" },
             },
         });
 }
