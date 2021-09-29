@@ -22,7 +22,7 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "build:css": "postcss ./src/styles/ -d ./src/processedStyles/",
+    "build:css": "postcss /opt/build/repo/src/styles/ -d /opt/build/repo/src/processedStyles/",
     "watch:css": "postcss ./src/styles/ -d ./src/processedStyles/ -w",
     "start": "npm-run-all -p watch:css start-js",
     "start-js": "react-scripts start",
