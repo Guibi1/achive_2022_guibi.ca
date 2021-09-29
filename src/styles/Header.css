@@ -72,15 +72,14 @@ nav ul {
 }
 
 .navBar-text {
-    display: none;
+    display: block;
     color: var(--text-primary);
     opacity: 0;
     white-space: nowrap;
-    transition: opacity 1500ms ease;
+    transition: opacity calc(var(--transition-time) / 2) ease;
 }
 
 nav.open .navBar-text {
-    display: block;
     opacity: 1;
 }
 
@@ -131,8 +130,9 @@ nav.open .navBar-text {
     }
 
     .navBar-text.logo {
-        left: 150vw;
-        transition-delay: var(--transition-time) / 2;
+        left: 101vw;
+        transition-delay: calc(var(--transition-time) / 2);
+        transition-duration: calc(var(--transition-time) / 2);
     }
 
     nav.open .navBar-text.logo {
