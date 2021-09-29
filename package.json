@@ -22,12 +22,14 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "build:css": "postcss /opt/build/repo/src/styles/ -d /opt/build/repo/src/processedStyles/",
-    "watch:css": "postcss ./src/styles/ -d ./src/processedStyles/ -w",
+    "build:css": "postcss ./src/styles/index.css -o ./src/processedStyles/index.css",
+    "build:cssHeader": "postcss ./src/styles/Header.css -o ./src/processedStyles/Header.css",
+    "watch:css": "postcss ./src/styles/index.css -o ./src/processedStyles/index.css -w",
+    "watch:cssHeader": "postcss ./src/styles/Header.css -o ./src/processedStyles/Header.css -w",
     "start": "npm-run-all -p watch:css start-js",
     "start-js": "react-scripts start",
     "build-js": "react-scripts build",
-    "build": "npm-run-all build:css build-js",
+    "build": "npm-run-all build:css build:cssHeader build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
