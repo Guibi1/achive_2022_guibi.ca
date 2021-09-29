@@ -22,11 +22,11 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "build:css": "postcss ./src/styles/index.css -o ./src/processedStyles/index.css",
-    "build:cssHeader": "postcss ./src/styles/Header.css -o ./src/processedStyles/Header.css",
+    "build:css": "postcss file://./src/styles/index.css -o file://./src/processedStyles/index.css",
+    "build:cssHeader": "postcss file://./src/styles/Header.css -o file://./src/processedStyles/Header.css",
     "watch:css": "postcss ./src/styles/index.css -o ./src/processedStyles/index.css -w",
     "watch:cssHeader": "postcss ./src/styles/Header.css -o ./src/processedStyles/Header.css -w",
-    "start": "npm-run-all -p watch:css start-js",
+    "start": "npm-run-all -p watch:css watch:cssHeader start-js",
     "start-js": "react-scripts start",
     "build-js": "react-scripts build",
     "build": "npm-run-all build:css build:cssHeader build-js",
