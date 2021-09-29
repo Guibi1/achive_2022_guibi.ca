@@ -1,0 +1,180 @@
+:root {
+  font-size: 16px;
+  font-family: 'Open Sans';
+  font-weight: 400;
+
+  /* var */
+  --white-light: #FFFCF2;
+  --white-dark: #CCC5B9;
+  --black-light: #201F1D;
+  --black-dark: #151513;
+  --orange-light: #EF8257;
+  --orange-dark: #EA591F;
+  --blue-light: #485678;
+  --blue-dark: #3E517B;
+
+  --skeleton-light: 207, 205, 201;
+  --skeleton-dark: 148, 145, 137;
+}
+
+body {
+  text-align: center;
+  margin: 0px;
+}
+
+div.page {
+  padding: 15px;
+  margin: auto;
+  height: max(100%, 90vh);
+  width: auto;
+  background-color: var(--white-light);
+}
+
+h1 {
+  font-size: max(3.4rem, 3.8vw);
+  font-weight: 400;
+  line-height: 1.16;
+  margin: 0px;
+}
+
+h2 {
+  font-size: max(1.7rem, 1.8vw);
+  font-weight: 400;
+  margin: 0px 0px 15px 0px;
+}
+
+p {
+  font-size: max(1.2rem, 1.3vw);
+  font-family: 'PT Sans';
+  margin: 5px;
+}
+
+span {
+  font-size: max(1.2rem, 1.3vw);
+  font-family: 'PT Sans';
+  margin: 0px;
+}
+
+.image {
+  display: block;
+  margin: 0px auto;
+  
+  max-height: 500px;
+  max-width: 100%;
+}
+
+
+/* Skeleton */
+.skeleton {
+  -webkit-animation: skeleton-animation 1s ease-in-out infinite alternate;
+          animation: skeleton-animation 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes skeleton-animation {
+  0% {
+    background-color: rgba(var(--skeleton-light), 0.8);
+  }
+  100% {
+    background-color: rgba(var(--skeleton-dark), 0.8);
+  }
+}
+
+@keyframes skeleton-animation {
+  0% {
+    background-color: rgba(var(--skeleton-light), 0.8);
+  }
+  100% {
+    background-color: rgba(var(--skeleton-dark), 0.8);
+  }
+}
+
+/* Scroll Bar */
+body::-webkit-scrollbar {
+  width: max(0.65rem, 0.7vw);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--black-light);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--orange-light);
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+
+  border: 0.2rem solid var(--black-light);
+  border-radius: 100vw;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  border-width: 0.15rem;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background: var(--orange-dark);
+}
+
+@supports (scrollbar-color: var(--orange-light) var(--black-light)) {
+  * {
+    scrollbar-color: var(--orange-light) var(--black-light);
+    scrollbar-width: thin;
+  }
+}
+
+/* Material-UI */
+.MuiInputBase-input.MuiOutlinedInput-input {
+  background: white;
+}
+
+
+/* Buttons Tic Tac Toe */
+.MuiButton-root.tuileTicTacToe {
+  background-color: var(--blue-light);
+  height: 100px;
+  width: 100px;
+  border-radius: 0px;
+  border: 3px solid var(--black-dark);
+}
+
+.MuiButton-text.tuileTicTacToe.Mui-disabled {
+  color: var(--black-light);
+}
+
+.MuiButton-root.tuileTicTacToe.Gagnant {
+  background-color: var(--orange-dark);
+}
+
+
+/* Other */
+.youtubePlayer {
+  aspect-ratio: 1920 / 1080;
+  width: min(100%, 700px);
+
+  margin: 20px auto;
+}
+
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+  #root {
+    padding: 1rem;
+    margin-bottom: max(5rem, 10vh);
+  }
+
+  body {
+    background-color: var(--white-light);
+  }
+}
+
+
+/* Large screens */
+@media only screen and (min-width: 600px) {
+  #root {
+    margin-left:  max(5rem, 5.5vw);
+    padding: max(2rem, 2.6vw);
+  }
+  
+  body {
+    background-color: var(--white-dark);
+  }
+}
