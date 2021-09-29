@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import OIcon from '@material-ui/icons/RadioButtonUnchecked'
 import XIcon from '@material-ui/icons/Close'
-import Typography from '@material-ui/core/Typography'
+import OIcon from '@material-ui/icons/RadioButtonUnchecked'
 
 
 const X = <XIcon fontSize="large"/>
@@ -101,10 +99,10 @@ class TicTacToe extends Component
     render()
     {
         return (
-            <Container>
+            <div class="page">
                 <Helmet><title>Tic Tac Toe - Guibi.ca</title></Helmet>
-                <Typography variant="h3">Tic Tac Toe</Typography>
-                <Typography variant="h5" style={{marginBottom: "15px"}}>Un classique</Typography>
+                <h1>Tic Tac Toe</h1>
+                <h2>Un classique</h2>
 
                 <Grid container direction="column">
                     {this.state.plateau.map((row, rowIndex) =>
@@ -118,9 +116,9 @@ class TicTacToe extends Component
                     </Grid>)}
                 </Grid>
 
-                <Typography variant="body1" style={{margin: "14px"}}>{this.state.gagnant === "" ? (this.state.joueurActuel === X ? "C'est le tour aux X." : "C'est le tour aux O.") : (this.state.gagnant === vide ? "Partie nulle !" : (this.state.gagnant === X ? "Les X ont gagné !" : "Les O ont gagné !"))}</Typography>
+                <p style={{margin: "15px"}}>{this.state.gagnant === "" ? (this.state.joueurActuel === X ? "C'est le tour aux X." : "C'est le tour aux O.") : (this.state.gagnant === vide ? "Partie nulle !" : (this.state.gagnant === X ? "Les X ont gagné !" : "Les O ont gagné !"))}</p>
                 <Button color="primary" variant="contained" className="buttonJouerTicTacToe" onClick={this.nouvellePartie}>{this.state.gagnant !== "" ? "Recommencer" : "Rejouer"}</Button>
-            </Container>
+            </div>
         )
     }
 }

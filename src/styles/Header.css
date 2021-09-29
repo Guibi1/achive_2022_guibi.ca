@@ -8,7 +8,6 @@ nav {
     position: fixed;
     overflow: hidden;
     background-color: var(--bg-primary);
-    transition: all var(--transition-time) ease;
     z-index: 200;
 }
 
@@ -33,17 +32,17 @@ nav ul {
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 5rem;
+    height: 5em;
 }
 
 .navBar-link {
     display: flex;
     align-items: center;
     flex-direction: row;
-    height: 5rem;
+    height: 5em;
     text-decoration: none;
     filter: grayscale(100%) opacity(0.7);
-    transition: 550ms;
+    transition: none 550ms ease;
 }
 
 .navBar-link:hover {
@@ -60,11 +59,16 @@ nav ul {
 }
 
 .navBar-link svg {
-    height: 3rem;
-    width: 2.5rem;
-    min-width: 2.5rem;
-    padding: 0 1.25rem;
-    transition: all var(--transition-time) ease;
+    width: 2.5em;
+    height: 3em;
+    min-width: 2.5em;
+    padding: 0 1.25em;
+    transition: transform var(--transition-time) ease, margin var(--transition-time) ease;
+}
+
+.navBar-link.logo svg {
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .navBar-text {
@@ -72,7 +76,7 @@ nav ul {
     color: var(--text-primary);
     opacity: 0;
     white-space: nowrap;
-    transition: opacity 150ms ease;
+    transition: opacity 1500ms ease;
 }
 
 nav.open .navBar-text {
@@ -84,12 +88,14 @@ nav.open .navBar-text {
     font-weight: bold;
     text-align: left;
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 1.5em;
     letter-spacing: 0.3ch;
     width: 100vw;
 
     display: inline;
     position: absolute;
+
+    transition: left var(--transition-time);
 }
 
 .fa-primary {
@@ -107,7 +113,10 @@ nav.open .navBar-text {
         left: 0;
         right: 0;
         bottom: 0;
-        height: 5rem;
+        height: 5em;
+
+        transition: height var(--transition-time) ease;
+        font-size: max(1rem, 2vh);
     }
     
     nav.open {
@@ -122,13 +131,12 @@ nav.open .navBar-text {
     }
 
     .navBar-text.logo {
-        left: 120vw;
-        transition-delay: var(--transition-time);
-        transition: var(--transition-time);
+        left: 150vw;
+        transition-delay: var(--transition-time) / 2;
     }
 
     nav.open .navBar-text.logo {
-        left: 5rem;
+        left: 3.3em;
     }
     
     nav.open .navBar-link.logo svg {
@@ -143,11 +151,14 @@ nav.open .navBar-text {
         left: 0;
         top: 0;
         bottom: 0;
-        width: 5rem;
+        width: 5em;
+
+        transition: width var(--transition-time) ease;
+        font-size: max(1.2rem, 1.3vw);
     }
 
     nav.open {
-        width: 17rem;
+        width: 17em;
     }
 
     nav ul {
@@ -156,16 +167,15 @@ nav.open .navBar-text {
  
     .navBar-text.logo {
         left: -999px;
-        transition: var(--transition-time);
     }
 
     nav.open .navBar-text.logo {
-        left: 2.5rem;
+        left: 2.5em;
     }
     
     nav.open .navBar-link.logo svg {
         transform: rotate(-270deg);
-        margin-left: 12rem;
+        margin-left: 12em;
     }
 }
 
@@ -173,7 +183,7 @@ nav.open .navBar-text {
 /* Scroll Bar */
 
 nav::-webkit-scrollbar {
-    width: 0.3rem;
+    width: 0.4em;
 }
   
 nav::-webkit-scrollbar-track {
@@ -181,12 +191,20 @@ nav::-webkit-scrollbar-track {
 }
   
 nav::-webkit-scrollbar-thumb {
-    background: var(--orange-primary);
+    background: var(--orange-light);
     transition: all 200ms ease;
+
+    border: 0.1em solid var(--black-light);
+    border-radius: 100vw;
 }
   
 nav::-webkit-scrollbar-thumb:active {
-    background: var(--orange-secondary);
+    background: var(--orange-dark);
 }
-  
-  
+
+@supports (scrollbar-color: var(--orange-light) var(--black-light)) {
+    * {
+      scrollbar-color: var(--orange-light) var(--black-light);
+      scrollbar-width: thin;
+    }
+  }

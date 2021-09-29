@@ -1,6 +1,7 @@
 :root {
   font-size: 16px;
   font-family: 'Open Sans';
+  font-weight: 400;
 
   /* var */
   --white-light: #FFFCF2;
@@ -18,6 +19,39 @@
 
 body {
   text-align: center;
+  margin: 0px;
+}
+
+div.page {
+  padding: 15px;
+  margin: auto;
+  height: max(100%, 90vh);
+  width: auto;
+  background-color: var(--white-light);
+}
+
+h1 {
+  font-size: max(3.4rem, 3.8vw);
+  font-weight: 400;
+  line-height: 1.16;
+  margin: 0px;
+}
+
+h2 {
+  font-size: max(1.7rem, 1.8vw);
+  font-weight: 400;
+  margin: 0px 0px 15px 0px;
+}
+
+p {
+  font-size: max(1.2rem, 1.3vw);
+  font-family: 'PT Sans';
+  margin: 5px;
+}
+
+span {
+  font-size: max(1.2rem, 1.3vw);
+  font-family: 'PT Sans';
   margin: 0px;
 }
 
@@ -46,7 +80,7 @@ body {
 
 /* Scroll Bar */
 body::-webkit-scrollbar {
-  width: 0.65rem;
+  width: max(0.65rem, 0.7vw);
 }
 
 body::-webkit-scrollbar-track {
@@ -57,7 +91,6 @@ body::-webkit-scrollbar-thumb {
   background: var(--orange-light);
   transition: all 200ms ease;
 
-  padding-top: 10rem;
   border: 0.2rem solid var(--black-light);
   border-radius: 100vw;
 }
@@ -70,25 +103,14 @@ body::-webkit-scrollbar-thumb:active {
   background: var(--orange-dark);
 }
 
-@supports (scrollbar-color: red red) {
+@supports (scrollbar-color: var(--orange-light) var(--black-light)) {
   * {
     scrollbar-color: var(--orange-light) var(--black-light);
     scrollbar-width: thin;
   }
 }
 
-
 /* Material-UI */
-.MuiContainer-root {
-  padding: 15px;
-  height: 100%;
-  background-color: var(--white-light);
-}
-
-.MuiToolbar-root {
-  background-color: var(--bleu);
-}
-
 .MuiInputBase-input.MuiOutlinedInput-input {
   background: white;
 }
@@ -114,9 +136,8 @@ body::-webkit-scrollbar-thumb:active {
 
 /* Other */
 .youtubePlayer {
-  max-height: 360px;
-  width: 100%;
-  max-width: 640px;
+  aspect-ratio: 1920 / 1080;
+  width: min(100%, 700px);
 
   margin: 20px auto;
 }
@@ -126,7 +147,7 @@ body::-webkit-scrollbar-thumb:active {
 @media only screen and (max-width: 600px) {
   #root {
     padding: 1rem;
-    margin-bottom: 5rem;
+    margin-bottom: max(5rem, 10vh);
   }
 
   body {
@@ -138,8 +159,8 @@ body::-webkit-scrollbar-thumb:active {
 /* Large screens */
 @media only screen and (min-width: 600px) {
   #root {
-    margin-left: 5rem;
-    padding: 3rem;
+    margin-left:  max(6rem, 6.5vw);
+    padding: max(2rem, 2.6vw);
   }
   
   body {

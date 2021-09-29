@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
 
 
 class StonksTicker extends Component
@@ -9,11 +7,11 @@ class StonksTicker extends Component
     render ()
     {
         return (
-            <Container>
+            <div class="page">
                 <Helmet><title>Stonks Ticker - Guibi.ca</title></Helmet>
-                <Typography variant="h3">Stonks Ticker</Typography>
-                <Typography variant="h5" style={{marginBottom: "10px"}}>Stocks Ticker avec vos amis</Typography>
-            </Container>
+                <h1>Stonks Ticker</h1>
+                <h2>Stocks Ticker avec vos amis</h2>
+            </div>
         )
     }
 }

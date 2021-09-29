@@ -10,7 +10,7 @@ const StonksTicker = loadable(() => import("./components/StonksTicker/StonksTick
 const ServeurFabric = loadable(() => import("./components/Minecraft/ServeurFabric"))
 const ServeurForge = loadable(() => import("./components/Minecraft/ServeurForge"))
 const Calcul = loadable(() => import("./components/Calcul/Calcul"))
-const TicTacToe = loadable(() => import("./components/TicTacToe"))
+const TicTacToe = loadable(() => import("./components/TicTacToe/TicTacToe"))
 const Consequences = loadable(() => import("./components/Consequences/Consequences"))
 
 

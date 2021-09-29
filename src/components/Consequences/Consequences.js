@@ -4,9 +4,7 @@ import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
-import Container from '@material-ui/core/Container'
 import TextField from '@material-ui/core/TextField'
-import Typography from '@material-ui/core/Typography'
 
 import défis from "./défis.txt"
 
@@ -110,16 +108,16 @@ export default class Consequences extends Component
     render()
     {
         return (
-            <Container>
+            <div class="page">
                 <Helmet><title>Conséquences - Guibi.ca</title></Helmet>
-                <Typography variant="h3">Conséquences</Typography>
-                <Typography variant="h5" style={{marginBottom: "15px"}}>Vérité ou conséquence... sans vérité</Typography>
+                <h1>Conséquences</h1>
+                <h2>Vérité ou conséquence... sans vérité</h2>
 
                 {this.state.joueursChoisis ?
                     (this.state.partieTerminée ?
                         <Grid container direction="column" spacing={2}>
                             <Grid item>
-                                <Typography variant="h6">Partie terminée !</Typography>
+                                <h3>Partie terminée !</h3>
                             </Grid>
                             <Grid item>
                                 <Button onClick={this.rejouer} variant="contained" color="primary" style={{fontSize: "18px", width: "100%", maxWidth:"250px"}}>Rejouer</Button>
@@ -130,12 +128,12 @@ export default class Consequences extends Component
                         </Grid> :
                         <Grid container direction="column" spacing={2}>
                             <Grid item>
-                                <Typography variant="h6">C'est le tour de {this.state.joueurActuel}</Typography>
-                                <Typography variant="body1">{this.state.défiActuel}</Typography>
+                                <h3>C'est le tour de {this.state.joueurActuel}</h3>
+                                <p>{this.state.défiActuel}</p>
                             </Grid>
                             <Grid item>
                                 <Button onClick={this.brasserDe} variant="outlined" color="secondary">Brasser le dé</Button>
-                                {this.state.joueurDé !== "" ? <Typography variant="body1" style={{marginTop: "5px"}}>Le dé a choisi {this.state.joueurDé} !</Typography> : null}
+                                {this.state.joueurDé !== "" ? <p>Le dé a choisi {this.state.joueurDé} !</p> : null}
                             </Grid>
                             <Grid item>
                                 <Button onClick={this.nouveauDéfi} variant="contained" color="primary" style={{fontSize: "18px", width: "100%", maxWidth:"250px"}}>Prochain défi</Button>
@@ -161,7 +159,7 @@ export default class Consequences extends Component
                             <Button xs={6} variant="contained" color="primary" onClick={this.confirmerJoueurs} style={{fontSize: "18px", width: "100%", maxWidth:"350px"}}>Jouer</Button>
                         </Grid>
                 </React.Fragment>}
-            </Container>
+            </div>
         )
     }
 }

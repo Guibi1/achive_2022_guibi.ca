@@ -1,19 +1,17 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import YouTube from 'react-youtube'
 import { saveAs } from 'file-saver'
-import Container from '@material-ui/core/Container'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
-import Box from '@material-ui/core/Box'
+import YouTube from 'react-youtube'
 import SwipeableViews from 'react-swipeable-views'
-import ArrowList from '@material-ui/icons/SubdirectoryArrowRightTwoTone'
+import Box from '@material-ui/core/Box'
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
+import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
 import Snackbar from '@material-ui/core/Snackbar'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
-import Paper from '@material-ui/core/Paper'
-import Typography from '@material-ui/core/Typography'
+import ArrowList from '@material-ui/icons/SubdirectoryArrowRightTwoTone'
 
 
 class Minecraft extends Component
@@ -57,17 +55,17 @@ class Minecraft extends Component
     render()
     {
         return (
-            <Container>
+            <div class="page">
                 <Helmet><title>Serveur Minecraft Forge - Guibi.ca</title></Helmet>
-                <Typography variant="h3">Serveur Minecraft Forge</Typography>
-                <Typography variant="h5" style={{marginBottom: "10px"}}>Une aventure sans fin</Typography>
-                <Typography varient="body1">Mes amis et moi jouons sur un monde Survie Minecraft depuis le 11 mars 2020. Voici une cinématique de ce que nous avons bâti jusqu'à présent :</Typography>
+                <h1>Serveur Minecraft Forge</h1>
+                <h2>Une aventure sans fin</h2>
+                <p>Mes amis et moi jouons sur un monde Survie Minecraft depuis le 11 mars 2020. Voici une cinématique de ce que nous avons bâti jusqu'à présent :</p>
+                
                 <YouTube videoId="TPkIAVGCtXI" opts={{ playerVars: {autoplay: 1} }} className="youtubePlayer"/>
-            
-                <Typography varient="body1">Vous pouvez vous connecter et visiter notre monde en mode spectateur !</Typography>
+                <p>Vous pouvez vous connecter et visiter notre monde en mode spectateur !</p>
 
                 <Paper style={{maxWidth: "800px", margin: "10px auto"}}>
-                    <Box border={1.5} borderColor="secondary.main" borderRadius="borderRadius">
+                    <Box border={2} borderColor="secondary.main" borderRadius="borderRadius">
                         <Tabs value={this.state.tabValue} onChange={this.handleChange} variant="fullWidth">
                             <Tab label="Avec GD Launcher"/>
                             <Tab label="Avec un autre launcher"/>
@@ -138,7 +136,7 @@ class Minecraft extends Component
                                 <CloseIcon fontSize="small" />
                             </IconButton>}>
                 </Snackbar>
-            </Container>
+            </div>
         )
     }
 }

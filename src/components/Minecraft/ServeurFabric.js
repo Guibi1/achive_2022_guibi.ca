@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import { saveAs } from 'file-saver'
-import Container from '@material-ui/core/Container'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
-import Box from '@material-ui/core/Box'
 import SwipeableViews from 'react-swipeable-views'
-import ArrowList from '@material-ui/icons/SubdirectoryArrowRightTwoTone'
+import Box from '@material-ui/core/Box'
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
+import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
 import Snackbar from '@material-ui/core/Snackbar'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
-import Paper from '@material-ui/core/Paper'
-import Typography from '@material-ui/core/Typography'
+import ArrowList from '@material-ui/icons/SubdirectoryArrowRightTwoTone'
 
 
 class Minecraft extends Component
@@ -56,16 +54,15 @@ class Minecraft extends Component
     render()
     {
         return (
-            <Container>
+            <div class="page">
                 <Helmet><title>Serveur Minecraft Fabric - Guibi.ca</title></Helmet>
-                <Typography variant="h3">Serveur Minecraft Fabric</Typography>
-                <Typography variant="h5" style={{marginBottom: "10px"}}>Une exploration sans limite</Typography>
-                <Typography varient="body1">Mes amis et moi avons commencé un nouveaux monde Survie Minecraft le 12 juin 2021.</Typography>
-            
-                <Typography varient="body1">Vous pouvez vous connecter et visiter notre monde en mode spectateur !</Typography>
+                <h1>Serveur Minecraft Fabric</h1>
+                <h2>Une exploration sans limite</h2>
+                <p>Mes amis et moi avons commencé un nouveaux monde Survie Minecraft le 12 juin 2021.</p>
+                <p>Vous pouvez vous connecter et visiter notre monde en mode spectateur !</p>
 
                 <Paper style={{maxWidth: "800px", margin: "10px auto"}}>
-                    <Box border={1.5} borderColor="secondary.main" borderRadius="borderRadius">
+                    <Box border={2} borderColor="secondary.main" borderRadius="borderRadius">
                         <Tabs value={this.state.tabValue} onChange={this.handleChange} variant="fullWidth">
                             <Tab label="Avec GD Launcher"/>
                             <Tab label="Avec un autre launcher"/>
@@ -89,7 +86,7 @@ class Minecraft extends Component
                                     <ArrowList fontSize="small"/>
                                     <span>Entrez l'adresse située ci-dessous;</span>
                                 </span>
-                                <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("https://guibi.ca/files/configServeurFabric.zip")} style={{margin: "10px"}}>Copier l'adresse</Button>
+                                <Button color="primary" variant="outlined" onClick={() => this.handleCopy("https://guibi.ca/files/configServeurFabric.zip")} style={{margin: "10px"}}>Copier l'adresse</Button>
                                 <span style={{display: 'flex', justifyContent: "center"}}>
                                     <ArrowList fontSize="small"/>
                                     <span>Appuyez sur la flèche en bas à droite jusqu'à ce que les téléchargements débutent;</span>
@@ -124,7 +121,7 @@ class Minecraft extends Component
                                     <ArrowList fontSize="small"/>
                                     <span>Téléchargez les mods requis ci-dessous;</span>
                                 </span>
-                                <Button color="secondary" variant="outlined" onClick={this.handleDownload} style={{margin: "10px"}}>Télécharger les mods</Button>
+                                <Button color="primary" variant="outlined" onClick={this.handleDownload} style={{margin: "10px"}}>Télécharger les mods</Button>
                                 <span style={{display: 'flex', justifyContent: "center"}}>
                                     <ArrowList fontSize="small"/>
                                     <span>Extractez les mods du fichier .zip dans le dossier ".minecraft/mods";</span>
@@ -145,7 +142,7 @@ class Minecraft extends Component
                                     <ArrowList fontSize="small"/>
                                     <span>Allez dans l'onglet Multijoueur et ajoutez notre serveur avec l'adresse ci-dessous !</span>
                                 </span>
-                                <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("minecraft.guibi.ca")} style={{margin: "10px"}}>Copier l'adresse</Button>
+                                <Button color="primary" variant="outlined" onClick={() => this.handleCopy("minecraft.guibi.ca")} style={{margin: "10px"}}>Copier l'adresse</Button>
                             </div>
                         </SwipeableViews>
                     </Box>
@@ -156,7 +153,7 @@ class Minecraft extends Component
                                 <CloseIcon fontSize="small" />
                             </IconButton>}>
                 </Snackbar>
-            </Container>
+            </div>
         )
     }
 }
