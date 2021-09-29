@@ -154,7 +154,7 @@ nav.open .navBar-text {
         width: 5em;
 
         transition: width var(--transition-time) ease;
-        font-size: max(1.2rem, 1.3vw);
+        font-size: max(1rem, 1.1vw);
     }
 
     nav.open {
