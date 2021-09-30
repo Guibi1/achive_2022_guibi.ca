@@ -31,26 +31,26 @@ div.page {
 }
 
 h1 {
-  font-size: max(3.4rem, 3.8vw);
+  font-size: max(3.4em, 3.8vw);
   font-weight: 400;
   line-height: 1.16;
   margin: 0px;
 }
 
 h2 {
-  font-size: max(1.7rem, 1.8vw);
+  font-size: max(1.7em, 1.8vw);
   font-weight: 400;
   margin: 0px 0px 15px 0px;
 }
 
 p {
-  font-size: max(1.2rem, 1.3vw);
+  font-size: max(1.2em, 1.3vw);
   font-family: 'PT Sans';
   margin: 5px;
 }
 
 span {
-  font-size: max(1.2rem, 1.3vw);
+  font-size: max(1.2em, 1.3vw);
   font-family: 'PT Sans';
   margin: 0px;
 }
