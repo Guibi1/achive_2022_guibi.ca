@@ -22,7 +22,7 @@ class Calcul extends Component
     render ()
     {
         return (
-            <div class="page">
+            <div className="page">
                 <Helmet><title>Calcul - Guibi.ca</title></Helmet>
                 <h1>Calcul</h1>
                 <h2>Découvrez une nouvelle façon de pratiquer ses tables</h2>

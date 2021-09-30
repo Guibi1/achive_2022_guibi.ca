@@ -108,7 +108,7 @@ export default class Consequences extends Component
     render()
     {
         return (
-            <div class="page">
+            <div className="page">
                 <Helmet><title>Conséquences - Guibi.ca</title></Helmet>
                 <h1>Conséquences</h1>
                 <h2>Vérité ou conséquence... sans vérité</h2>

@@ -99,7 +99,7 @@ class TicTacToe extends Component
     render()
     {
         return (
-            <div class="page">
+            <div className="page">
                 <Helmet><title>Tic Tac Toe - Guibi.ca</title></Helmet>
                 <h1>Tic Tac Toe</h1>
                 <h2>Un classique</h2>

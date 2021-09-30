@@ -55,7 +55,7 @@ class Minecraft extends Component
     render()
     {
         return (
-            <div class="page">
+            <div className="page">
                 <Helmet><title>Serveur Minecraft Forge - Guibi.ca</title></Helmet>
                 <h1>Serveur Minecraft Forge</h1>
                 <h2>Une aventure sans fin</h2>
