@@ -147,8 +147,8 @@ export default class Consequences extends Component
                             <Box border={1.5} borderColor="primary.main" borderRadius="borderRadius">
                                     <Button variant="contained" color="primary" onClick={this.addJoueur} style={{margin: "10px"}}>Ajouter un joueur</Button>
                                     {this.state.joueurs.map((nom, index) =>
-                                    <Grid container direction="row" key={index} justify="center">
-                                        <Grid item wrap="nowrap" style={{margin: "10px"}}>
+                                    <Grid container wrap="nowrap" direction="row" key={index} justifyContent="center">
+                                        <Grid item style={{margin: "10px"}}>
                                             <TextField size="small" variant="outlined" label={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></TextField>
                                             <Button variant="outlined" color="secondary" onClick={() => this.deleteJoueur(index)} style={{height: "40px", marginLeft: "4px"}}>Supprimer</Button>
                                         </Grid>
