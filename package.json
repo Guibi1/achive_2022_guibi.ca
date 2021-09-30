@@ -22,8 +22,8 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "build:css": "postcss ./src/styles/ -d ./src/processedStyles/",
-    "watch:css": "postcss ./src/styles/ -d ./src/processedStyles/ -w",
+    "build:css": "postcss ./src/index.css -o ./src/processedIndex.css",
+    "watch:css": "postcss ./src/index.css -o ./src/processedIndex.css -w",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch:css start-js",
     "build": "react-scripts build",
