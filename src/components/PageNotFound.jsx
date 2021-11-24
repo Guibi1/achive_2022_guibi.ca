@@ -10,10 +10,14 @@ class PageNotFound extends Component
         return (
             <div className="page">
                 <Helmet><title>404 - Guibi.ca</title></Helmet>
-                <h1>404</h1>
-                <h2>Si proche de 200...</h2>
+                <div className="title">
+                    <h1>404</h1>
+                    <h2>Si proche de 200...</h2>
+                </div>
 
-                <Link to="/">Retour vers l'accueil</Link>
+                <div className="section">
+                    <Link to="/">Retour vers l'accueil</Link>
+                </div>
             </div>
         );
     }
