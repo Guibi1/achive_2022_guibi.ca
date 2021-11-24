@@ -106,20 +106,24 @@ class TicTacToe extends Component
                     <h2>Un classique</h2>
                 </div>
 
-                <Grid container direction="column">
-                    {this.state.plateau.map((row, rowIndex) =>
-                    <Grid item container alignItems="center" justifyContent="center" wrap="nowrap" key={rowIndex}>
-                        {row.map((element, index) =>
-                        <Grid item key={index}>
-                            <Button disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe Gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)}>
-                                {element}
-                            </Button>
+                <div className="section">
+                    <Grid container direction="column">
+                        {this.state.plateau.map((row, rowIndex) =>
+                        <Grid item container alignItems="center" justifyContent="center" wrap="nowrap" key={rowIndex}>
+                            {row.map((element, index) =>
+                            <Grid item key={index}>
+                                <Button disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe Gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)}>
+                                    {element}
+                                </Button>
+                            </Grid>)}
                         </Grid>)}
-                    </Grid>)}
-                </Grid>
+                    </Grid>
 
-                <p style={{margin: "15px"}}>{this.state.gagnant === "" ? (this.state.joueurActuel === X ? "C'est le tour aux X." : "C'est le tour aux O.") : (this.state.gagnant === vide ? "Partie nulle !" : (this.state.gagnant === X ? "Les X ont gagné !" : "Les O ont gagné !"))}</p>
-                <Button color="primary" variant="contained" className="buttonJouerTicTacToe" onClick={this.nouvellePartie}>{this.state.gagnant !== "" ? "Recommencer" : "Rejouer"}</Button>
+                    <div className="separator"/>
+
+                    <p style={{margin: "15px"}}>{this.state.gagnant === "" ? (this.state.joueurActuel === X ? "C'est le tour aux X." : "C'est le tour aux O.") : (this.state.gagnant === vide ? "Partie nulle !" : (this.state.gagnant === X ? "Les X ont gagné !" : "Les O ont gagné !"))}</p>
+                    <Button color="primary" variant="contained" className="buttonJouerTicTacToe" onClick={this.nouvellePartie}>{this.state.gagnant !== "" ? "Recommencer" : "Rejouer"}</Button>
+                </div>
             </div>
         )
     }

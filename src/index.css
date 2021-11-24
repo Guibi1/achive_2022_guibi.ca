@@ -65,6 +65,10 @@ div.section {
   padding: 3em var(--section-padding-side);
 }
 
+div.separator {
+  height: 2em;
+}
+
 div.gray {
   background-color: var(--light-gray);
   color: var(--white);
