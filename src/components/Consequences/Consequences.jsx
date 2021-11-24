@@ -110,8 +110,10 @@ export default class Consequences extends Component
         return (
             <div className="page">
                 <Helmet><title>Conséquences - Guibi.ca</title></Helmet>
-                <h1>Conséquences</h1>
-                <h2>Vérité ou conséquence... sans vérité</h2>
+                <div className="title">
+                    <h1>Conséquences</h1>
+                    <h2>Vérité ou conséquence... sans vérité</h2>
+                </div>
 
                 {this.state.joueursChoisis ?
                     (this.state.partieTerminée ?

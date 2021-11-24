@@ -101,8 +101,10 @@ class TicTacToe extends Component
         return (
             <div className="page">
                 <Helmet><title>Tic Tac Toe - Guibi.ca</title></Helmet>
-                <h1>Tic Tac Toe</h1>
-                <h2>Un classique</h2>
+                <div className="title">
+                    <h1>Tic Tac Toe</h1>
+                    <h2>Un classique</h2>
+                </div>
 
                 <Grid container direction="column">
                     {this.state.plateau.map((row, rowIndex) =>

@@ -57,8 +57,11 @@ class Minecraft extends Component
         return (
             <div className="page">
                 <Helmet><title>Serveur Minecraft Forge - Guibi.ca</title></Helmet>
-                <h1>Serveur Minecraft Forge</h1>
-                <h2>Une aventure sans fin</h2>
+                <div className="title">
+                    <h1>Serveur Minecraft Forge</h1>
+                    <h2>Une aventure sans fin</h2>
+                </div>
+
                 <p>Mes amis et moi jouons sur un monde Survie Minecraft depuis le 11 mars 2020. Voici une cinématique de ce que nous avons bâti jusqu'à présent :</p>
                 
                 <YouTube videoId="TPkIAVGCtXI" opts={{ playerVars: {autoplay: 1} }} className="youtubePlayer"/>

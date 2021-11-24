@@ -24,8 +24,11 @@ class Calcul extends Component
         return (
             <div className="page">
                 <Helmet><title>Calcul - Guibi.ca</title></Helmet>
-                <h1>Calcul</h1>
-                <h2>Découvrez une nouvelle façon de pratiquer ses tables</h2>
+                <div className="title">
+                    <h1>Calcul</h1>
+                    <h2>Découvrez une nouvelle façon de pratiquer ses tables</h2>
+                </div>
+
                 <Grid container>
                     <Grid item xs={12} style={{ margin: "auto", padding: "20px", textAlign: "left"}}>
                         <img src={ImageNormal} className="image skeleton" alt="L'interface de calcul"/>

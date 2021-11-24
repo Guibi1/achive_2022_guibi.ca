@@ -56,8 +56,11 @@ class Minecraft extends Component
         return (
             <div className="page">
                 <Helmet><title>Serveur Minecraft Fabric - Guibi.ca</title></Helmet>
-                <h1>Serveur Minecraft Fabric</h1>
-                <h2>Une exploration sans limite</h2>
+                <div className="title">
+                    <h1>Serveur Minecraft Fabric</h1>
+                    <h2>Une exploration sans limite</h2>
+                </div>
+                
                 <p>Mes amis et moi avons commencé un nouveaux monde Survie Minecraft le 12 juin 2021.</p>
                 <p>Vous pouvez vous connecter et visiter notre monde en mode spectateur !</p>
 

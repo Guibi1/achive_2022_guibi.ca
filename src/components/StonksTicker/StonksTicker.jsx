@@ -9,8 +9,11 @@ class StonksTicker extends Component
         return (
             <div className="page">
                 <Helmet><title>Stonks Ticker - Guibi.ca</title></Helmet>
-                <h1>Stonks Ticker</h1>
-                <h2>Stocks Ticker avec vos amis</h2>
+                <div className="title">
+                    <h1>Stonks Ticker</h1>
+                    <h2>Stocks Ticker avec vos amis</h2>
+                </div>
+
             </div>
         )
     }

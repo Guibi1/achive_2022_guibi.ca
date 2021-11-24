@@ -9,8 +9,11 @@ export default class Accueil extends Component
         return (
             <div className="page">
                 <Helmet><title>Accueil - Guibi.ca</title></Helmet>
-                <h1>Accueil</h1>
-                <h2>Bienvenue sur Guibi.ca</h2>
+                <div className="title">
+                    <h1>Accueil</h1>
+                    <h2>Bienvenue sur Guibi.ca</h2>
+                </div>
+                
             </div>
         )
     }

@@ -1,24 +1,21 @@
 /* ----- GENERAL ----- */
 
-:root {
+html {
   font-size: 16px;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-weight: 400;
+  background-color: var(--white);
 
   /* var */
-  --white-light: #FFFCF2;
-  --white-dark: #CCC5B9;
-  --black-light: #201F1D;
-  --black-dark: #151513;
-  --orange-light: #EF8257;
-  --orange-dark: #EA591F;
-  --blue-light: #485678;
-  --blue-dark: #3E517B;
+  --purple: #8a1fff;
+  --light-purple: #b36bff;
+  --white: #ffffff;
+  --light-gray: #666667;
+  --dark-gray: #201f1d;
+  --black: #151513;
 
   --skeleton-light: 207, 205, 201;
   --skeleton-dark: 148, 145, 137;
-
-  --mobile-screen: 600px;
 }
 
 body {
@@ -26,54 +23,85 @@ body {
   margin: 0px;
 }
 
+div {
+  font-size: max(1.2rem, 1.3vw);
+  font-family: "PT Sans";
+
+  --section-padding-side: max(10rem, 11vw);
+}
+
 div.page {
-  padding: 15px;
   margin: auto;
   height: max(100%, 90vh);
   width: auto;
-  background-color: var(--white-light);
 }
 
-h1 {
-  font-size: max(3.4em, 3.8vw);
-  font-weight: 400;
+div.title {
+  margin: max(3rem, 3.9vw) var(--section-padding-side) 0px;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 0.08em solid var(--dark-gray);
+}
+
+div.title > h1 {
+  font-size: max(6.8rem, 3.8vw);
+  font-weight: 600;
   line-height: 1.16;
   margin: 0px;
 }
 
-h2 {
-  font-size: max(1.7em, 1.8vw);
+div.title > h2 {
+  font-size: max(1.7rem, 1.8vw);
   font-weight: 400;
-  margin: 0px 0px 15px 0px;
+  margin: auto 0em 0.5em 0em;
+  height: fit-content;
+}
+
+div.section {
+  width: auto;
+
+  padding: 3em var(--section-padding-side);
+}
+
+div.gray {
+  background-color: var(--light-gray);
+  color: var(--white);
+}
+
+div.purple-border {
+  border: max(0.7rem, 0.77vw) solid var(--light-purple);
+  padding: max(2rem, 2.2vw);
 }
 
 p {
-  font-size: max(1.2em, 1.3vw);
-  font-family: 'PT Sans';
+  font-size: max(1.2rem, 1.3vw);
+  font-family: "PT Sans";
   margin: 5px;
 }
 
 span {
-  font-size: max(1.2em, 1.3vw);
-  font-family: 'PT Sans';
+  font-size: max(1.2rem, 1.3vw);
+  font-family: "PT Sans";
   margin: 0px;
 }
 
-.image {
+
+/* Image */
+img {
   display: block;
   margin: 0px auto;
-  
+
   max-height: 500px;
   max-width: 100%;
 }
 
-
-/* Skeleton */
-.skeleton {
-  animation: skeleton-animation 1s ease-in-out infinite alternate;
+img.skeleton {
+  animation: img-skeleton-animation 1s ease-in-out infinite alternate;
 }
 
-@keyframes skeleton-animation {
+@keyframes img-skeleton-animation {
   0% {
     background-color: rgba(var(--skeleton-light), 0.8);
   }
@@ -88,14 +116,14 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--black-light);
+  background: var(--dark-gray);
 }
 
 body::-webkit-scrollbar-thumb {
-  background: var(--orange-light);
+  background: var(--light-purple);
   transition: all 200ms ease;
 
-  border: 0.2rem solid var(--black-light);
+  border: 0.2rem solid var(--dark-gray);
   border-radius: 100vw;
 }
 
@@ -104,12 +132,12 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 body::-webkit-scrollbar-thumb:active {
-  background: var(--orange-dark);
+  background: var(--purple);
 }
 
-@supports (scrollbar-color: var(--orange-light) var(--black-light)) {
+@supports (scrollbar-color: var(--light-purple) var(--dark-gray)) {
   * {
-    scrollbar-color: var(--orange-light) var(--black-light);
+    scrollbar-color: var(--light-purple) var(--dark-gray);
     scrollbar-width: thin;
   }
 }
@@ -119,24 +147,22 @@ body::-webkit-scrollbar-thumb:active {
   background: white;
 }
 
-
 /* Buttons Tic Tac Toe */
 .MuiButton-root.tuileTicTacToe {
-  background-color: var(--blue-light);
+  background-color: var(--light-purple);
   height: 100px;
   width: 100px;
   border-radius: 0px;
-  border: 3px solid var(--black-dark);
+  border: 3px solid var(--black);
 }
 
 .MuiButton-text.tuileTicTacToe.Mui-disabled {
-  color: var(--black-light);
+  color: var(--dark-gray);
 }
 
 .MuiButton-root.tuileTicTacToe.Gagnant {
-  background-color: var(--orange-dark);
+  background-color: var(--purple);
 }
-
 
 /* Other */
 .youtubePlayer {
@@ -146,43 +172,50 @@ body::-webkit-scrollbar-thumb:active {
   margin: 20px auto;
 }
 
-
 /* Small screens */
-@media only screen and (max-width: 600px) {
-  #root {
-    padding: 1rem;
+@media only screen and (max-width: 800px) {
+  div#root {
     margin-bottom: max(5rem, 10vh);
   }
 
-  body {
-    background-color: var(--white-light);
+  div.title {
+    flex-direction: column;
+  }
+
+  div.title > h1 {
+    text-align: center;
+  }
+
+  div.title > h2 {
+    text-align: center;
   }
 }
 
-
 /* Large screens */
-@media only screen and (min-width: 600px) {
-  #root {
-    margin-left:  max(5rem, 5.5vw);
-    padding: max(2rem, 2.6vw);
+@media only screen and (min-width: 800px) {
+  div#root {
+    margin-left: max(5rem, 5.5vw);
   }
-  
-  body {
-    background-color: var(--white-dark);
+
+  div.title > h1 {
+    text-align: left;
+    margin-right: max(2rem, 2.2vw);
+  }
+
+  div.title > h2 {
+    text-align: right;
   }
 }
 
 /* ----- GENERAL END ----- */
 
-
-
 /* ----- HEADER ----- */
 
 nav {
-  --text-light: var(--white-light);
+  --text-light: var(--white);
   --text-dark: var(--white-dark);
-  --bg-light: var(--black-light);
-  --bg-dark: var(--black-dark);
+  --bg-light: var(--dark-gray);
+  --bg-dark: var(--black);
   --transition-time: 450ms;
 
   position: fixed;
@@ -237,7 +270,8 @@ nav svg {
   height: 3em;
   min-width: 2.5em;
   padding: 0 1.25em;
-  transition: transform var(--transition-time) ease, margin var(--transition-time) ease;
+  transition: transform var(--transition-time) ease,
+    margin var(--transition-time) ease;
 }
 
 nav a.logo > svg {
@@ -272,11 +306,11 @@ nav a.logo > span {
 }
 
 nav svg .fa-light {
-  color: var(--orange-light);
+  color: var(--light-purple);
 }
 
 nav svg .fa-dark {
-  color: var(--orange-dark);
+  color: var(--purple);
 }
 
 nav li:last-child {
@@ -326,80 +360,77 @@ nav li:last-child svg {
   padding: 0;
 }
 
-
 /* Small screens */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   nav {
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 5em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 5em;
 
-      transition: height var(--transition-time) ease;
-      font-size: max(1rem, 2vh);
+    transition: height var(--transition-time) ease;
+    font-size: max(1rem, 2vh);
   }
-  
+
   nav.open {
-      height: 100vh;
-      max-height: -webkit-fill-available;
-      max-height: -moz-available;
-      max-height: stretch;
+    height: 100vh;
+    max-height: -webkit-fill-available;
+    max-height: -moz-available;
+    max-height: stretch;
   }
-      
+
   nav > ul {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   nav a.logo > span {
-      left: 101vw;
-      transition-delay: calc(var(--transition-time) / 2);
-      transition-duration: calc(var(--transition-time) / 2);
+    left: 101vw;
+    transition-delay: calc(var(--transition-time) / 2);
+    transition-duration: calc(var(--transition-time) / 2);
   }
 
   nav.open a.logo > span {
-      left: 3.3em;
+    left: 3.3em;
   }
-  
+
   nav.open a.logo > svg {
-      transform: rotate(90deg);
+    transform: rotate(90deg);
   }
 }
 
-
 /* Large screens */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
   nav {
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 5em;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5em;
 
-      transition: width var(--transition-time) ease;
-      font-size: max(1rem, 1.1vw);
+    transition: width var(--transition-time) ease;
+    font-size: max(1rem, 1.1vw);
   }
 
   nav.open {
-      width: 17em;
+    width: 17em;
   }
 
   nav ul {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   nav a.logo > span {
-      left: -999px;
+    left: -999px;
   }
 
   nav.open a.logo > span {
-      left: 2.5em;
+    left: 2.5em;
   }
-  
+
   nav.open a.logo > svg {
-      transform: rotate(-270deg);
-      margin-left: 12em;
+    transform: rotate(-270deg);
+    margin-left: 12em;
   }
 }
-
 
 /* Scroll Bar */
 
@@ -412,20 +443,20 @@ nav::-webkit-scrollbar-track {
 }
 
 nav::-webkit-scrollbar-thumb {
-  background: var(--orange-light);
+  background: var(--light-purple);
   transition: all 200ms ease;
 
-  border: 0.1em solid var(--black-light);
+  border: 0.1em solid var(--dark-gray);
   border-radius: 100vw;
 }
 
 nav::-webkit-scrollbar-thumb:active {
-  background: var(--orange-dark);
+  background: var(--purple);
 }
 
-@supports (scrollbar-color: var(--orange-light) var(--black-light)) {
+@supports (scrollbar-color: var(--light-purple) var(--dark-gray)) {
   nav {
-    scrollbar-color: var(--orange-light) var(--black-light);
+    scrollbar-color: var(--light-purple) var(--dark-gray);
     scrollbar-width: thin;
   }
 }
