@@ -74,7 +74,7 @@ class ServeursMinecraft extends Component
                             <li>Ajoutez une instance en cliquant sur le plus en bas à gauche de la fenêtre</li>
                             <li>Naviguez jusqu'à l'onget d'ajout à partir d'un fichier .zip</li>
                             <li>Entrez l'adresse située ci-dessous</li>
-                            <div className="flex-button">
+                            <div className="flex spaced">
                                 <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("https://guibi.ca/files/configServeurForge.zip")}>Serveur médiéval</Button>
                                 <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("https://guibi.ca/files/configServeurFabric.zip")}>Serveur survie</Button>
                             </div>
@@ -89,14 +89,14 @@ class ServeursMinecraft extends Component
                             <h2>Autres Launcher</h2>
                             <li>Installez Forge depuis <a href="http://files.minecraftforge.net/net/minecraftforge/forge" rel="noreferrer" target="_blank"> files.minecraftforge.net</a></li>
                             <li>Téléchargez les mods requis ci-dessous</li>
-                            <div className="flex-button">
+                            <div className="flex spaced">
                                 <Button color="secondary" variant="outlined" onClick={() => this.handleDownload("/files/modsServeurForge.zip")}>Mods médiéval 1.16.5</Button>
                                 <Button color="secondary" variant="outlined" onClick={() => this.handleDownload("/files/modsServeurFabric.zip")}>Mods survie 1.17</Button>
                             </div>
                             <li>Extractez les mods du fichier .zip dans le dossier <i>.minecraft/mods/</i></li>
                             <li>Ouvrez Minecraft Forge 1.16.5 via votre launcher</li>
                             <li>Allez dans l'onglet Multijoueur et ajoutez notre serveur avec l'adresse ci-dessous !</li>
-                            <div className="flex-button">
+                            <div className="flex spaced">
                                 <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("forge.minecraft.guibi.ca")}>Serveur médiéval</Button>
                                 <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("minecraft.guibi.ca")}>Serveur survie</Button>
                             </div>

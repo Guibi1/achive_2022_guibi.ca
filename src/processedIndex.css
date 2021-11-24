@@ -23,6 +23,10 @@ body {
   margin: 0px;
 }
 
+h2 {
+  margin-top: 0px;
+}
+
 div {
   font-size: max(1.2rem, 1.3vw);
   font-family: "PT Sans";
@@ -83,8 +87,12 @@ div.gray {
 }
 
 div.purple-border {
-  border: max(0.7rem, 0.77vw) solid var(--light-purple);
+  border: max(0.3rem, 0.33vw) solid var(--light-purple);
   padding: max(2rem, 2.2vw);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
 }
 
 div.flex {
@@ -96,7 +104,21 @@ div.flex {
           justify-content: space-evenly;
 }
 
-div.flex-button {
+div.section > div.flex:first-child:not(.purple-border):not(.gray) {
+  padding-top: 0px;
+}
+
+div.vertical {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.spaced {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -106,6 +128,10 @@ div.flex-button {
 
   padding: max(1em, 1.1vw);
   gap: max(1em, 1.1vw);
+}
+
+div.spaced > h2 {
+  margin: 0px;
 }
 
 p {

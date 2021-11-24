@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import Box from '@material-ui/core/Box'
-import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 
@@ -14,7 +11,7 @@ export default class Consequences extends Component
     constructor(props)
     {
         super(props)
-        this.state = {joueurs: ["", "", "", ""], joueursChoisis: false, partieTerminée: false, joueurDé: "", listeDéfis: "", défiActuel: "", joueurActuel: ""}
+        this.state = {joueurs: ["", "", ""], joueursChoisis: false, partieTerminée: false, joueurDé: "", listeDéfis: "", défiActuel: "", joueurActuel: ""}
     }
 
     componentDidUpdate()
@@ -27,7 +24,7 @@ export default class Consequences extends Component
     {
         fetch(défis)
             .then(file => file.text())
-            .then(text => { this.setState(prevState => { return {listeDéfis: text.split("\n"), joueurActuel: prevState.joueurs[prevState.joueurs.length - 1]}}, this.nouveauDéfi) })
+            .then(text => { this.setState(prevState => { return {listeDéfis: text.split("\n"), joueurActuel: prevState.joueurs[prevState.joueurs.length - 1], partieTerminée: false}}, this.nouveauDéfi) })
     }
 
     addJoueur = () =>
@@ -117,50 +114,43 @@ export default class Consequences extends Component
 
                 {this.state.joueursChoisis ?
                     (this.state.partieTerminée ?
-                        <Grid container direction="column" spacing={2}>
-                            <Grid item>
-                                <h3>Partie terminée !</h3>
-                            </Grid>
-                            <Grid item>
+                        <div className="section">
+                            <div className="purple-border flex vertical spaced" style={{width: "max(5em, 55vw)"}}>
+                                <h2>Partie terminée !</h2>
+                                Voulez-vous recommencer les défis ou ajouter des joueurs ?
+
+                                <Button onClick={this.changerJoueurs} variant="outlined" color="secondary">Changer les joueurs</Button>
                                 <Button onClick={this.rejouer} variant="contained" color="primary" style={{fontSize: "18px", width: "100%", maxWidth:"250px"}}>Rejouer</Button>
-                            </Grid>
-                            <Grid item>
-                                <Button onClick={this.changerJoueurs} variant="outlined" color="secondary">Changer les joueurs</Button>
-                            </Grid>
-                        </Grid> :
-                        <Grid container direction="column" spacing={2}>
-                            <Grid item>
-                                <h3>C'est le tour de {this.state.joueurActuel}</h3>
-                                <p>{this.state.défiActuel}</p>
-                            </Grid>
-                            <Grid item>
+                            </div>
+                        </div>:
+                        <div className="section">
+                            <div className="purple-border flex vertical spaced" style={{width: "max(5em, 55vw)"}}>
+                                <h2>C'est le tour de {this.state.joueurActuel}</h2>
+                                {this.state.défiActuel}
+
+                                {this.state.joueurDé !== "" ? <p>Le dé a choisi {this.state.joueurDé}</p> : null}
                                 <Button onClick={this.brasserDe} variant="outlined" color="secondary">Brasser le dé</Button>
-                                {this.state.joueurDé !== "" ? <p>Le dé a choisi {this.state.joueurDé} !</p> : null}
-                            </Grid>
-                            <Grid item>
                                 <Button onClick={this.nouveauDéfi} variant="contained" color="primary" style={{fontSize: "18px", width: "100%", maxWidth:"250px"}}>Prochain défi</Button>
-                            </Grid>
-                            <Grid item>
                                 <Button onClick={this.changerJoueurs} variant="outlined" color="secondary">Changer les joueurs</Button>
-                            </Grid>
-                        </Grid>) :
-                        <React.Fragment>
-                        <Paper style={{maxWidth: "400px", margin: "10px auto"}}>
-                            <Box border={1.5} borderColor="primary.main" borderRadius="borderRadius">
-                                    <Button variant="contained" color="primary" onClick={this.addJoueur} style={{margin: "10px"}}>Ajouter un joueur</Button>
-                                    {this.state.joueurs.map((nom, index) =>
-                                    <Grid container wrap="nowrap" direction="row" key={index} justifyContent="center">
-                                        <Grid item style={{margin: "10px"}}>
-                                            <TextField size="small" variant="outlined" label={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></TextField>
-                                            <Button variant="outlined" color="secondary" onClick={() => this.deleteJoueur(index)} style={{height: "40px", marginLeft: "4px"}}>Supprimer</Button>
-                                        </Grid>
-                                    </Grid>)}
-                            </Box>
-                        </Paper>
-                        <Grid>
+                            </div>
+                        </div>
+                    ) :
+                    <React.Fragment>
+                        <div className="section">
+                            <div className="purple-border flex vertical spaced" style={{width: "max(5em, 55vw)"}}>
+                                {this.state.joueurs.map((nom, index) =>
+                                <div className="flex" style={{width: "fit-content", gap: "max(1em, 1.1vw)"}}>
+                                    <TextField label={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></TextField>
+                                    <Button onClick={() => this.deleteJoueur(index)} style={{margin: "auto"}}>Supprimer</Button>
+                                </div>)}
+                                <Button variant="outlined" color="secondary" onClick={this.addJoueur}>Ajouter un joueur</Button>
+                            </div>
+                            <div className="separator"/>
+
                             <Button xs={6} variant="contained" color="primary" onClick={this.confirmerJoueurs} style={{fontSize: "18px", width: "100%", maxWidth:"350px"}}>Jouer</Button>
-                        </Grid>
-                </React.Fragment>}
+                        </div>
+                    </React.Fragment>
+                }
             </div>
         )
     }
