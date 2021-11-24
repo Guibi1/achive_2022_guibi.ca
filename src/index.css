@@ -28,10 +28,8 @@ h2 {
 }
 
 div {
-  font-size: max(1.2rem, 1.3vw);
+  font-size: max(1.3rem, 1.3vw);
   font-family: "PT Sans";
-
-  --section-padding-side: max(10rem, 11vw);
 }
 
 div.page {
@@ -41,7 +39,7 @@ div.page {
 }
 
 div.title {
-  margin: max(3rem, 3.9vw) var(--section-padding-side) 0px;
+  margin: 3.9vw var(--section-padding-side) 0px;
 
   display: flex;
   justify-content: space-between;
@@ -50,14 +48,13 @@ div.title {
 }
 
 div.title > h1 {
-  font-size: max(6.8rem, 3.8vw);
+  font-size: max(2.5em, 4.5vw);
   font-weight: 600;
-  line-height: 1.16;
   margin: 0px;
 }
 
 div.title > h2 {
-  font-size: max(1.7rem, 1.8vw);
+  font-size: max(1.75rem, 1.8vw);
   font-weight: 400;
   margin: auto 0em 0.5em 0em;
   height: fit-content;
@@ -66,7 +63,7 @@ div.title > h2 {
 div.section {
   width: auto;
 
-  padding: 3em var(--section-padding-side);
+  padding: min(2em, 6vh) var(--section-padding-side);
 }
 
 div.separator {
@@ -221,12 +218,18 @@ body::-webkit-scrollbar-thumb:active {
 
 /* Small screens */
 @media only screen and (max-width: 800px) {
+  div {
+    --section-padding-side: 5vw;
+  }
+
   div#root {
     margin-bottom: max(5rem, 10vh);
   }
 
   div.title {
     flex-direction: column;
+    margin: 0px;
+    border: none;
   }
 
   div.title > h1 {
@@ -240,6 +243,10 @@ body::-webkit-scrollbar-thumb:active {
 
 /* Large screens */
 @media only screen and (min-width: 800px) {
+  div {
+    --section-padding-side: 11vw;
+  }
+
   div#root {
     margin-left: max(5rem, 5.5vw);
   }
@@ -255,6 +262,10 @@ body::-webkit-scrollbar-thumb:active {
 }
 
 /* ----- GENERAL END ----- */
+
+
+
+
 
 /* ----- HEADER ----- */
 
