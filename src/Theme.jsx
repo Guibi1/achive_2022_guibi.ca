@@ -17,8 +17,8 @@ export default function Theme()
             fontSize: 16,
         },
         palette: {
-            primary: { main: "#EA591F" },
-            secondary: { main: "#3E517B" },
+            primary: { main: "#8a1fff" },
+            secondary: { main: "#b36bff" },
             },
         });
 }
