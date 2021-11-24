@@ -33,6 +33,7 @@ class Calcul extends Component
                 <div className="section gray">
                     <Grid container>
                         <Grid item xs={12} sm={6} style={{ margin: "auto", padding: "20px", textAlign: "left"}}>
+                            <h2>Fonctionnalités</h2>
                             Calcul est un programme qui fait pratiquer les tables d'opérations mathématiques d'une façon intuitive et facile. Avec son interface simplifiée, il convient aux jeunes comme aux grands. 
                             <br/><br/><br/>
                             Plusieurs indicateurs au bas de la fenêtre vous disent:
@@ -53,6 +54,7 @@ class Calcul extends Component
                         </Grid>
                         <Grid item xs={12} sm={6} style={{ margin: "auto", padding: "20px", textAlign: "left"}}>
                             <div className="purple-border">
+                                <h2>Paramètres</h2>
                                 Grâce à la page "paramètres", vous pouvez aisément changer les opérateurs de calcul choisis, le nombre de questions et tous les autres paramètres.
                                 <br/><br/>
                                 De plus, pour vous éviter de devoir choisir vos paramètres à chaque fois que vous voulez pratiquer vos tables, Calcul peut sauvegarder vos préférences pour la prochaine fois !!!

@@ -23,6 +23,10 @@ body {
   margin: 0px;
 }
 
+h2 {
+  margin-top: 0px;
+}
+
 div {
   font-size: max(1.2rem, 1.3vw);
   font-family: "PT Sans";
