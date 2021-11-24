@@ -83,6 +83,27 @@ div.purple-border {
   padding: max(2rem, 2.2vw);
 }
 
+div.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+div.flex-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+
+  padding: max(1em, 1.1vw);
+  gap: max(1em, 1.1vw);
+}
+
 p {
   font-size: max(1.2rem, 1.3vw);
   font-family: "PT Sans";
@@ -93,6 +114,17 @@ span {
   font-size: max(1.2rem, 1.3vw);
   font-family: "PT Sans";
   margin: 0px;
+}
+
+ul {
+  list-style: inside;
+  list-style-type: square;
+}
+
+a {
+  color: var(--light-purple);
+  font-weight: 600;
+  font-style: italic;
 }
 
 
@@ -283,6 +315,7 @@ nav a {
           flex-direction: row;
   height: 5em;
   text-decoration: none;
+  font-style: normal;
   -webkit-filter: grayscale(100%) opacity(0.7);
           filter: grayscale(100%) opacity(0.7);
   -webkit-transition: -webkit-filter 400ms ease;
