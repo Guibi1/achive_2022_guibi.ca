@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { Route, Switch, Redirect } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import CircularProgress from "@material-ui/core/CircularProgress"
 import loadable from '@loadable/component'
 
 import Header from "./components/Header"
 
 const Accueil = loadable(() => import("./components/Accueil"))
+const PageNotFound = loadable(() => import("./components/PageNotFound"))
 const StonksTicker = loadable(() => import("./components/StonksTicker/StonksTicker"))
 const ServeurFabric = loadable(() => import("./components/Minecraft/ServeurFabric"))
 const ServeurForge = loadable(() => import("./components/Minecraft/ServeurForge"))
@@ -21,37 +22,45 @@ export default class App extends Component
         return (
             <React.Fragment>
                 <Header/>
-                <Switch>
-                    <Route exact path="/accueil">
+                <Routes>
+                    <Route exact path="accueil" element={
                         <Accueil fallback={<CircularProgress color="secondary"/>}/>
-                    </Route>
+                    }/>
 
-                    <Route path="/minecraft/serveur-fabric">
-                        <ServeurFabric fallback={<CircularProgress color="secondary"/>}/>
-                    </Route>
+                    <Route path="minecraft">
+                        <Route path="serveur-fabric" element={
+                            <ServeurFabric fallback={<CircularProgress color="secondary"/>}/>
+                        }/>
 
-                    <Route path="/minecraft/serveur-forge">
-                        <ServeurForge fallback={<CircularProgress color="secondary"/>}/>
+                        <Route path="serveur-forge" element={
+                            <ServeurForge fallback={<CircularProgress color="secondary"/>}/>
+                        }/>
                     </Route>
                     
-                    <Route exact path="/stonk-sticker">
+                    <Route exact path="stonk-sticker" element={
                         <StonksTicker fallback={<CircularProgress color="secondary"/>}/>
-                    </Route>
+                    }/>
 
-                    <Route path="/calcul">
+                    <Route path="calcul" element={
                         <Calcul fallback={<CircularProgress color="secondary"/>}/>
-                    </Route>
+                    }/>
 
-                    <Route path="/tic-tac-toe">
+                    <Route path="tic-tac-toe" element={
                         <TicTacToe fallback={<CircularProgress color="secondary"/>}/>
-                    </Route>
+                    }/>
 
-                    <Route path="/consequences">
+                    <Route path="consequences" element={
                         <Consequences fallback={<CircularProgress color="secondary"/>}/>
-                    </Route>
+                    }/>
 
-                    <Redirect from="/" to="/accueil"/>
-                </Switch>
+                    <Route path="/" element={
+                        <Navigate to="/accueil"/>
+                    }/>
+
+                    <Route path="/*" element={
+                        <PageNotFound fallback={<CircularProgress color="secondary"/>}/>
+                    }/>
+                </Routes>
             </React.Fragment>
         )
     }
