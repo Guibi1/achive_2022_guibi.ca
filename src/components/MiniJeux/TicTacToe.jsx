@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Helmet } from 'react-helmet'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import XIcon from '@material-ui/icons/Close'
@@ -11,7 +10,7 @@ const O = <OIcon fontSize="large"/>
 const vide = null
 
 
-class TicTacToe extends Component
+export default class TicTacToe extends Component
 {
     constructor(props)
     {
@@ -99,35 +98,24 @@ class TicTacToe extends Component
     render()
     {
         return (
-            <div className="page">
-                <Helmet><title>Tic Tac Toe - Guibi.ca</title></Helmet>
-                <div className="title">
-                    <h1>Tic Tac Toe</h1>
-                    <h2>Un classique</h2>
-                </div>
-
-                <div className="section">
-                    <Grid container direction="column">
-                        {this.state.plateau.map((row, rowIndex) =>
-                        <Grid item container alignItems="center" justifyContent="center" wrap="nowrap" key={rowIndex}>
-                            {row.map((element, index) =>
-                            <Grid item key={index}>
-                                <Button disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe Gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)}>
-                                    {element}
-                                </Button>
-                            </Grid>)}
+            <div className="section">
+                <Grid container direction="column">
+                    {this.state.plateau.map((row, rowIndex) =>
+                    <Grid item container alignItems="center" justifyContent="center" wrap="nowrap" key={rowIndex}>
+                        {row.map((element, index) =>
+                        <Grid item key={index}>
+                            <Button disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe Gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)}>
+                                {element}
+                            </Button>
                         </Grid>)}
-                    </Grid>
+                    </Grid>)}
+                </Grid>
 
-                    <div className="separator"/>
+                <div className="separator"/>
 
-                    <p style={{margin: "15px"}}>{this.state.gagnant === "" ? (this.state.joueurActuel === X ? "C'est le tour aux X." : "C'est le tour aux O.") : (this.state.gagnant === vide ? "Partie nulle !" : (this.state.gagnant === X ? "Les X ont gagné !" : "Les O ont gagné !"))}</p>
-                    <Button color="primary" variant="contained" className="buttonJouerTicTacToe" onClick={this.nouvellePartie}>{this.state.gagnant !== "" ? "Recommencer" : "Rejouer"}</Button>
-                </div>
+                <p style={{margin: "15px"}}>{this.state.gagnant === "" ? (this.state.joueurActuel === X ? "C'est le tour aux X." : "C'est le tour aux O.") : (this.state.gagnant === vide ? "Partie nulle !" : (this.state.gagnant === X ? "Les X ont gagné !" : "Les O ont gagné !"))}</p>
+                <Button color="primary" variant="contained" className="buttonJouerTicTacToe" onClick={this.nouvellePartie}>{this.state.gagnant !== "" ? "Recommencer" : "Rejouer"}</Button>
             </div>
         )
     }
 }
-
-
-export default TicTacToe

@@ -68,6 +68,35 @@ div.title > h2 {
   height: fit-content;
 }
 
+div.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1rem auto;
+}
+
+div.nav > a {
+  margin: 0 1rem;
+  padding: 0.2rem 0.6rem;
+
+  border: 0.2rem solid transparent;
+  border-top: none;
+  border-right: none;
+  border-radius: 0.3rem;
+  
+  color: var(--black);
+  font-style: normal;
+  text-decoration: none;
+}
+
+div.nav > a.current {
+  border-color: var(--purple);
+  background-color: var(--light-purple);
+}
+
 div.section {
   width: auto;
 
@@ -103,6 +132,15 @@ div.flex {
 
 div.section > div.flex:first-child:not(.purple-border):not(.gray) {
   padding-top: 0px;
+}
+
+div.stack {
+  display: grid;
+  place-items: center;
+}
+
+div.stack > * {
+  grid-area: 1 / 1 / 1 / 1;
 }
 
 div.vertical {
@@ -224,6 +262,88 @@ body::-webkit-scrollbar-thumb:active {
 .MuiInputBase-input.MuiOutlinedInput-input {
   background: white;
 }
+
+
+/* Cercle */
+div#cercle-game {
+  position: relative;
+  height: 250px;
+  width: 250px;
+  margin: 3rem auto;
+
+  border: solid var(--light-gray) 5px;
+  border-radius: 50%;
+
+  -webkit-transform: scale(75%);
+
+          transform: scale(75%);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+div#cercle-game:focus {
+  border: solid var(--dark-gray) 5px;
+  -webkit-transform: none;
+          transform: none;
+}
+
+div#cercle-game > div.cercle-ball {
+  --size: 20px;
+  
+  position: absolute;
+  top: calc(50% - var(--size) / 2);
+  left: calc(50% - var(--size) / 2);
+  
+  width: var(--size);
+  height: var(--size);
+  
+  border-radius: 50%;
+  background-color: var(--purple);
+}
+
+div#cercle-game > div.cercle-ennemy {
+  --width: 15px;
+  --height: 40px;
+  
+  position: absolute;
+  top: calc(50% - var(--height) / 2);
+  left: calc(50% - var(--width) / 2);
+
+  width: var(--width);
+  height: var(--height);
+
+  background-color: var(--light-purple);
+  z-index: -1;
+}
+
+div#cercle-game ~ div.stack > p#cercle-click {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+div#cercle-game:focus ~ div.stack > p#cercle-click {
+  opacity: 0;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+div#cercle-game ~ div.stack > p#cercle-score {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+div#cercle-game:focus ~ div.stack > p#cercle-score {
+  opacity: 1;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
 
 /* Buttons Tic Tac Toe */
 .MuiButton-root.tuileTicTacToe {

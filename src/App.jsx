@@ -10,7 +10,7 @@ const PageNotFound = loadable(() => import("./components/PageNotFound"))
 const StonksTicker = loadable(() => import("./components/StonksTicker/StonksTicker"))
 const ServeursMinecraft = loadable(() => import("./components/Minecraft/ServeursMinecraft"))
 const Calcul = loadable(() => import("./components/Calcul/Calcul"))
-const TicTacToe = loadable(() => import("./components/TicTacToe/TicTacToe"))
+const MiniJeux = loadable(() => import("./components/MiniJeux/MiniJeux"))
 const Consequences = loadable(() => import("./components/Consequences/Consequences"))
 
 
@@ -38,8 +38,8 @@ export default class App extends Component
                         <Calcul fallback={<CircularProgress color="secondary"/>}/>
                     }/>
 
-                    <Route path="tic-tac-toe" element={
-                        <TicTacToe fallback={<CircularProgress color="secondary"/>}/>
+                    <Route path="minijeux/*" element={
+                        <MiniJeux fallback={<CircularProgress color="secondary"/>}/>
                     }/>
 
                     <Route path="consequences" element={
