@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useLocation } from "react-router"
+import { Link } from "react-router-dom";
 
 
 export default function Header()
@@ -72,10 +73,10 @@ function Item(props)
 
     return (
         <li>
-            <a href={props.url} className={location.pathname === props.url ? "current" : ""}>
+            <Link to={props.url} className={location.pathname.startsWith(props.url) ? "current" : ""}>
                 {props.children}
                 <span>{props.title}</span>
-            </a>
+            </Link>
         </li>
     )
 }
