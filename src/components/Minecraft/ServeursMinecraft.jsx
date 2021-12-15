@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { saveAs } from 'file-saver'
 import YouTube from 'react-youtube'
-import Button from '@material-ui/core/Button'
 import Snackbar from '@material-ui/core/Snackbar'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
@@ -72,8 +71,8 @@ export default class ServeursMinecraft extends Component
                             <li>Naviguez jusqu'à l'onget d'ajout à partir d'un fichier .zip</li>
                             <li>Entrez l'adresse située ci-dessous</li>
                             <div className="flex spaced">
-                                <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("https://guibi.ca/files/configServeurForge.zip")}>Serveur médiéval</Button>
-                                <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("https://guibi.ca/files/configServeurFabric.zip")}>Serveur survie</Button>
+                                <button type="button" onClick={() => this.handleCopy("https://guibi.ca/files/configServeurForge.zip")}>Serveur médiéval</button>
+                                <button type="button" onClick={() => this.handleCopy("https://guibi.ca/files/configServeurFabric.zip")}>Serveur survie</button>
                             </div>
                             <li>Appuyez sur la flèche en bas à droite jusqu'à ce que les téléchargements débutent</li>
                             <li>Ouvrez Minecraft en cliquant sur l'instance une fois qu'elle est prête</li>
@@ -87,15 +86,15 @@ export default class ServeursMinecraft extends Component
                             <li>Installez Forge depuis <a href="http://files.minecraftforge.net/net/minecraftforge/forge" rel="noreferrer" target="_blank"> files.minecraftforge.net</a></li>
                             <li>Téléchargez les mods requis ci-dessous</li>
                             <div className="flex spaced">
-                                <Button color="secondary" variant="outlined" onClick={() => this.handleDownload("/files/modsServeurForge.zip")}>Mods médiéval 1.16.5</Button>
-                                <Button color="secondary" variant="outlined" onClick={() => this.handleDownload("/files/modsServeurFabric.zip")}>Mods survie 1.17</Button>
+                                <button type="button" onClick={() => this.handleDownload("/files/modsServeurForge.zip")}>Mods médiéval 1.16.5</button>
+                                <button type="button" onClick={() => this.handleDownload("/files/modsServeurFabric.zip")}>Mods survie 1.17</button>
                             </div>
                             <li>Extractez les mods du fichier .zip dans le dossier <i>.minecraft/mods/</i></li>
                             <li>Ouvrez Minecraft Forge 1.16.5 via votre launcher</li>
                             <li>Allez dans l'onglet Multijoueur et ajoutez notre serveur avec l'adresse ci-dessous !</li>
                             <div className="flex spaced">
-                                <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("forge.minecraft.guibi.ca")}>Serveur médiéval</Button>
-                                <Button color="secondary" variant="outlined" onClick={() => this.handleCopy("minecraft.guibi.ca")}>Serveur survie</Button>
+                                <button type="button" onClick={() => this.handleCopy("forge.minecraft.guibi.ca")}>Serveur médiéval</button>
+                                <button type="button" onClick={() => this.handleCopy("minecraft.guibi.ca")}>Serveur survie</button>
                             </div>
                         </ul>
                     </div>

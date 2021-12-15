@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
 
 import Header from 'components/Header'
 import défis from "./défis.txt"
@@ -115,8 +113,8 @@ export default class Consequences extends Component
                                 <h2>Partie terminée !</h2>
                                 Voulez-vous recommencer les défis ou ajouter des joueurs ?
 
-                                <Button onClick={this.changerJoueurs} variant="outlined" color="secondary">Changer les joueurs</Button>
-                                <Button onClick={this.rejouer} variant="contained" color="primary" style={{fontSize: "18px", width: "100%", maxWidth:"250px"}}>Rejouer</Button>
+                                <button type="button" onClick={this.changerJoueurs}>Changer les joueurs</button>
+                                <button type="button" onClick={this.rejouer}>Rejouer</button>
                             </div>
                         </div>:
                         <div className="section">
@@ -125,9 +123,9 @@ export default class Consequences extends Component
                                 {this.state.défiActuel}
 
                                 {this.state.joueurDé !== "" ? <p>Le dé a choisi {this.state.joueurDé}</p> : null}
-                                <Button onClick={this.brasserDe} variant="outlined" color="secondary">Brasser le dé</Button>
-                                <Button onClick={this.nouveauDéfi} variant="contained" color="primary" style={{fontSize: "18px", width: "100%", maxWidth:"250px"}}>Prochain défi</Button>
-                                <Button onClick={this.changerJoueurs} variant="outlined" color="secondary">Changer les joueurs</Button>
+                                <button type="button" onClick={this.brasserDe}>Brasser le dé</button>
+                                <button type="button" onClick={this.nouveauDéfi}>Prochain défi</button>
+                                <button type="button" onClick={this.changerJoueurs}>Changer les joueurs</button>
                             </div>
                         </div>
                     ) :
@@ -136,14 +134,15 @@ export default class Consequences extends Component
                             <div className="purple-border flex vertical spaced" style={{width: "max(5em, 55vw)"}}>
                                 {this.state.joueurs.map((nom, index) =>
                                 <div className="flex" style={{width: "fit-content", gap: "max(1em, 1.1vw)"}}>
-                                    <TextField label={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></TextField>
-                                    <Button onClick={() => this.deleteJoueur(index)} style={{margin: "auto"}}>Supprimer</Button>
+                                    <input type="text" label={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></input>
+                                    <button type="button" onClick={() => this.deleteJoueur(index)}>Supprimer</button>
                                 </div>)}
-                                <Button variant="outlined" color="secondary" onClick={this.addJoueur}>Ajouter un joueur</Button>
+                                <button type="button" onClick={this.addJoueur}>Ajouter un joueur</button>
                             </div>
+
                             <div className="separator"/>
 
-                            <Button xs={6} variant="contained" color="primary" onClick={this.confirmerJoueurs} style={{fontSize: "18px", width: "100%", maxWidth:"350px"}}>Jouer</Button>
+                            <button type="button" onClick={this.confirmerJoueurs}>Jouer</button>
                         </div>
                     </React.Fragment>
                 }

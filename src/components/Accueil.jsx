@@ -11,7 +11,7 @@ export default class Accueil extends Component
                 <Header title="Accueil" caption="Bienvenue sur Guibi.ca"/>
                 
                 <div className="section">
-                    
+                    <button type="button" onClick={null}>Test</button>
                 </div>
             </div>
         )

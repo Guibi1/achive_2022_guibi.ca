@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
 import XIcon from '@material-ui/icons/Close'
 import OIcon from '@material-ui/icons/RadioButtonUnchecked'
 
@@ -104,9 +103,9 @@ export default class TicTacToe extends Component
                     <Grid item container alignItems="center" justifyContent="center" wrap="nowrap" key={rowIndex}>
                         {row.map((element, index) =>
                         <Grid item key={index}>
-                            <Button disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe Gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)}>
+                            <button type="button" disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)}>
                                 {element}
-                            </Button>
+                            </button>
                         </Grid>)}
                     </Grid>)}
                 </Grid>
@@ -114,7 +113,7 @@ export default class TicTacToe extends Component
                 <div className="separator"/>
 
                 <p style={{margin: "15px"}}>{this.state.gagnant === "" ? (this.state.joueurActuel === X ? "C'est le tour aux X." : "C'est le tour aux O.") : (this.state.gagnant === vide ? "Partie nulle !" : (this.state.gagnant === X ? "Les X ont gagné !" : "Les O ont gagné !"))}</p>
-                <Button color="primary" variant="contained" className="buttonJouerTicTacToe" onClick={this.nouvellePartie}>{this.state.gagnant !== "" ? "Recommencer" : "Rejouer"}</Button>
+                <button type="button" onClick={this.nouvellePartie}>{this.state.gagnant !== "" ? "Recommencer" : "Rejouer"}</button>
             </div>
         )
     }

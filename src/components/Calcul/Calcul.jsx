@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { saveAs } from 'file-saver'
 import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
 
 import Header from 'components/Header'
 import ImageNormal from './Calcul.webp'
@@ -60,7 +59,7 @@ export default class Calcul extends Component
                 </div>
 
                 <div className="section">
-                    <Button color="primary" variant="contained" onClick={() => this.handleDownload()} style={{margin: "10px"}}>Télécharger Calcul</Button>
+                    <button type="button" onClick={() => this.handleDownload()}>Télécharger Calcul</button>
                 </div>
             </div>
         )
