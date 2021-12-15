@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import CircularProgress from "@material-ui/core/CircularProgress"
 import loadable from '@loadable/component'
 
-import Header from "./components/Header"
+import Navigation from "./components/Navigation"
 
 const Accueil = loadable(() => import("./components/Accueil"))
 const PageNotFound = loadable(() => import("./components/PageNotFound"))
@@ -20,7 +20,7 @@ export default class App extends Component
     {
         return (
             <React.Fragment>
-                <Header/>
+                <Navigation/>
                 <Routes>
                     <Route exact path="accueil" element={
                         <Accueil fallback={<CircularProgress color="secondary"/>}/>

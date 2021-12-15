@@ -1,6 +1,6 @@
-import { Helmet } from "react-helmet";
-import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import loadable from "@loadable/component";
+import Header, { HeaderLink } from 'components/Header';
 
 import { CircularProgress } from "@material-ui/core";
 
@@ -10,19 +10,12 @@ const Cercle = loadable(() => import("./Cercle"))
 
 export default function MiniJeux()
 {
-    const location = useLocation();
-
     return (
         <div className="page">
-            <Helmet><title>Mini Jeux - Guibi.ca</title></Helmet>
-            <div className="title">
-                <h1>Mini Jeux</h1>
-                <h2>pro gamer</h2>
-            </div>
-            <div className="nav">
-                <Link to="cercle" className={location.pathname.endsWith("cercle") ? "current" : ""}>Cercle</Link>
-                <Link to="tictactoe" className={location.pathname.endsWith("tictactoe") ? "current" : ""}>Tic Tac Toe</Link>
-            </div>
+            <Header title="Mini Jeux" caption="Shesh">
+                <HeaderLink title="Cerlce" url="cercle"/>
+                <HeaderLink title="Tic Tac Toe" url="tictactoe"/>
+            </Header>
 
             <Routes>
                 <Route path="tictactoe" element={

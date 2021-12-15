@@ -1,30 +1,26 @@
 import React, { Component } from 'react'
-import { Helmet } from 'react-helmet'
 import { saveAs } from 'file-saver'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 
+import Header from 'components/Header'
 import ImageNormal from './Calcul.webp'
 import ImageExemple from './ExempleCalcul.webp'
 import ImageParametres from './ParametresCalcul.webp'
 
 
-class Calcul extends Component
+export default class Calcul extends Component
 {
     handleDownload = () =>
     {
-        saveAs("/files/setupCalcul.exe", "setupCalcul.exe")
+        saveAs("/files/setupCalcul.exe", "setupCalcul.exe");
     }
     
     render ()
     {
         return (
             <div className="page">
-                <Helmet><title>Calcul - Guibi.ca</title></Helmet>
-                <div className="title">
-                    <h1>Calcul</h1>
-                    <h2>Découvrez une nouvelle façon de pratiquer ses tables</h2>
-                </div>
+                <Header title="Calcul" caption="Découvrez une nouvelle façon de pratiquer ses tables"/>
 
                 <div className="section">
                     <img src={ImageNormal} className="skeleton" alt="L'interface de calcul"/>
@@ -70,6 +66,3 @@ class Calcul extends Component
         )
     }
 }
-
-
-export default Calcul

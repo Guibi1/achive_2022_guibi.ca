@@ -38,34 +38,35 @@ div.page {
   width: auto;
 }
 
-div.title {
-  margin: 3.9vw var(--section-padding-side) 0px;
-
+div.header {
   display: -webkit-box;
-
   display: -ms-flexbox;
-
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 
+  margin: 3.9vw var(--section-padding-side) 0px;
+
   border-bottom: 0.08em solid var(--dark-gray);
+
 }
 
-div.title > h1 {
+div.header h1 {
   font-size: max(2.5em, 4.5vw);
   font-weight: 600;
   margin: 0px;
 }
 
-div.title > h2 {
-  font-size: max(1.75rem, 1.8vw);
-  font-weight: 400;
+div.header h2 {
   margin: auto 0em 0.5em 0em;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+
+  font-size: max(1.75rem, 1.8vw);
+  font-weight: 400;
+  text-align: right;
 }
 
 div.nav {
@@ -75,7 +76,7 @@ div.nav {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 1rem auto;
+  margin: auto;
 }
 
 div.nav > a {

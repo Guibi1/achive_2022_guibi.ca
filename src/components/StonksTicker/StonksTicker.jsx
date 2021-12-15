@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Helmet } from 'react-helmet'
+import Header from 'components/Header'
 
 
 class StonksTicker extends Component
@@ -8,12 +8,11 @@ class StonksTicker extends Component
     {
         return (
             <div className="page">
-                <Helmet><title>Stonks Ticker - Guibi.ca</title></Helmet>
-                <div className="title">
-                    <h1>Stonks Ticker</h1>
-                    <h2>Stocks Ticker avec vos amis</h2>
-                </div>
+                <Header title="Stonks Ticker" caption="En ligne avec vos amis"/>
 
+                <div className="section">
+
+                </div>
             </div>
         )
     }

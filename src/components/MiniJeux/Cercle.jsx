@@ -83,7 +83,6 @@ class Cercle extends Component
     {
         return (
             <div className="section">
-
                 <div id="cercle-game" onKeyPress={this.handleKeyPress} tabIndex={-1}>
                     <div className="cercle-ball" style={{ transform: "rotate(" + this.state.ball.rotation + "deg) translateY(" + (this.state.firstGame ? 0 : (this.state.ball.inside ? -115 : -140)) + "px)" }}></div>
                     {this.state.ennemies.map((ennemy) =>

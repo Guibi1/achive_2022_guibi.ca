@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Helmet } from 'react-helmet'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 
+import Header from 'components/Header'
 import défis from "./défis.txt"
 
 
@@ -106,11 +106,7 @@ export default class Consequences extends Component
     {
         return (
             <div className="page">
-                <Helmet><title>Conséquences - Guibi.ca</title></Helmet>
-                <div className="title">
-                    <h1>Conséquences</h1>
-                    <h2>Vérité ou conséquence... sans vérité</h2>
-                </div>
+                <Header title="Conséquences" caption="Vérité ou conséquence... sans vérité"/>
 
                 {this.state.joueursChoisis ?
                     (this.state.partieTerminée ?

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Helmet } from "react-helmet"
+import Header from "./Header"
 
 
 export default class Accueil extends Component
@@ -8,12 +8,11 @@ export default class Accueil extends Component
     {
         return (
             <div className="page">
-                <Helmet><title>Accueil - Guibi.ca</title></Helmet>
-                <div className="title">
-                    <h1>Accueil</h1>
-                    <h2>Bienvenue sur Guibi.ca</h2>
-                </div>
+                <Header title="Accueil" caption="Bienvenue sur Guibi.ca"/>
                 
+                <div className="section">
+                    
+                </div>
             </div>
         )
     }

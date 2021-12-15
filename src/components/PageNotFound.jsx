@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Helmet from "react-helmet";
 
 
-class PageNotFound extends Component
+export default class PageNotFound extends Component
 {
     render()
     {
@@ -22,5 +22,3 @@ class PageNotFound extends Component
         );
     }
 }
-
-export default PageNotFound;

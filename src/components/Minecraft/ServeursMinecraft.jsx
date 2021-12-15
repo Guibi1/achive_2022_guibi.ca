@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Helmet } from 'react-helmet'
 import { saveAs } from 'file-saver'
 import YouTube from 'react-youtube'
 import Button from '@material-ui/core/Button'
@@ -7,8 +6,10 @@ import Snackbar from '@material-ui/core/Snackbar'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 
+import Header from 'components/Header'
 
-class ServeursMinecraft extends Component
+
+export default class ServeursMinecraft extends Component
 {
     constructor()
     {
@@ -50,11 +51,7 @@ class ServeursMinecraft extends Component
     {
         return (
             <div className="page">
-                <Helmet><title>Serveurs Minecraft - Guibi.ca</title></Helmet>
-                <div className="title">
-                    <h1>Serveurs Minecraft</h1>
-                    <h2>Une aventure sans fin</h2>
-                </div>
+                <Header title="Serveurs Minecraft" caption="Une aventure sans fin"/>
 
                 <div className="section">
                     Mes amis et moi jouons à Minecraft sur plusieurs serveurs privées.
@@ -113,5 +110,3 @@ class ServeursMinecraft extends Component
         )
     }
 }
-
-export default ServeursMinecraft
