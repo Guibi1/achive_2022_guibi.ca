@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Routes, Route, Navigate } from "react-router-dom"
-import CircularProgress from "@material-ui/core/CircularProgress"
+import Loader from "react-loader-spinner"
 import loadable from '@loadable/component'
 
 import Navigation from "./components/Navigation"
@@ -23,27 +23,27 @@ export default class App extends Component
                 <Navigation/>
                 <Routes>
                     <Route exact path="accueil" element={
-                        <Accueil fallback={<CircularProgress color="secondary"/>}/>
+                        <Accueil fallback={<Loader type="Rings"/>}/>
                     }/>
 
                     <Route path="minecraft" element={
-                        <ServeursMinecraft fallback={<CircularProgress color="secondary"/>}/>
+                        <ServeursMinecraft fallback={<Loader type="Rings"/>}/>
                     }/>
                     
                     <Route exact path="stonk-sticker" element={
-                        <StonksTicker fallback={<CircularProgress color="secondary"/>}/>
+                        <StonksTicker fallback={<Loader type="Rings"/>}/>
                     }/>
 
                     <Route path="calcul" element={
-                        <Calcul fallback={<CircularProgress color="secondary"/>}/>
+                        <Calcul fallback={<Loader type="Rings"/>}/>
                     }/>
 
                     <Route path="minijeux/*" element={
-                        <MiniJeux fallback={<CircularProgress color="secondary"/>}/>
+                        <MiniJeux fallback={<Loader type="Rings"/>}/>
                     }/>
 
                     <Route path="consequences" element={
-                        <Consequences fallback={<CircularProgress color="secondary"/>}/>
+                        <Consequences fallback={<Loader type="Rings"/>}/>
                     }/>
 
                     <Route path="/" element={
@@ -51,7 +51,7 @@ export default class App extends Component
                     }/>
 
                     <Route path="/*" element={
-                        <PageNotFound fallback={<CircularProgress color="secondary"/>}/>
+                        <PageNotFound fallback={<Loader type="Rings"/>}/>
                     }/>
                 </Routes>
             </React.Fragment>

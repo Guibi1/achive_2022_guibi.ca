@@ -23,11 +23,20 @@ body {
   margin: 0px;
 }
 
+svg {
+  height: 15rem;
+  width: 15rem;
+  
+  stroke: var(--purple);
+}
+
 h2 {
   margin-top: 0px;
 }
 
 div {
+  --section-padding-side: min(11rem, 11vw);
+
   font-size: max(1.3rem, 1.3vw);
   font-family: "PT Sans";
 }
@@ -40,6 +49,7 @@ div.page {
 
 div.header {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 
   margin: 3.9vw var(--section-padding-side) 0px;
@@ -48,13 +58,15 @@ div.header {
 
 }
 
-div.header h1 {
+div.header > h1 {
+  margin: 0px;
+
   font-size: max(2.5em, 4.5vw);
   font-weight: 600;
-  margin: 0px;
+  text-align: left;
 }
 
-div.header h2 {
+div.header > h2 {
   margin: auto 0em 0.5em 0em;
   height: fit-content;
 
@@ -90,16 +102,32 @@ div.nav > a.current {
 
 button {
   margin: 1rem;
-  padding: 0.5rem 5rem;
-  font-size: 1.2rem;
-  
-  border: 0.25rem solid transparent;
-  border-top: none;
-  border-right: none;
-  border-radius: 0.3rem;
+  padding: 0.4rem 3rem;
+  font-size: max(1.2rem, 1.3vw);
+    
   color: var(--black);
-  border-color: var(--purple);
   background-color: var(--light-purple);
+  border: 0.25rem solid var(--light-purple);
+
+  transition: all 0.2s;
+}
+
+button:hover {
+  color: var(--purple);
+  background-color: transparent;
+  border-color: var(--purple);
+}
+
+div.gray button:hover {
+  color: var(--white);
+  border-color: var(--white);
+}
+
+input {
+  margin: 1rem 0px;
+
+  font-size: max(1.2rem, 1.3vw);
+  text-align: center;
 }
 
 div.section {
@@ -129,8 +157,12 @@ div.flex {
   justify-content: space-evenly;
 }
 
-div.section > div.flex:first-child:not(.purple-border):not(.gray) {
-  padding-top: 0px;
+div.grid {
+  display: grid;
+  align-items: center;
+
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: calc(var(--section-padding-side) / 2);
 }
 
 div.stack {
@@ -235,11 +267,6 @@ body::-webkit-scrollbar-thumb:active {
     scrollbar-color: var(--light-purple) var(--dark-gray);
     scrollbar-width: thin;
   }
-}
-
-/* Material-UI */
-.MuiInputBase-input.MuiOutlinedInput-input {
-  background: white;
 }
 
 
@@ -353,38 +380,23 @@ button.tuileTicTacToe.gagnant {
     margin-bottom: max(5rem, 10vh);
   }
 
-  div.title {
+  div.header {
     flex-direction: column;
-    margin: 0px;
-    border: none;
   }
 
-  div.title > h1 {
+  div.header > h1 {
     text-align: center;
   }
 
-  div.title > h2 {
+  div.header > h2 {
     text-align: center;
   }
 }
 
 /* Large screens */
 @media only screen and (min-width: 800px) {
-  div {
-    --section-padding-side: 11vw;
-  }
-
   div#root {
     margin-left: max(5rem, 5.5vw);
-  }
-
-  div.title > h1 {
-    text-align: left;
-    margin-right: max(2rem, 2.2vw);
-  }
-
-  div.title > h2 {
-    text-align: right;
   }
 }
 

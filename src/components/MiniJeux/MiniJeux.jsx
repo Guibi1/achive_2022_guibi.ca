@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import Loader from "react-loader-spinner";
 import loadable from "@loadable/component";
-import Header, { HeaderLink } from 'components/Header';
 
-import { CircularProgress } from "@material-ui/core";
+import Header, { HeaderLink } from 'components/Header';
 
 const TicTacToe = loadable(() => import("./TicTacToe"))
 const Cercle = loadable(() => import("./Cercle"))
@@ -19,11 +19,11 @@ export default function MiniJeux()
 
             <Routes>
                 <Route path="tictactoe" element={
-                    <TicTacToe fallback={<CircularProgress color="secondary"/>}/>
+                    <TicTacToe fallback={<Loader type="Rings"/>}/>
                 }/>
 
                 <Route path="cercle" element={
-                    <Cercle fallback={<CircularProgress color="secondary"/>}/>
+                    <Cercle fallback={<Loader type="Rings"/>}/>
                 }/>
 
                 <Route path="/" element={

@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import { saveAs } from 'file-saver'
 import YouTube from 'react-youtube'
-import Snackbar from '@material-ui/core/Snackbar'
-import IconButton from '@material-ui/core/IconButton'
-import CloseIcon from '@material-ui/icons/Close'
 
 import Header from 'components/Header'
 
@@ -62,7 +59,7 @@ export default class ServeursMinecraft extends Component
                     Vous pouvez vous connecter et visiter nos mondes en mode spectateur !
                 </div>
                 
-                <div className="flex section gray">
+                <div className="grid section gray">
                     <div>
                         <ul>
                             <h2>GD Launcher</h2>
@@ -99,13 +96,15 @@ export default class ServeursMinecraft extends Component
                         </ul>
                     </div>
                 </div>
-                
-                <Snackbar anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }} open={this.state.copyDone} autoHideDuration={4000} onClose={this.handleClose} message="Adresse copiée avec brio !"
-                    action={<IconButton size="small" aria-label="close" color="inherit" onClick={this.handleClose}>
-                                <CloseIcon fontSize="small" />
-                            </IconButton>}>
-                </Snackbar>
             </div>
         )
     }
 }
+
+/*
+<Snackbar anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }} open={this.state.copyDone} autoHideDuration={4000} onClose={this.handleClose} message="Adresse copiée avec brio !"
+    action={<IconButton size="small" aria-label="close" color="inherit" onClick={this.handleClose}>
+                <CloseIcon fontSize="small" />
+            </IconButton>}>
+</Snackbar>
+*/

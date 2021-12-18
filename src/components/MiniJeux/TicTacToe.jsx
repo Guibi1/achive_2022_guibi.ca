@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
-import Grid from '@material-ui/core/Grid'
-import XIcon from '@material-ui/icons/Close'
-import OIcon from '@material-ui/icons/RadioButtonUnchecked'
 
 
-const X = <XIcon fontSize="large"/>
-const O = <OIcon fontSize="large"/>
+const X = "X"
+const O = "O"
 const vide = null
 
 
@@ -98,17 +95,16 @@ export default class TicTacToe extends Component
     {
         return (
             <div className="section">
-                <Grid container direction="column">
+                <div className="grid">
                     {this.state.plateau.map((row, rowIndex) =>
-                    <Grid item container alignItems="center" justifyContent="center" wrap="nowrap" key={rowIndex}>
+                    <div className="grid" key={rowIndex}>
                         {row.map((element, index) =>
-                        <Grid item key={index}>
-                            <button type="button" disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)}>
+                            <button type="button" disabled={element !== vide || this.state.gagnant !== ""} className={this.state.plateauGagnant[rowIndex][index] ? "tuileTicTacToe gagnant" : "tuileTicTacToe"} onClick={() => this.jouer(rowIndex, index)} key={index}>
                                 {element}
                             </button>
-                        </Grid>)}
-                    </Grid>)}
-                </Grid>
+                        )}
+                    </div>)}
+                </div>
 
                 <div className="separator"/>
 
