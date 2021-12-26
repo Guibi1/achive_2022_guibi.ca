@@ -1,0 +1,224 @@
+@use "variables"
+
+$transition-time: 450ms
+
+
+.nav
+  position: fixed
+  overflow: hidden
+  background-color: variables.$dark-gray
+  z-index: 200
+  
+  &.open
+    overflow-y: scroll
+
+    .span
+      opacity: 1
+
+    .social
+      pointer-events: auto
+      opacity: 1
+
+
+.ul
+  display: flex
+  flex-direction: column
+  justify-content: left
+  align-items: center
+  padding: 0
+  margin: 0
+  height: 100%
+  list-style: none
+
+
+.li
+  width: 100%
+  
+  &.dropdown
+    overflow: hidden
+    min-height: 5em
+    height: 5em
+    transition: min-height $transition-time ease, height $transition-time ease
+    cursor: pointer
+
+    &.open
+      min-height: 15em
+      height: 15em
+
+
+.a
+  display: flex
+  align-items: center
+  flex-direction: row
+  height: 5em
+  text-decoration: none
+  font-style: normal
+  filter: grayscale(100%) opacity(0.8)
+  transition: filter 400ms ease
+
+  &.current
+    filter: grayscale(15%) opacity(0.9)
+
+  &:hover
+    background-color: variables.$black
+    filter: grayscale(0%) opacity(1)
+
+  &.logo
+    background-color: variables.$black
+
+
+.svg
+  width: 2.5em
+  height: 3em
+  min-width: 2.5em
+  padding: 0 1.25em
+  transition: transform $transition-time ease, margin $transition-time ease
+
+  &.logo
+    width: 2.5em
+    height: 2.5em
+
+  & .light
+    color: variables.$light-purple
+
+  & .dark
+    color: variables.$purple
+
+
+.span
+  display: block
+  color: variables.$white
+  opacity: 0
+  white-space: nowrap
+  transition: opacity calc($transition-time / 2) ease
+
+  &.logo
+    position: absolute
+    display: inline
+    width: 100vw
+    font-weight: bold
+    text-align: left
+    text-transform: uppercase
+    font-size: 1.5em
+    letter-spacing: 0.3ch
+    transition: left $transition-time
+
+  &.dropdown
+    margin-left: 5em
+
+
+.social
+  background-color: variables.$dark-gray
+  margin-top: auto
+  width: auto
+  pointer-events: none
+  opacity: 0
+  transition: opacity calc($transition-time / 2) ease
+
+  .divSocial
+    display: flex
+    flex-direction: row
+    margin: 0
+    padding: 0
+    overflow: hidden
+
+  .a
+    display: inline-block
+    text-decoration: none
+
+    width: 3em
+    height: 3em
+    margin: 1em
+
+    filter: grayscale(100%)
+    transition: filter 400ms ease
+
+    &:hover
+      filter: grayscale(0%)
+
+  .svg
+    width: 60%
+    height: 60%
+    margin: 20% 0
+    padding: 0
+
+
+
+/* Small screens */
+@media only screen and (max-width: variables.$small-screen)
+  .nav
+    left: 0
+    right: 0
+    bottom: 0
+    height: 5em
+
+    transition: height $transition-time ease
+    font-size: max(1rem, 2vh)
+  
+    &.open
+      height: 100vh
+      max-height: -webkit-fill-available
+      max-height: -moz-available
+      max-height: stretch
+
+      .span.logo
+        left: 3.3em
+
+      .svg.logo
+        transform: rotate(90deg)
+
+  
+  .span.logo
+    left: 101vw
+    transition-delay: calc($transition-time / 2)
+    transition-duration: calc($transition-time / 2)
+
+
+
+/* Large screens */
+@media only screen and (min-width: variables.$small-screen)
+  .nav
+    left: 0
+    top: 0
+    bottom: 0
+    width: 5em
+
+    transition: width $transition-time ease
+    font-size: max(1rem, 1.1vw)
+  
+    &.open
+      width: 17em
+
+      .span.logo
+        left: 2.5em
+
+      .svg.logo
+        transform: rotate(-270deg)
+        margin-left: 12em
+
+  .span.logo
+    left: -999px
+
+
+
+/* Scroll Bar */
+.nav
+  &::-webkit-scrollbar
+    width: 0.4em
+
+  &::-webkit-scrollbar-track
+    background: variables.$dark-gray
+
+  &::-webkit-scrollbar-thumb
+    background: variables.$light-purple
+    border: 0.1em solid variables.$dark-gray
+    border-radius: 100vw
+    transition: all 200ms ease
+
+  &::-webkit-scrollbar-thumb:active
+    background: variables.$purple
+
+  @supports (scrollbar-color: variables.$light-purple variables.$dark-gray)
+    &
+      scrollbar-color: variables.$light-purple variables.$dark-gray
+      scrollbar-width: thin
