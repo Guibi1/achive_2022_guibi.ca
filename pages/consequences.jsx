@@ -123,7 +123,7 @@ export default class Consequences extends Component
                         <div className="section">
                             <div className="purple-border flex vertical spaced" style={{width: "max(5em, 55vw)"}}>
                                 {this.state.joueurs.map((nom, index) =>
-                                <div className="flex" style={{width: "fit-content", gap: "max(1em, 1.1vw)"}} id={index}>
+                                <div className="flex" style={{width: "fit-content", gap: "max(1em, 1.1vw)"}} key={index}>
                                     <input type="text" placeholder={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></input>
                                     <button type="button" onClick={() => this.deleteJoueur(index)}>Supprimer</button>
                                 </div>)}
