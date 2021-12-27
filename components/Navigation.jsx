@@ -150,7 +150,10 @@ function handleDropdownClick(e)
         li = li.parentElement
     
     if (li.className === `${style.li} ${style.dropdown}`)
+    {
         li.className = `${style.li} ${style.dropdown} ${style.open}`
+        openNavigation()
+    }
     
     else
         li.className = `${style.li} ${style.dropdown}`
