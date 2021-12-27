@@ -33,9 +33,6 @@ class Cercle extends Component
         const isAfter = (rotation, ennemyRotation) => rotation >= ennemyRotation + 7 && rotation <= ennemyRotation + 20;
         
         let id = setInterval(() => {
-            if (document.activeElement.id !== "game")
-                return;
-
             if (this.state.ball.rotation >= 360)
                 this.setState((prev) => { return { ball: { ...prev.ball, rotation: 0 } }; });
 
@@ -57,7 +54,7 @@ class Cercle extends Component
         }, 8);
     }
 
-    handleKeyPress = () =>
+    handleSwitchBall = () =>
     {
         if (this.state.firstGame)
         {
@@ -89,17 +86,17 @@ class Cercle extends Component
                 <Header title="Cercle" caption=""/>
 
                 <div className="section">
-                    <div onKeyPress={this.handleKeyPress} tabIndex={-1} className={style.game} id="game">
+                    <div className={style.game}>
                         <div className={style.ball} style={{ transform: "rotate(" + this.state.ball.rotation + "deg) translateY(" + (this.state.firstGame ? 0 : (this.state.ball.inside ? -115 : -140)) + "px)" }}></div>
                         {this.state.ennemies.map((ennemy) =>
                             <div className={style.ennemy} key={ennemy.rotation} style={{ transform: "rotate(" + ennemy.rotation + "deg) translateY(" + (ennemy.inside ? -106 : -150) + "px)" }}></div>
                         )}
                     </div>
 
-                    <div className={style.textStack}>
-                        <p className={style.textScore}>{this.state.firstGame ? "Appuyez sur une touche pour commencer." : `Score: ${this.state.score}`}</p>
-                        <p className={style.textClick}>Cliquez dans le cercle pour jouer !</p>
-                    </div>
+                    <div className="separator"/>
+
+                    <p className={style.textScore}>{this.state.firstGame ? "Appuyez sur le bouton pour commencer." : `Score: ${this.state.score}`}</p>
+                    <button type="button" onKeyPress={this.handleSwitchBall} onMouseDown={this.handleSwitchBall}>{this.state.firstGame ? "Commencer" : "Changer de côté"}</button>
                 </div>
             </div>
         )
