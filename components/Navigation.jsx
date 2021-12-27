@@ -74,7 +74,7 @@ function NavigationItem(props)
     return (
         <li className={style.li}>
             <Link href={props.url}>
-                <a onClick={closeNavigation} className={router.pathname.startsWith(props.url) ? `${style.a} ${style.current} ${props.className}` : `${style.a} ${style.className}`}>
+                <a onClick={closeNavigation} className={router.pathname.startsWith(props.url) ? `${style.a} ${style.current}` : `${style.a}`}>
                     {props.children}
                     <span className={style.span}>{props.title}</span>
                 </a>
@@ -107,8 +107,6 @@ function Dropdown(props)
 
 function DropdownItem(props)
 {
-    const router = useRouter()
-
     return (
         <li className={style.li}>
             <Link href={props.url}>
@@ -124,6 +122,12 @@ function openNavigation()
 {
     const nav = document.getElementById("nav")
     nav.className = `${style.nav} ${style.open}`
+    
+    let dropdowns = document.getElementsByClassName(`${style.li} ${style.dropdown}`)
+    for (let i = 0; i < dropdowns.length; i++)
+        for (let j = 0; j < dropdowns[i].children.length; j++)
+            if (dropdowns[i].children[j].className.endsWith(style.current))
+                dropdowns[i].className = `${style.li} ${style.dropdown} ${style.open}`
 }
 
 function closeNavigation()
@@ -134,10 +138,7 @@ function closeNavigation()
 
     let dropdowns = document.getElementsByClassName(`${style.li} ${style.dropdown} ${style.open}`)
     for (let i = 0; i < dropdowns.length; i++)
-    {
-        dropdowns[i].children[0].className = style.a
         dropdowns[i].className = `${style.li} ${style.dropdown}`
-    }
 }
 
 // Handles
@@ -149,16 +150,10 @@ function handleDropdownClick(e)
         li = li.parentElement
     
     if (li.className === `${style.li} ${style.dropdown}`)
-    {
         li.className = `${style.li} ${style.dropdown} ${style.open}`
-        li.children[0].className = `${style.a} ${style.current}`
-    }
     
     else
-    {
         li.className = `${style.li} ${style.dropdown}`
-        li.children[0].className = style.a
-    }
 }
 
 function handleToggle(e)
