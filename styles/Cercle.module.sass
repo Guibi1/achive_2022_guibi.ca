@@ -1,37 +1,47 @@
 @use "variables"
 
-$ball-size: 20px
-$ennemy-height: 40px
-$ennemy-width: 15px
+$transition-time: 0.5s
+$game-diameter: 20em
+$base-size: 1em
 
 
 .game
   position: relative
-  height: 250px
-  width: 250px
-  margin: 3rem auto
-  border: solid variables.$dark-gray 5px
+  height: $game-diameter
+  width: $game-diameter
+  margin: calc($base-size * 2) auto
+  border: solid variables.$dark-gray 0.5em
   border-radius: 50%
-  transition: all 0.5s
+  transition: transform $transition-time
+  transform: scale(90%)
+
+  &.playing
+    transform: none
+
+    .ennemy
+      filter: none
 
 
 .ball
+  $size: calc($base-size * 1.5)
   position: absolute
-  top: calc(50% - $ball-size / 2)
-  left: calc(50% - $ball-size / 2)
-  width: $ball-size
-  height: $ball-size
+  top: calc(50% - $size / 2)
+  left: calc(50% - $size / 2)
+  width: $size
+  height: $size
   border-radius: 50%
   background-color: variables.$purple
 
 
 .ennemy
+  $height: calc($base-size * 3)
+  $width: $base-size
   position: absolute
-  top: calc(50% - $ennemy-height / 2)
-  left: calc(50% - $ennemy-width / 2)
-
-  width: $ennemy-width
-  height: $ennemy-height
-
+  top: calc(50% - $height / 2)
+  left: calc(50% - $width / 2)
+  width: $width
+  height: $height
   background-color: variables.$light-purple
+  transition: filter $transition-time
+  filter: grayscale(60%)
   z-index: -1
