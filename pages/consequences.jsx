@@ -99,7 +99,7 @@ export default class Consequences extends Component
                 {this.state.joueursChoisis ?
                     (this.state.partieTerminée ?
                         <div className="section">
-                            <div className="purple-border flex vertical spaced" style={{width: "max(5em, 55vw)"}}>
+                            <div className="flex vertical spaced">
                                 <h2>Partie terminée !</h2>
                                 Voulez-vous recommencer les défis ou ajouter des joueurs ?
 
@@ -108,31 +108,35 @@ export default class Consequences extends Component
                             </div>
                         </div>:
                         <div className="section">
-                            <div className="purple-border flex vertical spaced" style={{width: "max(5em, 55vw)"}}>
+                            <div className="flex vertical spaced">
                                 <h2>C&apos;est le tour de {this.state.joueurActuel}</h2>
                                 {this.state.défiActuel}
 
                                 {this.state.joueurDé !== "" ? <p>Le dé a choisi {this.state.joueurDé}</p> : null}
-                                <button type="button" onClick={this.brasserDe}>Brasser le dé</button>
-                                <button type="button" onClick={this.nouveauDéfi}>Prochain défi</button>
-                                <button type="button" onClick={this.changerJoueurs}>Changer les joueurs</button>
+
+                                <div className="flex spaced">
+                                    <button type="button" onClick={this.brasserDe}>Brasser le dé</button>
+                                    <button type="button" onClick={this.changerJoueurs}>Changer les joueurs</button>
+                                </div>
+                                <button type="button" className="big" onClick={this.nouveauDéfi}>Prochain défi</button>
                             </div>
                         </div>
                     ) :
                     <>
                         <div className="section">
-                            <div className="purple-border flex vertical spaced" style={{width: "max(5em, 55vw)"}}>
+
+                            <div className="flex vertical">
+                                <button type="button" onClick={this.addJoueur}>Ajouter un joueur</button>
                                 {this.state.joueurs.map((nom, index) =>
-                                <div className="flex" style={{width: "fit-content", gap: "max(1em, 1.1vw)"}} key={index}>
+                                <div className="flex spaced" key={index}>
                                     <input type="text" placeholder={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></input>
                                     <button type="button" onClick={() => this.deleteJoueur(index)}>Supprimer</button>
                                 </div>)}
-                                <button type="button" onClick={this.addJoueur}>Ajouter un joueur</button>
                             </div>
-
+        
                             <div className="separator"/>
-
-                            <button type="button" onClick={this.confirmerJoueurs}>Jouer</button>
+                            
+                            <button type="button" className="big" onClick={this.confirmerJoueurs}>Jouer</button>
                         </div>
                     </>
                 }

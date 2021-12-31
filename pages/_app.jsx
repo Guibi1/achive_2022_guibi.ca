@@ -18,7 +18,6 @@ function MyApp({ Component, pageProps })
                     content="Site web de Guibi"
                 />
                 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"></link>
-                <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet"></link>
             </Head>
 
             <Navigation></Navigation>

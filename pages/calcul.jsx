@@ -51,7 +51,7 @@ export default function Calcul()
             </div>
 
             <div className="section">
-                <button type="button" onClick={handleDownload}>Télécharger Calcul</button>
+                <button type="button" onClick={handleDownload} className="big">Télécharger Calcul</button>
             </div>
         </div>
     )

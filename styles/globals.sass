@@ -2,7 +2,7 @@
 
 
 html
-  font-size: 16px
+  font-size: max(20px, 1vw)
   font-family: "Open Sans"
   font-weight: 400
   background-color: variables.$white
@@ -12,173 +12,95 @@ body
   text-align: center
   margin: 0px
 
+div
+  &.page
+    margin: auto
+    margin-left: max(5rem, 5.5vw)
+    height: max(100%, 90vh)
+    width: auto
 
-svg
-  height: 15rem
-  width: 15rem
-  
-  stroke: variables.$purple
+  &.section
+    width: auto
+    padding: min(2rem, 6vh) variables.$section-padding-side
+
+  &.separator
+    height: 2rem
+
+  &.gray
+    background-color: variables.$light-gray
+    color: variables.$white
+
+    button:hover
+      color: variables.$white
+      border-color: variables.$white
+
+  &.purple-border
+    border: max(0.3rem, 0.33vw) solid variables.$light-purple
+    padding: max(2rem, 2.2vw)
+    width: fit-content
+    margin: auto
+
+  &.grid
+    display: grid
+    align-items: center
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr))
+    gap: calc(variables.$section-padding-side / 2)
+
+  &.flex
+    display: flex
+    justify-content: space-evenly
+
+    &.vertical
+      flex-direction: column
+      align-items: center
+
+    &.spaced
+      padding: max(1rem, 1.1vw) 0
+      gap: max(1rem, 1.1vw)
+
+      h2
+        margin: 0px
+
+
+button
+  padding: 0.4rem 2rem
+  font-size: 1rem
+  color: variables.$black
+  background-color: variables.$light-purple
+  border: 0.25rem solid variables.$light-purple
+  transition: all 0.2s
+
+  &:hover
+    color: variables.$purple
+    background-color: transparent
+    border-color: variables.$purple
+
+  &.big
+    padding: 0.6rem 5rem
+    font-size: 1.2rem
+
+
+input
+  padding: 0 2rem
+  text-align: center
+  font-size: 1rem
+  border: none
+  outline: 0.05rem solid variables.$dark-gray
+  transition: 0.075s outline-width linear
+
+  &:focus
+    outline-width: 0.2rem
 
 
 h2
   margin-top: 0px
 
 
-div
-  font-size: max(1.3rem, 1.3vw)
-  font-family: "PT Sans"
-
-div.page
-  margin: auto
-  margin-left: max(5rem, 5.5vw)
-  height: max(100%, 90vh)
-  width: auto
-
-
-div.header
-  display: flex
-  flex-direction: row
-  justify-content: space-between
-
-  margin: 3.9vw variables.$section-padding-side 0px
-
-  border-bottom: 0.08em solid variables.$dark-gray
-
-
-
-div.header > h1
-  margin: 0px
-
-  font-size: max(2.5em, 4.5vw)
-  font-weight: 600
-  text-align: left
-
-
-div.header > h2
-  margin: auto 0em 0.5em 0em
-  height: fit-content
-
-  font-size: max(1.75rem, 1.8vw)
-  font-weight: 400
-  text-align: right
-
-
-div.nav
-  display: flex
-  justify-content: center
-  margin: auto
-
-
-div.nav > a
-  margin: 0 1rem
-  padding: 0.2rem 0.6rem
-
-  border: 0.2rem solid transparent
-  border-top: none
-  border-right: none
-  border-radius: 0.3rem
-  
-  color: variables.$black
-  font-style: normal
-  text-decoration: none
-
-
-div.nav > a.current
-  border-color: variables.$purple
-  background-color: variables.$light-purple
-
-
-button
-  margin: 1rem
-  padding: 0.4rem 3rem
-  font-size: max(1.2rem, 1.3vw)
-    
-  color: variables.$black
-  background-color: variables.$light-purple
-  border: 0.25rem solid variables.$light-purple
-
-  transition: all 0.2s
-
-
-button:hover
-  color: variables.$purple
-  background-color: transparent
-  border-color: variables.$purple
-
-
-div.gray button:hover
-  color: variables.$white
-  border-color: variables.$white
-
-
-input
-  margin: 1rem 0px
-
-  font-size: max(1.2rem, 1.3vw)
-  text-align: center
-
-
-div.section
-  width: auto
-
-  padding: min(2em, 6vh) variables.$section-padding-side
-
-
-div.separator
-  height: 2em
-
-
-div.gray
-  background-color: variables.$light-gray
-  color: variables.$white
-
-
-div.purple-border
-  border: max(0.3rem, 0.33vw) solid variables.$light-purple
-  padding: max(2rem, 2.2vw)
-  width: fit-content
-  margin: auto
-
-
-div.flex
-  display: flex
-  justify-content: space-evenly
-
-
-div.grid
-  display: grid
-  align-items: center
-
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr))
-  gap: calc(variables.$section-padding-side / 2)
-
-
-div.vertical
-  flex-direction: column
-  align-items: center
-
-
-div.spaced
-  display: flex
-  justify-content: space-evenly
-
-  padding: max(1em, 1.1vw)
-  gap: max(1em, 1.1vw)
-
-
-div.spaced > h2
-  margin: 0px
-
-
 p
-  font-size: max(1.2rem, 1.3vw)
-  font-family: "PT Sans"
   margin: 5px
 
 
 span
-  font-size: max(1.2rem, 1.3vw)
-  font-family: "PT Sans"
   margin: 0px
 
 
@@ -192,72 +114,51 @@ a
   font-weight: 600
   font-style: italic
 
-
-
-/* Image */
 img
   display: block
   margin: 0px auto
-
   max-height: 500px
   max-width: 100%
-  
+  animation: skeleton 0.5s infinite alternate
 
+  @keyframes skeleton
+    from
+      background-color: variables.$light-gray
+    to
+      background-color: variables.$dark-gray
 
-/* Scroll Bar */
-body::-webkit-scrollbar
-  width: max(0.65rem, 0.7vw)
-
-
-body::-webkit-scrollbar-track
-  background: variables.$dark-gray
-
-
-body::-webkit-scrollbar-thumb
-  background: variables.$light-purple
-  transition: all 200ms ease
-
-  border: 0.2rem solid variables.$dark-gray
-  border-radius: 100vw
-
-
-body::-webkit-scrollbar-thumb:hover
-  border-width: 0.15rem
-
-
-body::-webkit-scrollbar-thumb:active
-  background: variables.$purple
-
-
-@supports (scrollbar-color: variables.$light-purple variables.$dark-gray)
-  *
-    scrollbar-color: variables.$light-purple variables.$dark-gray
-    scrollbar-width: thin
-
-
-
-/* Other */
-.youtubePlayer
-  aspect-ratio: 1920 / 1080
-  width: min(100%, 700px)
-
-  margin: 20px auto
 
 
 /* Small screens */
 @media only screen and (max-width: variables.$small-screen)
-  div.page
-    margin: auto
-    margin-bottom: max(5rem, 10vh)
-  
+  div
+    .page
+      margin: auto
+      margin-bottom: max(5rem, 10vh)
 
-  div.header
-    flex-direction: column
-  
 
-  div.header > h1
-    text-align: center
-  
 
-  div.header > h2
-    text-align: center
+/* Scroll Bar */
+*
+  &::-webkit-scrollbar
+    width: max(0.65rem, 0.7vw)
+
+  &::-webkit-scrollbar-track
+    background: variables.$dark-gray
+
+  &::-webkit-scrollbar-thumb
+    background: variables.$light-purple
+    transition: all 200ms ease
+    border: 0.2rem solid variables.$dark-gray
+    border-radius: 100vw
+
+  &::-webkit-scrollbar-thumb:hover
+    border-width: 0.15rem
+
+  &::-webkit-scrollbar-thumb:active
+    background: variables.$purple
+
+  @supports (scrollbar-color: variables.$light-purple variables.$dark-gray)
+    &
+      scrollbar-color: variables.$light-purple variables.$dark-gray
+      scrollbar-width: thin
