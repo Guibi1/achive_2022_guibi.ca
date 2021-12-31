@@ -108,28 +108,22 @@ $transition-time: 450ms
 
 
 .social
+  display: flex
+  flex-direction: row
+  margin: auto 0 0 0
+  padding: 0
   background-color: variables.$dark-gray
-  margin-top: auto
-  width: auto
+  overflow: hidden
   pointer-events: none
   opacity: 0
   transition: opacity calc($transition-time / 2) ease
 
-  .divSocial
-    display: flex
-    flex-direction: row
-    margin: 0
-    padding: 0
-    overflow: hidden
-
   .a
     display: inline-block
     text-decoration: none
-
     width: 3rem
     height: 3rem
     margin: 1rem
-
     filter: grayscale(100%)
     transition: filter 400ms ease
 
@@ -151,9 +145,7 @@ $transition-time: 450ms
     right: 0
     bottom: 0
     height: 5rem
-
     transition: height $transition-time ease
-    font-size: max(1rem, 2vh)
   
     &.open
       height: 100vh
@@ -182,9 +174,7 @@ $transition-time: 450ms
     top: 0
     bottom: 0
     width: 5rem
-
     transition: width $transition-time ease
-    font-size: max(1rem, 1.1vw)
   
     &.open
       width: 17rem
@@ -196,6 +186,5 @@ $transition-time: 450ms
         transform: rotate(-270deg)
         margin-left: 12rem
 
-  
   .span.logo
     left: -999px
