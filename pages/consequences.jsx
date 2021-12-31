@@ -104,7 +104,7 @@ export default class Consequences extends Component
                                 Voulez-vous recommencer les défis ou ajouter des joueurs ?
 
                                 <button type="button" onClick={this.changerJoueurs}>Changer les joueurs</button>
-                                <button type="button" onClick={this.rejouer}>Rejouer</button>
+                                <button type="button" className="big" onClick={() => this.setState({ partieTerminée: false, listeDéfis: this.getDéfis() }, this.nouveauDéfi)}>Rejouer</button>
                             </div>
                         </div>:
                         <div className="section">
