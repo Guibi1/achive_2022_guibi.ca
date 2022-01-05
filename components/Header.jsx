@@ -18,16 +18,3 @@ export default function Header(props)
         </div>
     )
 }
-
-export function HeaderLink(props)
-{
-    const router = useRouter()
-    
-    return (
-        <Link href={props.url}>
-            <a className={router.pathname.endsWith(props.url) ? "current" : ""}>
-                {props.title}
-            </a>
-        </Link>
-    )
-}
