@@ -1,0 +1,70 @@
+@use "variables"
+
+$game-size: 50vh
+
+
+.board
+  display: flex
+  flex-direction: column
+  position: relative
+  margin: 0.2rem auto
+  height: $game-size
+  width: $game-size
+  background-color: black
+  outline: 0.1rem solid #848484
+  user-select: none
+
+
+.row
+  display: flex
+  flex-direction: row
+  flex-grow: 1
+  user-select: none
+
+
+.case
+  position: relative
+  flex-grow: 1
+  border: 0.05rem solid #848484
+  user-select: none
+
+
+.dot
+  position: absolute
+  inset: 15%
+  margin: 0
+  border-radius: 50%
+  user-select: none
+
+
+.line
+  position: absolute
+  user-select: none
+
+
+div.fixedWidth
+  width: $game-size
+  margin: auto
+  justify-content: space-between
+
+
+.windowGameOver
+  display: flex
+  flex-direction: column
+  position: absolute
+  top: 50%
+  left: 50%
+  width: calc($game-size / 3 * 2)
+  padding: 1rem
+  gap: 0.4rem
+  border: 0.2rem solid #848484
+  background-color: variables.$white
+  transform: translate(-50%, -50%)
+  z-index: 10
+
+
+.select
+  width: 2.5rem
+  outline: none
+  border: none
+  font-size: 1em

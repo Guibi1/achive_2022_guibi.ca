@@ -41,6 +41,7 @@ export default function Navigation()
                 <Dropdown title="Mini Jeux" svg={
                     <svg className={style.svg} aria-hidden="true" focusable="false" data-prefix="fad" data-icon="game-board" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g className="group"><path fill="currentColor" d="M480 0H32A32 32 0 0 0 0 32v448a32 32 0 0 0 32 32h448a32 32 0 0 0 32-32V32a32 32 0 0 0-32-32zm-31.8 448H64v-96h.2v-96H64v-96h.2V64h384z" className={style.dark}></path><path fill="currentColor" d="M256 256v-96h-95.9V64.1h-96v96H160V256H64.2v96h96v-96zm0 96h-95.8v96h96v-96H352v-96h-96zm96.1 96.1h96v-96h-96zm.1-288.1v96h96v-96zm-96-96v96h96V64z" className={style.light}></path></g></svg>
                 }>
+                    <DropdownItem url="/flow" title="Flow"/>
                     <DropdownItem url="/cercle" title="Cercle"/>
                     <DropdownItem url="/tictactoe" title="Tic Tac Toe"/>
                 </Dropdown>
