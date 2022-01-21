@@ -15,7 +15,7 @@ $transition-time: 450ms
     .span
       opacity: 1
 
-    .social
+    .social .a
       pointer-events: auto
       opacity: 1
 
@@ -27,7 +27,7 @@ $transition-time: 450ms
   align-items: center
   padding: 0
   margin: 0
-  height: 100%
+  min-height: 100%
   list-style: none
 
 
@@ -114,9 +114,6 @@ $transition-time: 450ms
   padding: 0
   background-color: variables.$dark-gray
   overflow: hidden
-  pointer-events: none
-  opacity: 0
-  transition: opacity calc($transition-time / 2) ease
 
   .a
     display: inline-block
@@ -126,6 +123,9 @@ $transition-time: 450ms
     margin: 1rem
     filter: grayscale(100%)
     transition: filter 400ms ease
+    pointer-events: none
+    opacity: 0
+    transition: opacity calc($transition-time / 2) ease
 
     &:hover
       filter: grayscale(0%)
