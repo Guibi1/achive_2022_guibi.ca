@@ -5,19 +5,34 @@ $transition-time: 450ms
 
 .nav
   position: fixed
+  inset: 0 auto 0 0
+  width: 5rem
+  transition: width $transition-time ease
+  scrollbar-width: none
   overflow: hidden
   background-color: variables.$dark-gray
   z-index: 200
   
   &.open
+    width: 17rem
     overflow-y: scroll
 
     .span
       opacity: 1
 
+      &.logo
+        left: 2.5rem
+
+    .svg.logo
+      transform: rotate(-270deg)
+      margin-left: 12rem
+
     .social .a
       pointer-events: auto
       opacity: 1
+
+  &::-webkit-scrollbar
+    display: none
 
 
 .ul
@@ -36,14 +51,15 @@ $transition-time: 450ms
   
   &.dropdown
     overflow: hidden
-    min-height: 5rem
     height: 5rem
-    transition: min-height $transition-time ease, height $transition-time ease
+    transition: height $transition-time ease
     cursor: pointer
 
     &.open
-      min-height: 20rem
-      height: 20rem
+      height: var(--height-open)
+
+  &.current .a
+    filter: grayscale(15%) opacity(0.9)
 
 
 .a
@@ -55,9 +71,6 @@ $transition-time: 450ms
   font-style: normal
   filter: grayscale(100%) opacity(0.8)
   transition: filter 400ms ease
-
-  &.current
-    filter: grayscale(15%) opacity(0.9)
 
   &:hover
     background-color: variables.$black
@@ -91,6 +104,7 @@ $transition-time: 450ms
   opacity: 0
   white-space: nowrap
   transition: opacity calc($transition-time / 2) ease
+  left: -700px
 
   &.logo
     position: absolute
@@ -141,50 +155,27 @@ $transition-time: 450ms
 /* Small screens */
 @media only screen and (max-width: variables.$small-screen)
   .nav
-    left: 0
-    right: 0
-    bottom: 0
+    inset: auto 0 0 0
+    width: auto
     height: 5rem
     transition: height $transition-time ease
   
     &.open
+      width: auto
       height: 100vh
       max-height: -webkit-fill-available
       max-height: -moz-available
       max-height: stretch
 
       .span.logo
-        left: 3.3rem
+        left: 5rem
 
       .svg.logo
         transform: rotate(90deg)
+        margin-left: 0
 
   
   .span.logo
     left: 101vw
     transition-delay: calc($transition-time / 2)
     transition-duration: calc($transition-time / 2)
-
-
-
-/* Large screens */
-@media only screen and (min-width: variables.$small-screen)
-  .nav
-    left: 0
-    top: 0
-    bottom: 0
-    width: 5rem
-    transition: width $transition-time ease
-  
-    &.open
-      width: 17rem
-
-      .span.logo
-        left: 2.5rem
-
-      .svg.logo
-        transform: rotate(-270deg)
-        margin-left: 12rem
-
-  .span.logo
-    left: -999px

@@ -1,25 +1,28 @@
-import { useState } from "react"
+import { createRef, useRef, useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 
 import style from "@styles/Navigation.module.sass"
 
 
+let nav
+
 export default function Navigation()
 {
     const [noHover, setNoHover] = useState(false)
     const router = useRouter()
+    nav = useRef(<div/>)
 
     // Client-side-only code
     if (typeof window !== "undefined")
         window.addEventListener('touchstart', () => { setNoHover(true) })
 
     return (
-        <nav onMouseEnter={() => { if (!noHover) openNavigation() }} onMouseLeave={() => { if (!noHover) closeNavigation() } } className={style.nav} id="nav">
+        <nav onMouseEnter={() => { if (!noHover) openNavigation() }} onMouseLeave={() => { if (!noHover) closeNavigation() } } className={style.nav} ref={nav}>
             <ul className={style.ul}>
-                <li className={style.li}>
+                <li className={router.pathname === "/" ? `${style.li} ${style.current}` : style.li}>
                     <Link href="/">
-                        <a onClick={handleLogoClick} className={router.pathname === "/" ? `${style.a} ${style.logo} ${style.current}` : `${style.a} ${style.logo}`}>
+                        <a onClick={handleLogoClick} className={`${style.a} ${style.logo}`}>
                             <span className={`${style.span} ${style.logo}`}>Guibi.ca</span>
                             <svg onClick={handleToggle} className={`${style.svg} ${style.logo}`} aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><g className="group"><path fill="currentColor" d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z" className={style.dark}></path><path fill="currentColor" d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z" className={style.light}></path></g></svg>
                         </a>
@@ -71,9 +74,9 @@ function NavigationItem(props)
     const router = useRouter()
 
     return (
-        <li className={style.li}>
+        <li className={router.pathname.startsWith(props.url) ? `${style.li} ${style.current}` : style.li}>
             <Link href={props.url}>
-                <a onClick={closeNavigation} className={router.pathname.startsWith(props.url) ? `${style.a} ${style.current}` : `${style.a}`}>
+                <a onClick={closeNavigation} className={style.a}>
                     {props.children}
                     <span className={style.span}>{props.title}</span>
                 </a>
@@ -85,15 +88,15 @@ function NavigationItem(props)
 function Dropdown(props)
 {
     const router = useRouter()
-    let current = false
+    let className = `${style.li} ${style.dropdown}`
 
-    for (let i in props.children)
-        if (router.pathname.startsWith(props.children[i].props.url))
-            current = true
+    for (let item of props.children)
+        if (router.pathname.startsWith(item.props.url))
+            className = `${style.li} ${style.dropdown} ${style.current}`
 
     return (
-        <li className={`${style.li} ${style.dropdown}`}>
-            <a onClick={handleDropdownClick} className={current ? `${style.a} ${style.current}` : style.a}>
+        <li className={className} style={{"--height-open": `${(props.children.length + 1) * 5}rem`}}>
+            <a onClick={handleDropdownClick} className={style.a}>
                 {props.svg}
                 <span className={style.span}>{props.title}</span>
             </a>
@@ -119,25 +122,20 @@ function DropdownItem(props)
 
 function openNavigation()
 {
-    const nav = document.getElementById("nav")
-    nav.className = `${style.nav} ${style.open}`
-    
-    let dropdowns = document.getElementsByClassName(`${style.li} ${style.dropdown}`)
-    for (let i = 0; i < dropdowns.length; i++)
-        for (let j = 0; j < dropdowns[i].children.length; j++)
-            if (dropdowns[i].children[j].className.endsWith(style.current))
-                dropdowns[i].className = `${style.li} ${style.dropdown} ${style.open}`
+    nav.current.classList.add(style.open)
+
+    // Open the current dropdown
+    nav.current.getElementsByClassName(`${style.li} ${style.dropdown} ${style.current}`)[0]?.classList.add(style.open)
 }
 
 function closeNavigation()
 {
-    const nav = document.getElementById("nav")
-    nav.className = style.nav
-    nav.scrollTo(0, 0)
+    nav.current.classList.remove(style.open)
+    nav.current.scrollTo(0, 0)
 
-    let dropdowns = document.getElementsByClassName(`${style.li} ${style.dropdown} ${style.open}`)
-    for (let i = 0; i < dropdowns.length; i++)
-        dropdowns[i].className = `${style.li} ${style.dropdown}`
+    // Close all dropdowns
+    for (let dropdown of nav.current.getElementsByClassName(`${style.li} ${style.dropdown} ${style.open}`))
+        dropdown.classList.remove(style.open)
 }
 
 // Handles
@@ -148,14 +146,8 @@ function handleDropdownClick(e)
     while (li.tagName !== "LI")
         li = li.parentElement
     
-    if (li.className === `${style.li} ${style.dropdown}`)
-    {
-        li.className = `${style.li} ${style.dropdown} ${style.open}`
+    if (li.classList.toggle(style.open))
         openNavigation()
-    }
-    
-    else
-        li.className = `${style.li} ${style.dropdown}`
 }
 
 function handleToggle(e)
@@ -163,21 +155,12 @@ function handleToggle(e)
     e.preventDefault()
     e.stopPropagation()
     
-    if (document.getElementById("nav").className === style.nav)
-        openNavigation()
-    
-    else
-        closeNavigation()
+    nav.current.classList.toggle(style.open)
 }
 
 function handleLogoClick(e)
 {
-    if (document.getElementById("nav").className === style.nav)
-    {
-        openNavigation()
+    // Stops the click from reaching the logo link if the nav is closed
+    if (nav.current.classList.toggle(style.open))
         e.preventDefault()
-    }
-
-    else
-        closeNavigation()
 }
