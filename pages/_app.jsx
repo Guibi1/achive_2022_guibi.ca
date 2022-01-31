@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps })
                     name="description"
                     content="Site web de Guibi"
                 />
+                <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,  minimum-scale=1.0"></meta>
                 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"></link>
             </Head>
 
