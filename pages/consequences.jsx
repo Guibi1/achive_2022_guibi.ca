@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-
 import Header from '@components/Header'
+
+import style from '@styles/Consequences.module.sass'
 
 
 export default class Consequences extends Component
@@ -106,7 +107,8 @@ export default class Consequences extends Component
                                 <button type="button" onClick={this.changerJoueurs}>Changer les joueurs</button>
                                 <button type="button" className="big" onClick={() => this.setState({ partieTerminée: false, listeDéfis: this.getDéfis() }, this.nouveauDéfi)}>Rejouer</button>
                             </div>
-                        </div>:
+                        </div>
+                        :
                         <div className="section">
                             <div className="flex vertical spaced">
                                 <h2>C&apos;est le tour de {this.state.joueurActuel}</h2>
@@ -121,24 +123,23 @@ export default class Consequences extends Component
                                 <button type="button" className="big" onClick={this.nouveauDéfi}>Prochain défi</button>
                             </div>
                         </div>
-                    ) :
-                    <>
-                        <div className="section">
+                    )
+                    :
+                    <div className="section">
+                        <button type="button" onClick={this.addJoueur}>Ajouter un joueur</button>
 
-                            <div className="flex vertical">
-                                <button type="button" onClick={this.addJoueur}>Ajouter un joueur</button>
-                                {this.state.joueurs.map((nom, index) =>
-                                <div className="flex spaced" key={index}>
-                                    <input type="text" placeholder={"Nom du joueur " + (index + 1)} value={nom} onChange={(e) => this.handleChangeNom(e, index)}></input>
-                                    <button type="button" onClick={() => this.deleteJoueur(index)}>Supprimer</button>
-                                </div>)}
-                            </div>
-        
-                            <div className="separator"/>
-                            
-                            <button type="button" className="big" onClick={this.confirmerJoueurs}>Jouer</button>
+                        <div className="flex vertical spaced">
+                            {this.state.joueurs.map((nom, index) =>
+                            <div className={style.playerName} key={index}>
+                                <input type="text" placeholder="Nom du joueur" value={nom} onChange={(e) => this.handleChangeNom(e, index)}></input>
+                                <button type="button" onClick={() => this.deleteJoueur(index)}>Supprimer</button>
+                            </div>)}
                         </div>
-                    </>
+
+                        <div className="separator"/>
+
+                        <button type="button" className="big" onClick={this.confirmerJoueurs}>Jouer</button>
+                    </div>
                 }
             </div>
         )
