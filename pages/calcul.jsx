@@ -14,7 +14,7 @@ export default function Calcul()
             <Header title="Calcul" caption="Une nouvelle façon de pratiquer ses tables"/>
 
             <div className="section">
-                <Image src={ImageNormal} alt="L'interface de calcul"/>
+                <Image src={ImageNormal} alt="L'interface de Calcul" placeholder="blur"/>
             </div>
 
             <div className="section gray">
@@ -30,7 +30,7 @@ export default function Calcul()
                         </ul>
                     </div>
                     <div style={{ margin: "auto", padding: "20px", textAlign: "left"}}>
-                        <Image src={ImageExemple} alt=""/>
+                        <Image src={ImageExemple} alt="Un exemple de partie" placeholder="blur"/>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@ export default function Calcul()
             <div className="section">
                 <div className="grid">
                     <div style={{ margin: "auto", padding: "20px", textAlign: "left"}}>
-                        <Image src={ImageParametres} alt=""/>
+                        <Image src={ImageParametres} alt="L'interface des paramètres de Calcul" placeholder="blur"/>
                     </div>
                     <div className="purple-border text">
                         <h2>Paramètres</h2>
