@@ -300,7 +300,7 @@ class Flow extends Component
 
     render ()
     {
-        const caseSize = 0
+        let caseSize = 0
         if (this.board.current)
             caseSize = getComputedStyle(this.board.current).width.slice(0, -2) / this.state.boardSize
         const lineThickness = 0.4
