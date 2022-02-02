@@ -2,7 +2,7 @@ import Header from "@components/Header"
 import Router from "next/router"
 
 
-export default function Accueil()
+export default function PageNotFound()
 {
     return (
         <div className="page">

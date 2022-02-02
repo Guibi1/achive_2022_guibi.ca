@@ -4,7 +4,7 @@ import Header from '@components/Header'
 import style from '@styles/Flow.module.sass'
 
 
-class Flow extends Component
+export default class Flow extends Component
 {
     constructor(props)
     {
@@ -418,6 +418,3 @@ class Flow extends Component
 
     colors = ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink", "silver", "lime", "chocolate", "crimson", "darksalmon", "orangered", "yellowgreen"]
 }
-
-
-export default Flow

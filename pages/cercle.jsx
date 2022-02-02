@@ -5,7 +5,8 @@ import style from '@styles/Cercle.module.sass'
 
 // TODO: make an end screen
 
-class Cercle extends Component
+
+export default class Cercle extends Component
 {
     constructor()
     {
@@ -110,6 +111,3 @@ class Cercle extends Component
         )
     }
 }
-
-
-export default Cercle
