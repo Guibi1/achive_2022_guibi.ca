@@ -9,9 +9,9 @@ export default function Accueil()
             <Header title="Erreur 404" caption="204 de trop..."/>
 
             <div className="section">
-                <p>L'adresse auquelle vous essayez d'accéder n'existe pas.</p>
+                <p>L&apos;adresse auquelle vous essayez d&apos;accéder n&apos;existe pas.</p>
 
-                <button type="button" onClick={() => Router.push("/")}>Retourner à l'accueil</button>
+                <button type="button" onClick={() => Router.push("/")}>Retourner à l&apos;accueil</button>
             </div>
         </div>
     )
