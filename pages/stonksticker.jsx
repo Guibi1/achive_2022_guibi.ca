@@ -2,7 +2,7 @@ import { Component } from 'react'
 import Header from '@components/Header'
 
 
-class StonksTicker extends Component
+export default class StonksTicker extends Component
 {
     render ()
     {
@@ -17,6 +17,3 @@ class StonksTicker extends Component
         )
     }
 }
-
-
-export default StonksTicker
