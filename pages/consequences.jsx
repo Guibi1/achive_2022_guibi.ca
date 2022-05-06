@@ -198,6 +198,17 @@ export default class Consequences extends Component
             `Fait un massage avec de la crème à un joueur du sexe opposé.`,
             `Enlève les bas de la personne du dé avec tes dents.`,
             `Embrasse la personne de ton choix.`,
+            `Si tu avais à faire un trip à trois, quel serait les deux personnes présentes ici que tu choisirais`,
+            `Mange une cuillère de mayo`,
+            `As-tu déjà eu un rêve coquin avec une personne ici? Explique`,
+            `Réponds à un Fuck, Mary, Kill posé par le groupe`,
+            `Pour 30 minutes, tu dois seulement te servir de pinces/ustensile de cuisine à la place de tes mains`,
+            `Raconte le moment sexuel le plus malaisant que tu as vécu`,
+            `Prends un shot dans ta bouche et transfère-le à la personne du dé`,
+            `Dis un de tes fantasmes sexuels`,
+            `Fais-toi mordre les fesses par la personne du dé, cela doit laisser une marque`,
+            `Laisse la personne du dé texter la dernière personne que tu as textée`,
+            `Prends un shot dans le nombril de la personne du dé, puis liche la lime sur son ventre et prend le sel sur sa bouche`,
         ]
     }
 }
