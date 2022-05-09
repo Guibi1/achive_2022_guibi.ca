@@ -111,7 +111,7 @@ export default class Consequences extends Component
                         :
                         <div className="section">
                             <div className="flex vertical spaced">
-                                <h2>C&apos;est le tour de {this.state.joueurActuel}</h2>
+                                <h2>C&apos;est le tour de {this.state.joueurActuel} (Joueur {this.state.joueurs.indexOf(this.state.joueurActuel) + 1})</h2>
                                 {this.state.défiActuel}
 
                                 {this.state.joueurDé !== "" ? <p>Le dé a choisi {this.state.joueurDé}</p> : null}
@@ -198,6 +198,7 @@ export default class Consequences extends Component
             `Fait un massage avec de la crème à un joueur du sexe opposé.`,
             `Enlève les bas de la personne du dé avec tes dents.`,
             `Embrasse la personne de ton choix.`,
+            `Shotgun une consommation`,
         ]
     }
 }
