@@ -1,153 +1,157 @@
-import React, { Component } from 'react'
-import Header from '@components/Header'
+import Header from "@components/Header";
+import React, { Component } from "react";
 
-import style from '@styles/Consequences.module.sass'
+import style from "@styles/Consequences.module.sass";
 
-
-export default class Consequences extends Component
-{
-    constructor(props)
-    {
-        super(props)
-        this.state = { joueurs: ["", "", ""], joueursChoisis: false, partieTerminée: false, joueurDé: "", listeDéfis: "", défiActuel: "", joueurActuel: "" }
+export default class Consequences extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { joueurs: ["", "", ""], joueursChoisis: false, partieTerminée: false, joueurDé: "", listeDéfis: "", défiActuel: "", joueurActuel: "" };
     }
 
-    componentDidUpdate()
-    {
-        if (this.state.joueursChoisis === false && this.state.joueurs.length < 3)
-            this.addJoueur()
+    componentDidUpdate() {
+        if (this.state.joueursChoisis === false && this.state.joueurs.length < 3) this.addJoueur();
     }
 
-    addJoueur = () =>
-    {
+    addJoueur = () => {
         if (this.state.joueurs.length < 20)
-            this.setState(prevState => { return { joueurs: prevState.joueurs.concat([""]) } })
-    }
+            this.setState((prevState) => {
+                return { joueurs: prevState.joueurs.concat([""]) };
+            });
+    };
 
-    deleteJoueur = (index) =>
-    {
-        var temp = Array.from(this.state.joueurs)
-        temp.splice(index, 1)
-        
-        this.setState({joueurs: temp})
-    }
-    
-    confirmerJoueurs = () =>
-    {
-        if (this.state.joueurs.every((nom) => nom !== ""))
-        {
-            var temp = this.state.joueurs.map(element => element.charAt(0).toUpperCase() + element.slice(1))
+    deleteJoueur = (index) => {
+        var temp = Array.from(this.state.joueurs);
+        temp.splice(index, 1);
 
-            this.setState({ joueurs: temp, joueursChoisis: true, partieTerminée: false, listeDéfis: this.getDéfis() }, this.nouveauDéfi)
+        this.setState({ joueurs: temp });
+    };
+
+    confirmerJoueurs = () => {
+        if (this.state.joueurs.every((nom) => nom !== "")) {
+            var temp = this.state.joueurs.map((element) => element.charAt(0).toUpperCase() + element.slice(1));
+
+            this.setState({ joueurs: temp, joueursChoisis: true, partieTerminée: false, listeDéfis: this.getDéfis() }, this.nouveauDéfi);
         }
-    }
+    };
 
-    handleChangeNom = (event, index) =>
-    {
-        var letters = /^[A-Z a-z]+$/
+    handleChangeNom = (event, index) => {
+        var letters = /^[A-Z a-z]+$/;
 
-        if (event.target.value.match(letters) || event.target.value.length === 0)
-        {   
-            var temp = Array.from(this.state.joueurs)
-            temp[index] = event.target.value
-            
-            this.setState({joueurs: temp})
+        if (event.target.value.match(letters) || event.target.value.length === 0) {
+            var temp = Array.from(this.state.joueurs);
+            temp[index] = event.target.value;
+
+            this.setState({ joueurs: temp });
         }
-    }
+    };
 
-    nouveauDéfi = () =>
-    {
-        if (this.state.listeDéfis.length === 0)
-            return this.setState({partieTerminée: true})
+    nouveauDéfi = () => {
+        if (this.state.listeDéfis.length === 0) return this.setState({ partieTerminée: true });
 
-        var index = this.state.joueurs.indexOf(this.state.joueurActuel) + 1
-        if (index >= this.state.joueurs.length)
-            index = 0
-        
-        var défi = this.state.listeDéfis[Math.floor(Math.random() * this.state.listeDéfis.length)]
-        var nouvelleListeDéfis = Array.from(this.state.listeDéfis)
-        nouvelleListeDéfis.splice(nouvelleListeDéfis.indexOf(défi), 1)
+        var index = this.state.joueurs.indexOf(this.state.joueurActuel) + 1;
+        if (index >= this.state.joueurs.length) index = 0;
 
-        this.setState({joueurActuel: this.state.joueurs[index], défiActuel: défi, listeDéfis: nouvelleListeDéfis, joueurDé: ""})
-    }
+        var défi = this.state.listeDéfis[Math.floor(Math.random() * this.state.listeDéfis.length)];
+        var nouvelleListeDéfis = Array.from(this.state.listeDéfis);
+        nouvelleListeDéfis.splice(nouvelleListeDéfis.indexOf(défi), 1);
 
-    brasserDe = () =>
-    {
-        var joueurAléatoire = this.state.joueurs[Math.floor(Math.random() * this.state.joueurs.length)]
+        this.setState({ joueurActuel: this.state.joueurs[index], défiActuel: défi, listeDéfis: nouvelleListeDéfis, joueurDé: "" });
+    };
+
+    brasserDe = () => {
+        var joueurAléatoire = this.state.joueurs[Math.floor(Math.random() * this.state.joueurs.length)];
 
         while (joueurAléatoire === this.state.joueurActuel || joueurAléatoire === this.state.joueurDé)
-            joueurAléatoire = this.state.joueurs[Math.floor(Math.random() * this.state.joueurs.length)]
+            joueurAléatoire = this.state.joueurs[Math.floor(Math.random() * this.state.joueurs.length)];
 
-        this.setState({joueurDé: joueurAléatoire})
-    }
+        this.setState({ joueurDé: joueurAléatoire });
+    };
 
-    changerJoueurs = () =>
-    {
-        this.setState({ joueursChoisis: false })
-    }
+    changerJoueurs = () => {
+        this.setState({ joueursChoisis: false });
+    };
 
-    recommencer = () =>
-    {
-        this.setState({ partieTerminée: false })
-    }
-    
-    render()
-    {
+    recommencer = () => {
+        this.setState({ partieTerminée: false });
+    };
+
+    render() {
         return (
             <div className="page">
-                <Header title="Conséquences" caption="Vérité ou conséquence... sans vérité"/>
+                <Header title="Conséquences" caption="Vérité ou conséquence... sans vérité" />
 
-                {this.state.joueursChoisis ?
-                    (this.state.partieTerminée ?
+                {this.state.joueursChoisis ? (
+                    this.state.partieTerminée ? (
                         <div className="section">
                             <div className="flex vertical spaced">
                                 <h2>Partie terminée !</h2>
                                 Voulez-vous recommencer les défis ou ajouter des joueurs ?
-
-                                <button type="button" onClick={this.changerJoueurs}>Changer les joueurs</button>
-                                <button type="button" className="big" onClick={() => this.setState({ partieTerminée: false, listeDéfis: this.getDéfis() }, this.nouveauDéfi)}>Rejouer</button>
+                                <button type="button" onClick={this.changerJoueurs}>
+                                    Changer les joueurs
+                                </button>
+                                <button
+                                    type="button"
+                                    className="big"
+                                    onClick={() => this.setState({ partieTerminée: false, listeDéfis: this.getDéfis() }, this.nouveauDéfi)}
+                                >
+                                    Rejouer
+                                </button>
                             </div>
                         </div>
-                        :
+                    ) : (
                         <div className="section">
                             <div className="flex vertical spaced">
-                                <h2>C&apos;est le tour de {this.state.joueurActuel} (Joueur {this.state.joueurs.indexOf(this.state.joueurActuel) + 1})</h2>
+                                <h2>
+                                    C&apos;est le tour de {this.state.joueurActuel} (Joueur {this.state.joueurs.indexOf(this.state.joueurActuel) + 1})
+                                </h2>
                                 {this.state.défiActuel}
 
                                 {this.state.joueurDé !== "" ? <p>Le dé a choisi {this.state.joueurDé}</p> : null}
 
                                 <div className="flex spaced">
-                                    <button type="button" onClick={this.brasserDe}>Brasser le dé</button>
-                                    <button type="button" onClick={this.changerJoueurs}>Changer les joueurs</button>
+                                    <button type="button" onClick={this.brasserDe}>
+                                        Brasser le dé
+                                    </button>
+                                    <button type="button" onClick={this.changerJoueurs}>
+                                        Changer les joueurs
+                                    </button>
                                 </div>
-                                <button type="button" className="big" onClick={this.nouveauDéfi}>Prochain défi</button>
+                                <button type="button" className="big" onClick={this.nouveauDéfi}>
+                                    Prochain défi
+                                </button>
                             </div>
                         </div>
                     )
-                    :
+                ) : (
                     <div className="section">
-                        <button type="button" onClick={this.addJoueur}>Ajouter un joueur</button>
+                        <button type="button" onClick={this.addJoueur}>
+                            Ajouter un joueur
+                        </button>
 
                         <div className="flex vertical spaced">
-                            {this.state.joueurs.map((nom, index) =>
-                            <div className={style.playerName} key={index}>
-                                <input type="text" placeholder="Nom du joueur" value={nom} onChange={(e) => this.handleChangeNom(e, index)}></input>
-                                <button type="button" onClick={() => this.deleteJoueur(index)}>Supprimer</button>
-                            </div>)}
+                            {this.state.joueurs.map((nom, index) => (
+                                <div className={style.playerName} key={index}>
+                                    <input type="text" placeholder="Nom du joueur" value={nom} onChange={(e) => this.handleChangeNom(e, index)}></input>
+                                    <button type="button" onClick={() => this.deleteJoueur(index)}>
+                                        Supprimer
+                                    </button>
+                                </div>
+                            ))}
                         </div>
 
-                        <div className="separator"/>
+                        <div className="separator" />
 
-                        <button type="button" className="big" onClick={this.confirmerJoueurs}>Jouer</button>
+                        <button type="button" className="big" onClick={this.confirmerJoueurs}>
+                            Jouer
+                        </button>
                     </div>
-                }
+                )}
             </div>
-        )
+        );
     }
 
-
-    getDéfis = () =>
-    {
+    getDéfis = () => {
         return [
             `Prend un shot sans tes mains.`,
             `Raconte comment était la dernière fois que tu as fais l'amour avec le plus de détails.`,
@@ -210,6 +214,6 @@ export default class Consequences extends Component
             `Fais-toi mordre les fesses par la personne du dé, cela doit laisser une marque`,
             `Laisse la personne du dé texter la dernière personne que tu as textée`,
             `Prends un shot dans le nombril de la personne du dé, puis liche la lime sur son ventre et prend le sel sur sa bouche`,
-        ]
-    }
+        ];
+    };
 }

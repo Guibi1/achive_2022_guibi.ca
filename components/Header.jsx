@@ -1,12 +1,8 @@
-import { useRouter } from "next/router"
-import Link from "next/link"
-import Head from "next/head"
+import Head from "next/head";
 
-import style from '@styles/Header.module.sass'
+import style from "@styles/Header.module.sass";
 
-
-export default function Header(props)
-{
+export default function Header(props) {
     return (
         <div className={style.header}>
             <Head>
@@ -16,5 +12,5 @@ export default function Header(props)
             <h1 className={style.title}>{props.title}</h1>
             <h2 className={style.caption}>{props.caption}</h2>
         </div>
-    )
+    );
 }

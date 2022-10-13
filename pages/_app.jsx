@@ -1,12 +1,9 @@
-import Head from 'next/head'
-import Navigation from '@components/Navigation'
+import Navigation from "@components/Navigation";
+import Head from "next/head";
 
-import '@styles/globals.sass'
+import "@styles/globals.sass";
 
-
-function MyApp({ Component, pageProps })
-{
-
+export default function MyApp({ Component, pageProps }) {
     return (
         <>
             <Head>
@@ -14,10 +11,8 @@ function MyApp({ Component, pageProps })
                 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,  minimum-scale=1.0"></meta>
             </Head>
 
-            <Navigation></Navigation>
+            <Navigation />
             <Component {...pageProps} />
         </>
-    )
+    );
 }
-
-export default MyApp
